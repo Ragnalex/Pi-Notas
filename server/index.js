@@ -1,20 +1,18 @@
 const express = require("express");
 const cors = require("cors");
 const mongodb = require('mongodb');
-
-
-
-//conexión bd
-
-
+const morgan = require("morgan");
 
 
 const app = express();
 const pool = require('./database');
 
 
+//BD Setting
 app.set("port", process.env.PORT || 5000);
 
+//Middlewares
+app.use(morgan('dev'));
 
 
 try {
