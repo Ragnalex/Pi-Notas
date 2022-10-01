@@ -1,5 +1,4 @@
 .center{
-    justify-content: end;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -7,7 +6,8 @@
 
 .img{
     box-shadow: 5px #000;
-    height: 88vh;
+    width: auto;
+    min-height: auto;
 }
 .button{
     width: 447px;
@@ -24,11 +24,9 @@
 
 }
 .botones{
-    position:absolute;
+    position: fixed;
     justify-content: center;
-    top: 20%;
-    left: 35%;
-    display: flex;
+    display:flex;
     flex-direction: column;
 }
 .buttonText{

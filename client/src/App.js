@@ -12,8 +12,8 @@ import PLogin from "./Views/profLogin/pLogin";
 function App() {
   return (
     <Fragment>
-      <div className="App App-bg">
-        <div className="Container">
+      <div className="App-bg">
+        <div>
 
           <Router>
             

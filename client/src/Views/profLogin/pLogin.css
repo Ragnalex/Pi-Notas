@@ -1,9 +1,6 @@
 
 .titulo{
-    width: 723px;
-    height: 92px;
     
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 64px;
@@ -11,10 +8,7 @@
     text-align: start;
     margin-bottom: 10%;
     
-    color: #6C63FF;
-    text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -2px #000,
-    1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
-    
+    color: #4583FB;
 }
 
 .body{
@@ -23,26 +17,25 @@
     align-content: center;
     flex-direction: column;
     margin-left: 5%;
-    
 }
 
 .imag{
-    width: auto;
+    width: 500px;
     height: auto;
    
 }
 .formBox{
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    width: 50%;
+    justify-content: flex-start;
+    width: 500px;
+    
 }
 .input-box{
     box-sizing: border-box;
     width: 100%;
     height: 40px;
-    left: 68px;
-    top: 438px;
+   
 
     background: #FFFFFF;
     border: 1px solid #000000;
@@ -50,24 +43,30 @@
     border-radius: 4px;
 }
 .content{
+    margin-top: 50px;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0px 0px 20px -8px rgb(0, 0, 0, 0.9);
+    width: 1500px;
 }
 .label{
 
     width: 524px;
     height: 49px;
-    left: 55px;
-    top: 384px;
+    
 
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 900;
     font-size: 32px;
     line-height: 39px;
 
-    color: #FFFFFF;
+    color: #4583FB;
 
 }
 .submit{
@@ -89,6 +88,33 @@
     background-color: #614bb6;;
 }
 
+.nubesita{
+    width: 100% !important;
+    height: 100px;
+    position: fixed;
+    display: flex;
+    bottom: 0;
+}
+
+@media(max-width: 400px){
+    .content{
+        width: 260px;
+        justify-content: content;
+    }
+    .imag{
+        width: 150px;
+    }
+    .label{
+        width: 200px;
+        font-size: 20px;
+    }
+    .formBox{
+        width: 200px;
+    }
+    .titulo{
+        font-size: 48px;
+    }
+}
 
 
 

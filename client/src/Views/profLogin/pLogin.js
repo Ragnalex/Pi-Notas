@@ -1,44 +1,63 @@
-import React from "react";
-import LoginImg from "../../imgs/PLoginImg.svg";
+import React, { useEffect, useRef } from "react";
 import "./pLogin.css";
+import Lottie from "lottie-react";
 
-const pLogin = () => {
+//IMAGES
+
+import LoginImg from "../../imgs/PLoginImg.svg";
+import educator from "../../imgs/educatorAnim.json";
+import clouds from "../../imgs/sefirot.json";
+import sefirot from "../../imgs/Ellipse.png";
+
+const PLogin = () => {
+
+    const container = useRef(null);
 
     return (
-        <div className="container">
+        <div>
+
             <div className="content">
+
+            
                 <div className="body">
+
                     <div className="titulo">
                         Ingreso Profesores
                     </div>
+
                     <form className="formBox">
                         <label className="label"> Correo Institucional </label>
-                        <input className="input-box" type="text" id="fname" name="firstname" placeholder="profesor@colegio.cl"></input>
+                        <input className="input-box" type="text" placeholder="profesor@colegio.cl"></input>
 
                         <label className="label">Contraseña</label>
-                        <input className="input-box" type="text" id="lname" name="lastname" placeholder="***********"></input>
+                        <input className="input-box" type="password" placeholder="***********"></input>
 
-                                    
+                        <button className="submit"> Login </button>
                     </form>
-                    <button className="submit"> Login </button>
+
                 </div>
 
-                <img className="imag" src = {LoginImg} alt="FondoLoginProfesor"/>
+                <Lottie animationData={educator} loop={true} autoPlay ={true}  className="imag" ></Lottie>
 
-                
             
-                
-
-
+            
+            <img className="nubesita" src = {sefirot} alt="FondoEducador"/>
             </div>
-
-
+            
+            
+            
+            
 
         </div>
+        
+
+
+
+        
 
 
     );
 }
 
 
-export default pLogin;
+export default PLogin;
