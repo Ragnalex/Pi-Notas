@@ -1,15 +1,18 @@
 import React from "react";
 import "./home.css";
+import { useNavigate } from "react-router-dom";
 
 
 //IMG
 import imgEducador from "../../imgs/mainImg.svg"
 
-const home = () => {
+const Home = () => {
+
+    const navigate = useNavigate();
 
     return (
         <div className="bg">
-            <div className="container center bg">
+            <div className="container center">
 
                 <div className="tittle">
                     Bienvenido al portal estudiantil π-notas
@@ -19,11 +22,11 @@ const home = () => {
                 
                 <div className="botones">
                     
-                    <button onClick={console.log("funciona")} onClick={console.log("funciona")} className="button buttonText">
+                    <button  onClick={console.log("funciona")} className="button buttonText">
                         Ingreso estudiantil
                     </button>
                     
-                    <button onClick={console.log("funciona")} className="button buttonText">
+                    <button onClick={() => navigate("/profesor/login")} className="button buttonText">
                         Ingreso profesores
                     </button>
 
@@ -45,4 +48,4 @@ const home = () => {
 };
 
 
-export default home;
+export default Home;

@@ -6,19 +6,22 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 //Import de vistas
 
 import Home from "./Views/Home/home";
+import PLogin from "./Views/profLogin/pLogin";
 
 
 function App() {
   return (
     <Fragment>
-      <div className="App">
-        <div className="Container ">
+      <div className="App App-bg">
+        <div className="Container">
 
           <Router>
             
             <Routes>
 
-              <Route path="/" element={ <Home/> }></Route>      {/*Ruta Home*/}
+              <Route path="/" element={ <Home/> }> </Route>      {/*Ruta Home*/}
+
+              <Route path="/profesor/login" element={ <PLogin/> }> </Route> {/*Ruta Login de profesor*/}
 
             </Routes>
 

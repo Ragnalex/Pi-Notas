@@ -1,13 +1,16 @@
 .App {
-  text-align: center;
+  
+
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-.App-bg{
-  background-color: #4583FB;
+.App-bg{ 
+    width: 100%;
+    height: 100%;
+    background: #4583FB;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -17,7 +20,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #869ecc;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
