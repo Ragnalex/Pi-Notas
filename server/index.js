@@ -3,28 +3,23 @@ const cors = require("cors");
 const mongodb = require('mongodb');
 const morgan = require("morgan");
 
-
+//Initialization
 const app = express();
-const pool = require('./database');
+require('./database');
 
 
-//BD Setting
+//Settings
 app.set("port", process.env.PORT || 5000);
 
 //Middlewares
+app.use(cors());
+app.use(express.json());
 app.use(morgan('dev'));
 
+//Routes
 
-try {
-    pool.connect(err => {
-        const collection = pool.db("test").collection("devices");
-        // perform actions on the collection object
-        pool.close();
-      });
 
-    app.listen(app.get("port"), () => {
-        console.log("server on port", app.get("port"));
-    })
-} catch (error) {
-    console.log(error);
-}
+//server is listening
+app.listen(app.get("port"), () => {
+    console.log("Server on port", app.get("port"));
+  });
