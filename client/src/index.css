@@ -69,7 +69,6 @@ code {
 
 /*   botón secundario: botón pequeño que nos permite volver a la 
 página anterior o ver calendario   */
-
 .submit{
   box-sizing: border-box;
   width: 100px;
@@ -87,4 +86,13 @@ página anterior o ver calendario   */
 
 .submit:hover{
   background-color: #614bb6;;
+}
+
+/*DISEÑO DE FONDO*/
+.nubesita{
+  width: 100% !important;
+  height: 100px;
+  position: fixed;
+  display: flex;
+  bottom: 0;
 }

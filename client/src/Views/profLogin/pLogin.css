@@ -47,14 +47,6 @@
 
 }
 
-.nubesita{
-    width: 100% !important;
-    height: 100px;
-    position: fixed;
-    display: flex;
-    bottom: 0;
-}
-
 @media(max-width: 400px){
     .content{
         width: 260px;

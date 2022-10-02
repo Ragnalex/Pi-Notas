@@ -32,7 +32,7 @@ const PLogin = () => {
                         <label className="label">Contraseña</label>
                         <input className="input-box" type="password" placeholder="***********"></input>
 
-                        <button className="submit"> Login </button>
+                        <button onClick={() => navigate("/profesor/profile")} className="submit"> Login </button>
                     </form>
 
                 </div>
