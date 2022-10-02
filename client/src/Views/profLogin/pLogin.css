@@ -1,16 +1,3 @@
-
-.titulo{
-    
-    font-style: normal;
-    font-weight: 700;
-    font-size: 64px;
-    line-height: 77px;
-    text-align: start;
-    margin-bottom: 10%;
-    
-    color: #4583FB;
-}
-
 .body{
     display: flex;
     justify-content: center;
@@ -31,17 +18,7 @@
     width: 500px;
     
 }
-.input-box{
-    box-sizing: border-box;
-    width: 100%;
-    height: 40px;
-   
 
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 4px;
-}
 .content{
     margin-top: 50px;
     display: flex;
@@ -68,24 +45,6 @@
 
     color: #4583FB;
 
-}
-.submit{
-    box-sizing: border-box;
-    width: 100px;
-    height: 30px;
-    left: 67px;
-    top: 539px;
-    margin-top: 1%;
-
-    background: #8161FF;
-    border: 1px solid #000000;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-
-}
-
-.submit:hover{
-    background-color: #614bb6;;
 }
 
 .nubesita{

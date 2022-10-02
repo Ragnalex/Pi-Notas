@@ -23,11 +23,11 @@ const Home = () => {
                 
                 <div className="botones">
                     
-                    <button  onClick={console.log("funciona")} className="button buttonText">
+                    <button onClick={() => navigate("/estudiante/login")} className="button">
                         Ingreso estudiantil
                     </button>
                     
-                    <button onClick={() => navigate("/profesor/login")} className="button buttonText">
+                    <button onClick={() => navigate("/profesor/login")} className="button">
                         Ingreso profesores
                     </button>
 

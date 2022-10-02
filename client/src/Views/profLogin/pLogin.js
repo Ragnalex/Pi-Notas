@@ -21,7 +21,7 @@ const PLogin = () => {
             
                 <div className="body">
 
-                    <div className="titulo">
+                    <div className="titulo t-login">
                         Ingreso Profesores
                     </div>
 
