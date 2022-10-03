@@ -27,7 +27,7 @@ const CreateProfesor = async (req, res) => {
         contraseña: await bc.encrypt(req.body.contraseña)
       });
       const usuario = await Usuario.findOne({rut: req.body.rut})
-      usuario.profesor = profesor;
+      usuario.updateOne(profesor, profesor._id)
       res.status(200).json(profesor);
     } catch (err) {
       res.status(500).json(err);
