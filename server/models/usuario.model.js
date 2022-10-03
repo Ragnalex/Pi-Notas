@@ -25,15 +25,15 @@ const UsuarioSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  profesor: {
+  profesor: [{
     type: Profesor.schema,
-  },
-  alumno: {
+  }],
+  alumno: [{
     type: Alumno.schema,
-  },
-  administrador: {
+  }],
+  administrador: [{
     type: Administrador.schema,
-  },
+  }],
 });
 
 module.exports = mongoose.model("Usuario", UsuarioSchema);
