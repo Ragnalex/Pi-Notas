@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import "./eLogin.css";
 import Lottie from "lottie-react";
 import axios from "axios"
-import { useRut } from "react-rut-formatter";
+import { useNavigate } from "react-router-dom";
 
 //Images
 
@@ -11,6 +11,7 @@ import student from "../../imgs/reading-boy.json";
 
 const ELogin = () => {
 
+    const navigate = useNavigate();
     const rutRef = useRef();            // variable que almacenara el rut que se ingresara
 
     const formatRut = (rut) => { // Da formato al rut para posterios validacion con el backend
@@ -32,19 +33,20 @@ const ELogin = () => {
         e.preventDefault();
         const rut = formatRut(rutRef.current.value);
         try {
-            const res = await axios.post("http://localhost:5000/api/auth/usuario/ingreso", {
+            const res = await axios.post("http://localhost:5000/api/auth/ingreso", {
                 rut: rut,
             });
             alert("Alumno " + res.data.pnombre + " " + res.data.apellidop + " detectado con " + res.data.rut);
         } catch (error) {
             console.log(error);
-            alert("El rut del alumno no se encuentra en el sistema.");
+            alert("Rut ingresado no esta en el sistema.");
         };
     };
 
 
     return (
         <div>
+            <button className="back-button" onClick={() => navigate("/")}> Regresar </button>
             <div className="content">
                 <Lottie animationData={student} loop={true} autoPlay={true} className="imag"></Lottie>
 
@@ -54,7 +56,7 @@ const ELogin = () => {
                     </div>
 
                     <form className="formBox" onSubmit={handleSubmit}>
-                        <label className="label l-elogin"> Revise sus calificaciones
+                        <label className="l-elogin"> Revise sus calificaciones
                             y calendarización de sus asignaturas </label>
                         <input className="input-box" 
                                 type="text" 

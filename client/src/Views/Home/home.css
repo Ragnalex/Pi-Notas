@@ -46,7 +46,11 @@
     }
     .img{
         width: 400px;
-        
+
+    }
+    .botones{
+        width: 350px;
+        justify-content: center;
     }
 
 }

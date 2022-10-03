@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import "./pLogin.css";
 import Lottie from "lottie-react";
+import { useNavigate } from "react-router-dom";
+
 
 //IMAGES
 
@@ -9,11 +11,12 @@ import sefirot from "../../imgs/Ellipse.png";
 
 const PLogin = () => {
 
-    
+    const navigate = useNavigate();
 
     return (
         <div>
 
+            <button className="back-button" onClick={() => navigate("/")}> Regresar </button>
             <div className="content">
 
             
@@ -32,6 +35,7 @@ const PLogin = () => {
 
                         <button onClick={() => navigate("/profesor/profile")} className="submit"> Iniciar sesión </button>
                     </form>
+                    
 
                 </div>
 

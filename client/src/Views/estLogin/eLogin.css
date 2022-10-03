@@ -1,6 +1,13 @@
 .l-elogin {
-    font-size: 18px;
+    font-size: 24px;
     line-height: 20px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 30px;
+    width: 500px;
+
+    color: #4583FB;
+    
 }
 
 .imag{
@@ -28,9 +35,14 @@
 }
 
 
+
 @media (min-width:300px) and (max-width: 400px){
     .l-elogin{
         line-height: 18px;
+        text-align:start;
+        font-size: 18px;
+        width: 250px;
+        margin-bottom: 10px;
     }
     .imag{
         width: 150px;
@@ -40,5 +52,6 @@
         height: 500px;
         justify-content: content;
     }
+
 
 }
