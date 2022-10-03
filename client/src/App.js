@@ -8,10 +8,11 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./Views/Home/home";
 import PLogin from "./Views/profLogin/pLogin";
 import ELogin from "./Views/estLogin/eLogin";
-import PProfile from "./Views/p-profile/pProfile";
+import PProfile from "./Views/prof-profile/pProfile";
 
 
 function App() {
+  
   return (
     <Fragment>
       <div className="App-bg">
