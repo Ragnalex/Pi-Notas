@@ -1,7 +1,7 @@
 const Usuario = require("../models/usuario.model");
 const Profesor = require("../models/profesor.model");
 const Alumno = require("../models/alumno.model");
-const encrypt = require("../controllers/crypt.controller");
+const bc = require("../controllers/crypt.controller");
 
 
 const CreateUser = async (req, res) => {
@@ -24,11 +24,10 @@ const CreateProfesor = async (req, res) => {
     try {
       const newProfesor = new Profesor({
         correo: req.body.correo,
-        contraseña: encrypt(req.body.contraseña),
+        contraseña: await bc.encrypt(req.body.contraseña)
       });
-      const profesor = await newProfesor.save();
-      //const usuario = await Usuario.findOne({rut: req.body.rut})
-      //usuario.profesor = profesor;
+      const usuario = await Usuario.findOne({rut: req.body.rut})
+      usuario.profesor = profesor;
       res.status(200).json(profesor);
     } catch (err) {
       res.status(500).json(err);

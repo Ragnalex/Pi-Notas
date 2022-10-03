@@ -25,14 +25,11 @@ const UsuarioSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  profesor: {
-    type: Profesor.schema,
+  profesor: {type: mongoose.Types.ObjectId, ref: "Profesor" 
   },
-  alumno: {
-    type: Alumno.schema,
+  alumno: {type: mongoose.Types.ObjectId, ref: "Alumno" 
   },
-  administrador: {
-    type: Administrador.schema,
+  administrador: {type: mongoose.Types.ObjectId, ref: "Administrador" 
   },
 });
 
