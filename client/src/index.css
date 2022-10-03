@@ -44,28 +44,6 @@ code {
 
 /*DISEÑO DE BOTONES*/
 
-/*   botón principal: botón grande de elección   */
-.home-button{
-  width: 447px;
-  height: 51.84px;
-  margin-top: 30px;
-
-  background: #D9D9D9;
-  border: 1px solid #2D79EB;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 11px;
-
-  font-family: 'Changa';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 36px;
-
-  color: #000000;
-
-  text-align: center;
-}
-
-.home-button:hover {background-color: #5346c5}
 
 /*   botón secundario: botón pequeño que nos permite volver a la 
 página anterior o ver calendario   */
@@ -136,11 +114,6 @@ página anterior o ver calendario   */
   .titulo{
     margin-bottom: 0%;
   
-  }
-  .home-button{
-    width: 20px;
-    height: 10px;
-    font-size: 6px;
   }
 }
 
