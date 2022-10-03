@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const ProfesorSchema = require("./profesor.model");
-const AlumnoSchema = require("./alumno.model");
-const AdministradorSchema = require("./administrador.model");
+const Profesor = require("./profesor.model");
+const Alumno = require("./alumno.model");
+const Administrador = require("./admin.model");
 
 const UsuarioSchema = new mongoose.Schema({
   rut: {
@@ -26,14 +26,14 @@ const UsuarioSchema = new mongoose.Schema({
     required: true,
   },
   profesor: {
-    type: ProfesorSchema,
+    type: Profesor.schema,
   },
   alumno: {
-    type: AlumnoSchema,
+    type: Alumno.schema,
   },
   administrador: {
-    type: AdministradorSchema,
+    type: Administrador.schema,
   },
 });
 
-module.exports = mongoose.model("Usuario",UsuarioSchema);
+module.exports = mongoose.model("Usuario", UsuarioSchema);

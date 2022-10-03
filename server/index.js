@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-const mongodb = require('mongodb');
 const morgan = require("morgan");
+const adminRoute = require("./routes/admin.routes");
+const authRoute = require("./routes/auth.routes");
+
 
 //Initialization
 const app = express();
@@ -17,7 +19,8 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 //Routes
-
+app.use("/api/admin/",adminRoute);
+app.use("/api/auth/", authRoute);
 
 //server is listening
 app.listen(app.get("port"), () => {

@@ -10,10 +10,10 @@ const AdministradorSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  Cargo:{
-    type: string,
-    require: true
-  }
+  Cargo: {
+    type: String,
+    require: true,
+  },
 });
 
 module.exports = mongoose.model("Administrador", AdministradorSchema);

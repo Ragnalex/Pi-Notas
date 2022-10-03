@@ -5,11 +5,6 @@ const AlumnoSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  notas: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: "Notas",
-    },
-  ],
+  notas: [{type: mongoose.Types.ObjectId,ref: "Notas"}],
 });
 module.exports = mongoose.model("Alumno",AlumnoSchema);

@@ -1,16 +1,8 @@
 const { Router } = require("express");
 const router = Router();
-const {
-    userSignin,
-    adminSignin,
-} = require("../controllers/auth.controller");
+const { AlumnoLogin } = require("../controllers/auth.controller");
 
 //INGRESO USUARIO
-router.post("/usuario/ingreso", userSignin);
-//INGRESO ADMIN
-router.post("/administrador/ingreso", adminSignin);
-
-
-
+router.post("/usuario/ingreso", AlumnoLogin);
 
 module.exports = router;

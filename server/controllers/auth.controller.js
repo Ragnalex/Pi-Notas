@@ -1,8 +1,7 @@
 const Usuario = require("../models/usuario.model");
 const bcrypt = require("bcrypt");
-
 //LOGIN
-const userLogin = async (req, res) => {
+const AlumnoLogin = async (req, res) => {
   try {
     const user = await Usuario.findOne({
       rut: req.body.rut,
@@ -17,5 +16,5 @@ const userLogin = async (req, res) => {
   }
 };
 module.exports = {
-  userLogin,
+  AlumnoLogin,
 };
