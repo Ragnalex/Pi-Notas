@@ -47,9 +47,11 @@
 
 }
 
-@media(max-width: 400px){
+
+@media(min-width: 300px) and (max-width: 400px){
     .content{
         width: 260px;
+        height: 500px;
         justify-content: content;
     }
     .imag{
@@ -65,6 +67,19 @@
     .titulo{
         font-size: 48px;
     }
+
+}
+
+@media(min-width:1280px) and ( max-width:1370px){
+    .content{
+        width: 1200px;
+        height: 400px;
+        
+    }
+    .imag{
+        width: 400px;
+    }
+   
 }
 
 

@@ -4,14 +4,12 @@ import Lottie from "lottie-react";
 
 //IMAGES
 
-import LoginImg from "../../imgs/PLoginImg.svg";
 import educator from "../../imgs/educatorAnim.json";
-import clouds from "../../imgs/sefirot.json";
 import sefirot from "../../imgs/Ellipse.png";
 
 const PLogin = () => {
 
-    const container = useRef(null);
+    
 
     return (
         <div>
@@ -32,7 +30,7 @@ const PLogin = () => {
                         <label className="label">Contraseña</label>
                         <input className="input-box" type="password" placeholder="***********"></input>
 
-                        <button onClick={() => navigate("/profesor/profile")} className="submit"> Login </button>
+                        <button onClick={() => navigate("/profesor/profile")} className="submit"> Iniciar sesión </button>
                     </form>
 
                 </div>

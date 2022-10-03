@@ -30,6 +30,7 @@
     line-height: 58px;
     text-align: center;
     
+    
     color: #5E70DE;
 
     text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -2px #000,
@@ -37,4 +38,15 @@
     
 }
 
+@media(min-width: 300px) and (max-width: 400px){
+    .tittle{
+        font-size: 24px;
+        line-height: 40px;
+        width: 300px;
+    }
+    .img{
+        width: 400px;
+        
+    }
 
+}

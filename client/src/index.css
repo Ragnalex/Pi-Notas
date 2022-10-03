@@ -35,7 +35,7 @@ code {
   width: 100%;
   height: 40px;
  
-
+  font-size: 18px;
   background: #FFFFFF;
   border: 1px solid #000000;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -45,7 +45,7 @@ code {
 /*DISEÑO DE BOTONES*/
 
 /*   botón principal: botón grande de elección   */
-.button{
+.home-button{
   width: 447px;
   height: 51.84px;
   margin-top: 30px;
@@ -65,19 +65,21 @@ code {
   text-align: center;
 }
 
-.button:hover {background-color: #5346c5}
+.home-button:hover {background-color: #5346c5}
 
 /*   botón secundario: botón pequeño que nos permite volver a la 
 página anterior o ver calendario   */
 .submit{
-  box-sizing: border-box;
-  width: 100px;
+  box-sizing:content-box;
+  width: 120px;
   height: 30px;
   left: 67px;
   top: 539px;
-  margin-top: 1%;
+  margin-top: 3%;
 
-  background: #8161FF;
+  font-size: 18px;
+
+  background: #a23ef3;
   border: 1px solid #000000;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
@@ -96,3 +98,52 @@ página anterior o ver calendario   */
   display: flex;
   bottom: 0;
 }
+
+.formBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 500px;
+  
+}
+.back-button{
+  box-sizing:content-box;
+  width: 120px;
+  height: 30px;
+  
+  margin-top: 1%;
+  
+
+  font-size: 18px;
+
+  background: #3141cf;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+@media(min-width: 300px)and(max-width: 400px){
+  .nubesita{
+    height: 50px;
+  }
+  .t-login {
+    font-size: 10px;
+    color: #4583FB;
+  }
+  .titulo{
+    font-size: 32px;
+    margin-bottom: 0%;
+  
+  }
+  .home-button{
+    width: 500px;
+    height: 20px;
+  }
+}
+
+@media(max-width:1370px){
+  .nubesita{
+    height: 60px;
+  }
+  
+}
+
