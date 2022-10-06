@@ -33,7 +33,7 @@ const ELogin = () => {
         e.preventDefault();
         const rut = formatRut(rutRef.current.value);
         try {
-            const res = await axios.post("http://localhost:5000/api/auth/ingreso", {
+            const res = await axios.post("http://localhost:5000/api/auth/alumno/ingreso", {
                 rut: rut,
             });
             alert("Alumno " + res.data.pnombre + " " + res.data.apellidop + " detectado con " + res.data.rut);
