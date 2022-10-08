@@ -1,0 +1,71 @@
+.p-content{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0px 0px 20px -8px rgb(0, 0, 0, 0.9);
+    width: 1200px;
+    
+}
+
+.encabezado {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.t-profile {
+    padding-right: 2.5rem;
+    font-size: 40px;
+    font-weight: 70;
+    color: #2D79EB;
+    -webkit-text-stroke: .5px black;
+    text-shadow: .5px .5px 4px rgba(51, 26, 105, 0.9);
+}
+
+.info-group{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.p-nombre, .p-correo, .p-rut{
+    padding: 5px;
+    margin-left: 10px;
+    background-color: #F0CA0E;
+    border-radius: 5px;
+
+    font-size: 17px;
+}
+
+.p-correo {
+    background-color: #F5E69D;
+}
+
+.b-profile{
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.class-group {
+    display: flex;
+    margin-right: 10px;
+    flex-direction: column;
+}
+
+.imag-p{
+    width: 420px;
+    height: auto;
+}

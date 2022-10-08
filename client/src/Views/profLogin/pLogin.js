@@ -56,7 +56,7 @@ const PLogin = () => {
                         <label className="label">Contraseña</label>
                         <input className="input-box" type="password" placeholder="***********" ref={passRef}></input>
 
-                        <button className="submit" type="submit"> Iniciar sesión </button>
+                        <button onClick={() => navigate("/profesor/profile")} className="submit" type="submit"> Iniciar sesión </button>
                     </form>
                     
 
