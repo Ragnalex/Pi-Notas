@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import "./pLogin.css";
 import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
+import { Context } from "../../context/context";
 import axios from "axios"
 
 
@@ -12,27 +13,32 @@ import sefirot from "../../imgs/Ellipse.png";
 
 const PLogin = () => {
 
+    const { dispatch, isFetching } = useContext(Context);
     const navigate = useNavigate();
     const correoRef = useRef();
     const passRef = useRef();
 
     const handleSubmit = async (e) => {             //Funcion para comprobar el login (conexion con el backend)
         e.preventDefault();
+        dispatch ( { type: "LOGIN_START" } );
         try {
             const res = await axios.post("http://localhost:5000/api/auth/profesor/ingreso", {
                 correo: correoRef.current.value,
                 contrasena: passRef.current.value
             });
             if (res.data.rut == null){
+                dispatch ( {type: "LOGIN_FAILURE"} );
                 alert(res.data);            //Devuelve el mensaje fallido enviado desde el backend
                 return;
             }
 
+            dispatch ( {type: "LOGIN_SUCCESS", payload: {...res.data} } );
             alert("Datos ingresados encontrados: " + res.data.correo + " a rut de :" + res.data.rut);       //Si llega hasta aca (pasa el if), es que encontro los datos y estan bien
 
             
         } catch (error) {
             console.log(error);
+            dispatch ( {type: "LOGIN_FAILURE"} );
         };
     };
 
