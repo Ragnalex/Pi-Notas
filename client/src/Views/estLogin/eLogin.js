@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import "./eLogin.css";
 import Lottie from "lottie-react";
 import axios from "axios"
+import { Context } from "../../context/context";
 import { useNavigate } from "react-router-dom";
 
 //Images
@@ -11,6 +12,7 @@ import student from "../../imgs/reading-boy.json";
 
 const ELogin = () => {
 
+    const { dispatch, isFetching } = useContext(Context);
     const navigate = useNavigate();
     const rutRef = useRef();            // variable que almacenara el rut que se ingresara
 
@@ -31,15 +33,22 @@ const ELogin = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        dispatch( { type: "LOGIN_START" } );
+
         const rut = formatRut(rutRef.current.value);
         try {
             const res = await axios.post("http://localhost:5000/api/auth/alumno/ingreso", {
                 rut: rut,
             });
             alert("Alumno " + res.data.pnombre + " " + res.data.apellidop + " detectado con " + res.data.rut);
+
+            dispatch( { type: "LOGIN_SUCCESS", payload: {...res.data} } );
+
         } catch (error) {
             console.log(error);
+            dispatch( { type: "LOGIN_FAILURE"} );
             alert("Rut ingresado no esta en el sistema.");
+
         };
     };
 

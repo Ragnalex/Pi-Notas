@@ -1,4 +1,3 @@
-const Usuario = require("../models/usuario.model");
 const Profesor = require("../models/profesor.model");
 const Alumno = require("../models/alumno.model");
 const bcrypt = require("bcrypt");

@@ -1,6 +1,7 @@
 import './App.css';
-import React, { Fragment }  from 'react';
+import React, { Fragment, useContext }  from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Context } from "../src/context/context";
 
 
 //Import de vistas
@@ -11,7 +12,10 @@ import ELogin from "./Views/estLogin/eLogin";
 import PProfile from "./Views/prof-profile/pProfile";
 
 
+
 function App() {
+
+  const { user } = useContext(Context);
   
   return (
     <Fragment>
