@@ -3,5 +3,5 @@
 
 # -- Usuarios de Prueba
     - Profesor: miguel@profesor.cl
-    - Contraseña: test123
+    - Contraseña: testeo123
     - Estudiante: 11.111.111-1
