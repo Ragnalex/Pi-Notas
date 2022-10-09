@@ -27,7 +27,7 @@ const ENotas = () => {
 
                 </div>
 
-                <button>Calendario de Actividades</button>
+                <button className="submit calendario">Calendario de Actividades</button>
 
                 <div className="b-profile">
                     <div className="column">
@@ -275,22 +275,22 @@ const ENotas = () => {
                             Promedio
                         </div>
 
-                        <div className="labels"></div>
-                        <div className="labels"></div>
-                        <div className="labels"></div>
-                        <div className="labels"></div>
-                        <div className="labels"></div>
-                        <div className="labels"></div>
-                        <div className="labels"></div>
-                        <div className="labels"></div>
-                        <div className="labels"></div>
-                        <div className="labels"></div>
-                        <div className="labels"></div>
+                        <div className="labels l-prom"></div>
+                        <div className="labels l-prom"></div>
+                        <div className="labels l-prom"></div>
+                        <div className="labels l-prom"></div>
+                        <div className="labels l-prom"></div>
+                        <div className="labels l-prom"></div>
+                        <div className="labels l-prom"></div>
+                        <div className="labels l-prom"></div>
+                        <div className="labels l-prom"></div>
+                        <div className="labels l-prom"></div>
+                        <div className="labels l-prom"></div>
 
                     </div>
                 </div>
-
             </div>
+            <img className="nubesita" src = {sefirot} alt="FondoEducador"/>
         </div>
     );
 }

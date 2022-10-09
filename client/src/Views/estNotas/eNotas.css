@@ -1,4 +1,13 @@
+.calendario {
+    width: 400px;
+    background: #63d494;
+    border-color: #347651;
+}
 
+.calendario:hover{
+    background-color: #347651;
+    color: #eeeeee;
+}
 
 .pad {
     padding-right: 23rem;
@@ -50,4 +59,8 @@
 
     color: #000000;
     text-align: center;
+}
+
+.l-prom {
+    width: 80px;
 }
