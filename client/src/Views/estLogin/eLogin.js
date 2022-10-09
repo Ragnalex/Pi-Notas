@@ -74,7 +74,7 @@ const ELogin = () => {
                                 >
                         </input>
                         
-                            <button className="submit" type="submit"> Iniciar Sesión </button>
+                            <button onClick={() => navigate("/estudiante/notas")} className="submit" type="submit"> Iniciar Sesión </button>
 
                     </form>
                     

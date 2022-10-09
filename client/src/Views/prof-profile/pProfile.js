@@ -59,6 +59,7 @@ const PProfile = () => {
                     </div>
 
                 </div>
+                <img className="nubesita" src = {sefirot} alt="FondoEducador"/>
             </div>
         </div>
     );
