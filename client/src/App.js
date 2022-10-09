@@ -10,6 +10,7 @@ import Home from "./Views/Home/home";
 import PLogin from "./Views/profLogin/pLogin";
 import ELogin from "./Views/estLogin/eLogin";
 import PProfile from "./Views/prof-profile/pProfile";
+import ENotas from './Views/estNotas/eNotas';
 
 
 
@@ -33,6 +34,8 @@ function App() {
               <Route path="/profesor/profile" element={ <PProfile/> }> </Route> {/*Ruta Profile de profesor*/}
 
               <Route path="/estudiante/login" element={ <ELogin/> }> </Route> {/*Ruta Login de estudiante*/}
+
+              <Route path="/estudiante/notas" element={ <ENotas/> }> </Route> {/*Ruta de perfil y notas del estudiante*/}
 
             </Routes>
 
