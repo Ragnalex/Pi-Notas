@@ -1,12 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import "./pProfile.css";
 import Lottie from "lottie-react";
+import { Context } from "../../context/context";
 
 //IMAGES
 import sefirot from "../../imgs/Ellipse.png";
 import libros from "../../imgs/libros.json";
 
 const PProfile = () => {
+
+    const { user } = useContext(Context);           //El usuario user contiene todo lo que tiene el profesor (rut, apellidop, apellidom, contrasena, correo, pnombre, snombre)
+    
+
     return(
         <div>
             <div className="p-content">
@@ -18,13 +23,13 @@ const PProfile = () => {
 
                     <div className="info-group">
                         <div className="p-nombre">
-                            Juanito Lechuga Topo
+                            {user.pnombre + " " + user.apellidop + " " + user.apellidom}
                         </div>
                         <div className="p-correo">
-                            juanito.lechuga@profesor.cl
+                            {user.correo}
                         </div>
                         <div className="p-rut">
-                            11.111.111-1    
+                            {user.rut}
                         </div>
                     </div>
 

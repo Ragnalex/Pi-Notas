@@ -34,7 +34,7 @@ const PLogin = () => {
 
             dispatch ( {type: "LOGIN_SUCCESS", payload: {...res.data} } );
             alert("Datos ingresados encontrados: " + res.data.correo + " a rut de :" + res.data.rut);       //Si llega hasta aca (pasa el if), es que encontro los datos y estan bien
-
+            navigate("/profesor/profile");
             
         } catch (error) {
             console.log(error);
@@ -62,7 +62,7 @@ const PLogin = () => {
                         <label className="label">Contraseña</label>
                         <input className="input-box" type="password" placeholder="***********" ref={passRef}></input>
 
-                        <button onClick={() => navigate("/profesor/profile")} className="submit" type="submit"> Iniciar sesión </button>
+                        <button className="submit" type="submit"> Iniciar sesión </button>
                     </form>
                     
 

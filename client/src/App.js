@@ -30,7 +30,7 @@ function App() {
 
               <Route path="/profesor/login" element={ <PLogin/> }> </Route> {/*Ruta Login de profesor*/}
 
-              <Route path="/profesor/profile" element={ <PProfile/> }> </Route> {/*Ruta Profile de profesor*/}
+              <Route path="/profesor/profile/" element={ <PProfile/> }> </Route> {/*Ruta Profile de profesor*/}
 
               <Route path="/estudiante/login" element={ <ELogin/> }> </Route> {/*Ruta Login de estudiante*/}
 
