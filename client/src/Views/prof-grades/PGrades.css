@@ -1,0 +1,45 @@
+.info-profesor{
+    box-sizing:content-box;
+    width: 500px;
+    height: 30px;
+    Display: flex;
+    justify-content:space-between;
+    align-items: center;
+    right: 0px;
+    
+    margin-top: 50px;
+    
+  
+    font-size: 15px;
+  
+    background: #8457ec;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.info-cursos{
+    box-sizing:content-box;
+    width: 500px;
+    height: 30px;
+    Display: flex;
+    justify-content:center;
+    align-items: center;
+    
+    margin-top: 50px;
+    margin-bottom: 50p;
+    
+  
+    font-size: 15px;
+  
+    background: white;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.titulo-cursos{
+    font-size: 30px;
+    color:white; 
+    margin-top: 50px;
+}
