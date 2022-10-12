@@ -34,7 +34,9 @@ const PLogin = () => {
 
             dispatch ( {type: "LOGIN_SUCCESS", payload: {...res.data} } );
             alert("Datos ingresados encontrados: " + res.data.correo + " a rut de :" + res.data.rut);       //Si llega hasta aca (pasa el if), es que encontro los datos y estan bien
-            navigate("/profesor/profile");
+            const ruturl = res.data.rut.replace(/\./g, '').replace(/\-/g, '').trim().toLowerCase();
+            //navigate(`/profesor/profile/${ruturl}`, {rut:ruturl});
+            navigate(`/profesor/profile/${ruturl}`, {rut:ruturl});
             
         } catch (error) {
             console.log(error);

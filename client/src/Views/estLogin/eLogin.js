@@ -32,6 +32,7 @@ const ELogin = () => {
     }
 
     const handleSubmit = async (e) => {
+
         e.preventDefault();
         dispatch( { type: "LOGIN_START" } );
 
@@ -44,10 +45,12 @@ const ELogin = () => {
 
             dispatch( { type: "LOGIN_SUCCESS", payload: {...res.data} } );
 
+            navigate(`/estudiante/notas/`);
+
         } catch (error) {
             console.log(error);
-            dispatch( { type: "LOGIN_FAILURE"} );
             alert("Rut ingresado no esta en el sistema.");
+            dispatch( { type: "LOGIN_FAILURE"} );
 
         };
     };
@@ -74,7 +77,7 @@ const ELogin = () => {
                                 >
                         </input>
                         
-                            <button onClick={() => navigate("/estudiante/notas")} className="submit" type="submit"> Iniciar Sesión </button>
+                            <button className="submit" type="submit"> Iniciar Sesión </button>
 
                     </form>
                     

@@ -2,7 +2,7 @@
     margin-top: 50px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    
     align-content: center;
     justify-content: space-evenly;
     background-color: #FFFFFF;
@@ -10,6 +10,7 @@
     padding: 10px;
     box-shadow: 0px 0px 20px -8px rgb(0, 0, 0, 0.9);
     width: 1200px;
+    height: 550px;
     
 }
 
@@ -19,6 +20,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
 }
 
 .t-profile {
@@ -34,7 +36,6 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: flex-end;
     justify-content: center;
 }
 
@@ -52,12 +53,11 @@
 }
 
 .b-profile{
-    margin-top: 2.5rem;
-    margin-bottom: 5rem;
+    
     display: flex;
     flex-direction: row;
     align-content: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .class-group {
@@ -69,4 +69,5 @@
 .imag-p{
     width: 420px;
     height: auto;
+    margin-left: 100px;
 }

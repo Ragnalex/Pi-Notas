@@ -31,11 +31,11 @@ function App() {
 
               <Route path="/profesor/login" element={ <PLogin/> }> </Route> {/*Ruta Login de profesor*/}
 
-              <Route path="/profesor/profile/" element={ <PProfile/> }> </Route> {/*Ruta Profile de profesor*/}
+              <Route path="/profesor/profile/" element={<PProfile/> }>  </Route> {/*Ruta Profile de profesor, si no hay correo no hay profesor y manda al home*/}
 
               <Route path="/estudiante/login" element={ <ELogin/> }> </Route> {/*Ruta Login de estudiante*/}
 
-              <Route path="/estudiante/notas" element={ <ENotas/> }> </Route> {/*Ruta de perfil y notas del estudiante*/}
+              <Route path="/estudiante/notas" element={ user ?  <ENotas/> : <Home/> }> </Route> {/*Ruta de perfil y notas del estudiante  si no hay, manda al home*/}
 
             </Routes>
 

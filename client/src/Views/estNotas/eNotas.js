@@ -1,11 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import "./eNotas.css";
 import Lottie from "lottie-react";
+
+import { Context } from "../../context/context";
+
 
 //IMAGES
 import sefirot from "../../imgs/Ellipse.png";
 
 const ENotas = () => {
+
+    const { user } = useContext(Context);
+
     return (
         <div>
             <div className="p-content">
@@ -17,11 +23,11 @@ const ENotas = () => {
 
                     <div className="info-group">
                         <div className="p-nombre">
-                            Homero J. Simpson
+                            {user.pnombre + " " +  user.apellidop + " " +  user.apellidom}
                         </div>
 
                         <div className="p-rut">
-                            22.222.222-2
+                            {user.rut}
                         </div>
                     </div>
 
