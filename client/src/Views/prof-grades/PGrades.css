@@ -20,7 +20,7 @@
 
 .info-cursos{
     box-sizing:content-box;
-    width: 500px;
+    width: 1000px;
     height: 30px;
     Display: flex;
     justify-content:center;
@@ -42,4 +42,11 @@
     font-size: 30px;
     color:white; 
     margin-top: 50px;
+}
+
+.imag-cursos{
+    width: 500px;
+    height: auto;
+    float: right;
+   
 }
