@@ -1,12 +1,12 @@
 .info-profesor{
-    box-sizing:content-box;
-    width: 500px;
+    float: right;
+    width: 300px;
     height: 30px;
     Display: flex;
     justify-content:space-between;
     align-items: center;
-    right: 0px;
     
+
     margin-top: 50px;
     
   
