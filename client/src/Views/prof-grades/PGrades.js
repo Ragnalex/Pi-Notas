@@ -41,8 +41,7 @@ const PGrades = () => {
 
             </div>
 
-           
-
+            
         </div>
     );
 };
