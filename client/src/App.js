@@ -11,7 +11,7 @@ import PLogin from "./Views/profLogin/pLogin";
 import ELogin from "./Views/estLogin/eLogin";
 import PProfile from "./Views/prof-profile/pProfile";
 import ENotas from './Views/estNotas/eNotas';
-
+import PGrades from "./Views/prof-grades/PGrades";
 
 
 function App() {
@@ -35,7 +35,9 @@ function App() {
 
               <Route path="/estudiante/login" element={ <ELogin/> }> </Route> {/*Ruta Login de estudiante*/}
 
-              <Route path="/estudiante/notas" element={ user ?  <ENotas/> : <Home/> }> </Route> {/*Ruta de perfil y notas del estudiante  si no hay, manda al home*/}
+              <Route path="/estudiante/notas" element={ <ENotas/> }> </Route> {/*Ruta de perfil y notas del estudiante*/}
+              
+              <Route path="/profesor/cursos" element={ <PGrades/> }> </Route> {/*Ruta cursos de profesor*/}
 
             </Routes>
 
