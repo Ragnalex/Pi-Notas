@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const CursoSchema = new mongoose.Schema({
-  _id:{
+  idCurso:{
     type: String,
     unique: true,
     required: true

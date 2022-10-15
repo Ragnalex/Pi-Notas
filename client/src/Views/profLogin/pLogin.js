@@ -36,7 +36,7 @@ const PLogin = () => {
             alert("Datos ingresados encontrados: " + res.data.correo + " a rut de :" + res.data.rut);       //Si llega hasta aca (pasa el if), es que encontro los datos y estan bien
             const ruturl = res.data.rut.replace(/\./g, '').replace(/\-/g, '').trim().toLowerCase();
             //navigate(`/profesor/profile/${ruturl}`, {rut:ruturl});
-            navigate(`/profesor/profile/${ruturl}`, {rut:ruturl});
+            navigate(`/profesor/profile/`);
             
         } catch (error) {
             console.log(error);

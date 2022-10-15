@@ -37,7 +37,7 @@ function App() {
 
               <Route path="/estudiante/notas" element={ <ENotas/> }> </Route> {/*Ruta de perfil y notas del estudiante*/}
               
-              <Route path="/profesor/cursos" element={ <PGrades/> }> </Route> {/*Ruta cursos de profesor*/}
+              <Route path="/profesor/cursos" element={ <PGrades/>}> </Route> {/*Ruta cursos de profesor*/}
 
             </Routes>
 
