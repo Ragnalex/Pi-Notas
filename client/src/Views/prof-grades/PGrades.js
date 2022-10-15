@@ -3,8 +3,8 @@ import "./PGrades.css";
 import Lottie from "lottie-web";
 import { useNavigate } from "react-router-dom";
 
-// 
-import educator from "../../imgs/educatorAnim.json";
+// IMAGES
+import sefirot from "../../imgs/Ellipse.png";
 
 const PGrades = () => {
 
@@ -16,33 +16,46 @@ const PGrades = () => {
 
             <button className="back-button" onClick={() => navigate("/profesor/profile")}> Regresar </button>
             
-            <div>
-                
-                <div className="info-profesor"> 
-                    <h4>  Nombre  </h4>              
-                    <h4>  Rut  </h4>
-                    <h4>  Email  </h4>
-                </div>
-                <div className="titulo-cursos">
-                    Cursos de la Asignatura
+            <div className="p-content">
+                <div className="encabezado">
+                    <div className="titulo t-profile">
+                        Cursos
+                    </div>
+
+                    <div className="info-group">
+                        <div className="p-nombre">
+                            Juanito Alcachofa
+                        </div>
+                        <div className="p-correo">
+                            juanito@profesor.cl
+                        </div>
+                        <div className="p-rut">
+                            12.345.678-9
+                        </div>
+                    </div>
                 </div>
 
-                <div className="info-cursos">
-                    Septimo A
-                </div>
-                
-                <div className="info-cursos">
-                    Septimo B
-                </div>
+                <div className="b-profile">
+                    <div className="class-group">
+                        <button className="home-button">
+                            Séptimo A
+                        </button>
 
-                <div className="info-cursos">
-                    Septimo C
-                </div>
+                        <button className="home-button">
+                            Séptimo B
+                        </button>
 
+                        <button className="home-button">
+                            Séptimo C
+                        </button>
+                    </div>
+
+                </div>
+                <img className="nubesita" src = {sefirot} alt="FondoEducador"/>
             </div>
-
             
         </div>
+        
     );
 };
 
