@@ -1,19 +1,41 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useState } from "react";
 import "./pProfile.css";
 import Lottie from "lottie-react";
 import { Context } from "../../context/context";
+import axios from "axios";
 
 //IMAGES
 import sefirot from "../../imgs/Ellipse.png";
 import libros from "../../imgs/libros.json";
 
+
+
 const PProfile = () => {
 
     const { user } = useContext(Context);           //El usuario user contiene todo lo que tiene el profesor (rut, apellidop, apellidom, contrasena, correo, pnombre, snombre)
+
+    const [asignaturas, setAsignaturas] = useState([]);
+
     
+    const updateAsignaturas = async() => {          //Funcion que llama la informacion de las asignaturas del backend
+        try {
+            const res = await axios.post("http://localhost:5000/api/prof/profesor/asignatura", {
+                rut: user.rut,
+            });
+    
+            setAsignaturas(res.data);
+            
+        } catch (error) {
+            console.log(error);
+        }
+    } 
+
+    useEffect(() => {updateAsignaturas()}, []);         //Ejecuta por renderizado la funcion
 
     return(
+        
         <div>
+            
             <div className="p-content">
                 <div className="encabezado">
 
@@ -37,21 +59,17 @@ const PProfile = () => {
 
                 <div className="b-profile">
                     <div className="class-group">
-                        <button className="home-button">
-                            Filosofía
-                        </button>
 
-                        <button className="home-button">
-                            Lenguaje
-                        </button>
+                        {
+                            asignaturas.map((asignatura, index)=> {         //Renderizado de los botones del backend
+                                return (
+                                <button className="home-button" key={index}>
+                                    {asignatura.nombre}
+                                </button>
+                                )
+                            })
+                        }
 
-                        <button className="home-button">
-                            Historia
-                        </button>
-
-                        <button className="home-button">
-                            Educación Ciudadana
-                        </button>
                     </div>
 
                     <div>
