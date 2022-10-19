@@ -18,7 +18,7 @@ const VerCursos = async (req, res) => {
     const prof = await Profesor.findOne({ rut: req.body.rut }).populate(
       "cursos"
     );
-    res.status(200).json(prof.cursos);
+    res.status(200).json([prof.cursos]);
   } catch (error) {
     console.log(error);
     res.status(500).json(error);

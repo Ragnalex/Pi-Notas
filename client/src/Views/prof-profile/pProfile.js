@@ -19,7 +19,7 @@ const PProfile = () => {
     
     const updateAsignaturas = async() => {          //Funcion que llama la informacion de las asignaturas del backend
         try {
-            const res = await axios.post("http://localhost:5000/api/prof/profesor/asignatura", {
+            const res = await axios.post("http://localhost:5000/api/prof/asignatura", {
                 rut: user.rut,
             });
     
