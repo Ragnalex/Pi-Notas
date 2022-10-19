@@ -1,37 +1,76 @@
 const Alumno = require("../models/alumno.model");
-const bc = require("../controllers/crypt.controller");
+const Profesor = require("../models/profesor.model");
+const Asignatura = require("../models/asignatura.model");
+const bcrypt = require("bcrypt");
 
-
-const CreateUser = async (req, res) => {
+const CreateAlumno = async (req, res) => {
   try {
-    const newUser = new Usuario({
+    const newAlumno = new Alumno({
       rut: req.body.rut,
       pnombre: req.body.pnombre,
       snombre: req.body.snombre,
       apellidop: req.body.apellidop,
       apellidom: req.body.apellidom,
     });
-    //const user = await newUser.save();
-    res.status(200).json(user);
+    await newAlumno.save();
+    res.status(200).json(newAlumno);
   } catch (err) {
     res.status(500).json(err);
   }
 };
 
 const CreateProfesor = async (req, res) => {
-    try {
-      const newProfesor = new Profesor({
-        correo: req.body.correo,
-        contraseña: await bc.encrypt(req.body.contraseña)
-      });
-      //const usuario = await Usuario.findOne({rut: req.body.rut})
-      //usuario.updateOne(profesor, profesor._id)
-      res.status(200).json(profesor);
-    } catch (err) {
-      res.status(500).json(err);
+  try {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPass = await bcrypt.hash(req.body.contrasena, salt);
+    const newProfesor = new Profesor({
+      rut: req.body.rut,
+      pnombre: req.body.pnombre,
+      snombre: req.body.snombre,
+      apellidop: req.body.apellidop,
+      apellidom: req.body.apellidom,
+      correo: req.body.correo,
+      contrasena: hashedPass,
+    });
+    await newProfesor.save();
+    res.status(200).json(newProfesor);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+const CreateAsignatura = async (req, res) => {
+  try {
+    const newAsignatura = new Asignatura({
+      nombre: req.body.nombre,
+    });
+
+    await newAsignatura.save();
+    res.status(200).json(newAsignatura);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+const AsignarRamoProfesor = async (req, res) => {
+  try {
+    const prof = await Profesor.findOne({
+      rut: req.body.rut,
+    });
+    console.log(prof)
+    if (prof) {
+      prof.asignaturas = req.body.asignaturas;
+      await prof.save();
     }
-  };
-  module.exports ={
-    CreateUser,
-    CreateProfesor,
-  };
+    res.status(200).json(prof);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+module.exports = {
+  CreateAlumno,
+  CreateProfesor,
+  CreateAsignatura,
+  AsignarRamoProfesor,
+};

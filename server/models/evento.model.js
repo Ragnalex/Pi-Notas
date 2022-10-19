@@ -1,20 +1,20 @@
 const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
-const EventoSchema = new mongoose.Schema({
-    idEvento: {              //Por ejemplo el de la bd "PP1LENG022022" correspondiente a la prueba parcial 1 de lenguaje paralelo 2, del año 2022
-        type:String,
-        require: true,
-        unique: true
-    },
-    descripcion: {
-        type: String,
-        require: true
-    },
-    fecha:{
-        type: Date,
-        require: true
-    }
+const EventoSchema = new Schema({
+  nombreEvento: {
+    type: String,
+    require: true,
+    unique: true,
+  },
+  descripcion: {
+    type: String,
+    require: true,
+  },
+  fecha: {
+    type: Date,
+    require: true,
+  },
+});
 
-})
-
-module.exports = mongoose.model("Evento",EventoSchema);
+module.exports = mongoose.model("Evento", EventoSchema);

@@ -22,9 +22,28 @@ const AlumnoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  curso:  {
-    type: mongoose.Types.ObjectId, refer:"Curso"
+  curso: {
+    type: mongoose.Types.ObjectId,
+    ref: "Curso",
   },
-  
+  notas: [
+    {
+      asignatura: {type: mongoose.Types.ObjectId,
+        ref: "Asignaturas",
+      },
+      calificacion: {
+        type: Number,
+        required: true,
+      },
+      numero: {
+        type: Number,
+        required: true,
+      },
+      Ponderacion: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
 });
-module.exports = mongoose.model("Alumno",AlumnoSchema);
+module.exports = mongoose.model("Alumno", AlumnoSchema);

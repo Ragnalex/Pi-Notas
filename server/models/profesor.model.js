@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
-const ProfesorSchema = new mongoose.Schema({
-  rut:{
+const ProfesorSchema = new Schema({
+  rut: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   pnombre: {
     type: String,
@@ -25,12 +26,19 @@ const ProfesorSchema = new mongoose.Schema({
   correo: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
-  contrasena:{
+  contrasena: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
+  cursos: [{
+    type: mongoose.Types.ObjectId,
+    ref: "Curso",
+  }],
+  asignaturas: [{type: mongoose.Types.ObjectId,
+    ref: "Asignatura",
+  }],
 });
 
 module.exports = mongoose.model("Profesor", ProfesorSchema);

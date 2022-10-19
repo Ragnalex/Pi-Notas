@@ -14,14 +14,15 @@ const AlumnoLogin = async (req, res) => {
   }
 };
 
+//aun no se prueba
 const ProfesorLogin = async (req, res) => {
   try {
+    
     const prof = await Profesor.findOne({
       correo: req.body.correo,
     });
     if (prof){
-      console.log("asda");
-      if (prof.contrasena == req.body.contrasena){      
+      if (await bcrypt.compare(req.body.contrasena, prof.contrasena)){      
         return res.status(200).json(prof);
       }
       else{
@@ -31,7 +32,6 @@ const ProfesorLogin = async (req, res) => {
     return res.send("Correo no encontrado en el sistema");      //En caso de no encontrar el correo, envia este mensaje para el frontend
   }
   catch (error) {
-    console.log(error);
     res.status(500).json(error);
   }
 };
