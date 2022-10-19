@@ -14,7 +14,6 @@ const AlumnoLogin = async (req, res) => {
   }
 };
 
-//aun no se prueba
 const ProfesorLogin = async (req, res) => {
   try {
     
