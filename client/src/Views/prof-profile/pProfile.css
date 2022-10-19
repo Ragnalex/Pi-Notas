@@ -15,10 +15,9 @@
 }
 
 .encabezado {
-    padding-top: 2rem;
+    align-items: flex-start;
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
 
 }

@@ -1,22 +1,3 @@
-.info-profesor{
-    float: right;
-    width: 300px;
-    height: 30px;
-    Display: flex;
-    justify-content:space-between;
-    align-items: center;
-    
-
-    margin-top: 50px;
-    
-  
-    font-size: 15px;
-  
-    background: #8457ec;
-    border: 1px solid #000000;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-}
 
 .info-cursos{
     box-sizing:content-box;
@@ -40,8 +21,7 @@
 
 .titulo-cursos{
     font-size: 30px;
-    color:white; 
-    margin-top: 50px;
+    color:black; 
 }
 
 .imag-cursos{
@@ -49,4 +29,33 @@
     height: auto;
     float: right;
    
+}
+.content-cursos{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0px 0px 20px -8px rgb(0, 0, 0, 0.9);
+    width: 1500px;
+}
+
+.encabezado{
+    display: flex;
+}
+.cursos-img{
+    
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+.content-imag{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
 }

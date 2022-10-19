@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import "./PGrades.css";
-import Lottie from "lottie-web";
+import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
 
 // IMAGES
 import sefirot from "../../imgs/Ellipse.png";
+import cursos from "../../imgs/reading-boy.json";
 
 const PGrades = () => {
 
@@ -16,9 +17,9 @@ const PGrades = () => {
 
             <button className="back-button" onClick={() => navigate("/profesor/profile")}> Regresar </button>
             
-            <div className="p-content">
+            <div className="content-cursos">
                 <div className="encabezado">
-                    <div className="titulo t-profile">
+                    <div className="titulo-cursos">
                         Cursos
                     </div>
 
@@ -35,7 +36,8 @@ const PGrades = () => {
                     </div>
                 </div>
 
-                <div className="b-profile">
+
+                <div className="content-imag">
                     <div className="class-group">
                         <button className="home-button">
                             Séptimo A
@@ -48,9 +50,12 @@ const PGrades = () => {
                         <button className="home-button">
                             Séptimo C
                         </button>
-                    </div>
 
+                        
+                    </div>
+                    <Lottie animationData={cursos} loop={true} autoPlay ={true}  className="imag" ></Lottie>
                 </div>
+
                 <img className="nubesita" src = {sefirot} alt="FondoEducador"/>
             </div>
             
