@@ -32,13 +32,22 @@ const ProfesorSchema = new Schema({
     type: String,
     required: true,
   },
-  cursos: [{
+  jefatura: {
     type: mongoose.Types.ObjectId,
     ref: "Curso",
-  }],
-  asignaturas: [{type: mongoose.Types.ObjectId,
-    ref: "Asignatura",
-  }],
+  },
+  asignaturas: [
+    {
+      asignatura: {
+        type: mongoose.Types.ObjectId,
+        ref: "Asignaturas",
+      },
+      curso: {
+        type: mongoose.Types.ObjectId,
+        ref: "Curso",
+      },
+    },
+  ],
 });
 
 module.exports = mongoose.model("Profesor", ProfesorSchema);

@@ -52,7 +52,7 @@ const CreateAsignatura = async (req, res) => {
   }
 };
 
-const AsignarRamoProfesor = async (req, res) => {
+const AsignarRamoProfesor = async (req, res) => {//recibe una lista de ids
   try {
     const prof = await Profesor.findOne({
       rut: req.body.rut,
