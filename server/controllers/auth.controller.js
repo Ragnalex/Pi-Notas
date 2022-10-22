@@ -21,7 +21,8 @@ const ProfesorLogin = async (req, res) => {
       correo: req.body.correo,
     });
     if (prof){
-      if (await bcrypt.compare(req.body.contrasena, prof.contrasena)){      
+      if (await bcrypt.compare(req.body.contrasena, prof.contrasena)){
+            prof =await prof.populate("jefatura")
         return res.status(200).json(prof);
       }
       else{

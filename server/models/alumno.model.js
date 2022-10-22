@@ -29,7 +29,7 @@ const AlumnoSchema = new mongoose.Schema({
   notas: [
     {
       asignatura: {type: mongoose.Types.ObjectId,
-        ref: "Asignaturas",
+        ref: "Asignatura",
       },
       calificacion: {
         type: Number,

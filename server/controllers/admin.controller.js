@@ -29,7 +29,7 @@ const CreateProfesor = async (req, res) => {
       snombre: req.body.snombre,
       apellidop: req.body.apellidop,
       apellidom: req.body.apellidom,
-      correo: req.body.correo,
+      correo: req.body.correo.toLowerCase(),
       contrasena: hashedPass,
     });
     await newProfesor.save();
@@ -57,7 +57,6 @@ const AsignarRamoProfesor = async (req, res) => {//recibe una lista de ids
     const prof = await Profesor.findOne({
       rut: req.body.rut,
     });
-    console.log(prof)
     if (prof) {
       prof.asignaturas = req.body.asignaturas;
       await prof.save();

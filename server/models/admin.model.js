@@ -6,11 +6,11 @@ const AdministradorSchema = new mongoose.Schema({
     require: true,
     unique: true,
   },
-  contraseña: {
+  contrasena: {
     type: String,
     require: true,
   },
-  Cargo: {
+  cargo: {
     type: String,
     require: true,
   },
