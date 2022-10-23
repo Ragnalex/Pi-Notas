@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const CursoSchema = new Schema({
-  NombreCurso: {
+  nombre: {
     type: String,
-    unique: true,
     required: true,
+    unique: true,
   },
   año: {
     type: String,

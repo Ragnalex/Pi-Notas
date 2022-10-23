@@ -19,7 +19,7 @@ const PProfile = () => {
     
     const updateAsignaturas = async() => {          //Funcion que llama la informacion de las asignaturas del backend
         try {
-            const res = await axios.post("http://localhost:5000/api/prof/asignatura", {
+            const res = await axios.post("http://localhost:5000/api/prof/verAsignaturas", {
                 rut: user.rut,
             });
     
@@ -64,7 +64,7 @@ const PProfile = () => {
                             asignaturas.map((asignatura, index)=> {         //Renderizado de los botones del backend
                                 return (
                                 <button className="home-button" key={index}>
-                                    {asignatura.nombre}
+                                    {asignatura.asignatura.nombre}
                                 </button>
                                 )
                             })

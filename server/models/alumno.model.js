@@ -39,7 +39,7 @@ const AlumnoSchema = new mongoose.Schema({
         type: Number,
         required: true,
       },
-      Ponderacion: {
+      ponderacion: {
         type: Number,
         required: true,
       },

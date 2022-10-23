@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const EventoSchema = new Schema({
-  nombreEvento: {
+  nombre: {
     type: String,
     require: true,
     unique: true,

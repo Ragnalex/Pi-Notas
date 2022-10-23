@@ -42,10 +42,10 @@ const ProfesorSchema = new Schema({
         type: mongoose.Types.ObjectId,
         ref: "Asignatura",
       },
-      curso: {
+      cursos: [{
         type: mongoose.Types.ObjectId,
         ref: "Curso",
-      },
+      }],
     },
   ],
 });
