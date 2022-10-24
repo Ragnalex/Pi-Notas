@@ -70,11 +70,13 @@ página anterior o ver calendario   */
 
 /*DISEÑO DE FONDO*/
 .nubesita{
-  width: 100% ;
-  height: 80px;
+  width: 100% !important;
+  height: 60px;
   position: fixed;
   display: flex;
   bottom: 0;
+  left: 0;
+  margin-top: 100px;
 }
 
 .formBox{

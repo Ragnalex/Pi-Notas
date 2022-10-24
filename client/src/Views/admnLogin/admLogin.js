@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
-import "./pLogin.css";
+import "./admLogin.css";
 import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../context/context";
@@ -48,20 +48,20 @@ const PLogin = () => {
         <div>
 
             <button className="back-button" onClick={() => navigate("/")}> Regresar </button>
-            <div className="content">
+            <div className="admL-content">
 
             
-                <div className="body">
+                <div className="admL-body">
 
                     <div className="titulo t-login">
                         Ingreso Profesores
                     </div>
 
-                    <form className="formBox" onSubmit={handleSubmit}>
-                        <label className="label"> Correo Institucional </label>
+                    <form className="admL-formBox" onSubmit={handleSubmit}>
+                        <label className="admL-label"> Correo Institucional </label>
                         <input className="input-box" type="text" placeholder="profesor@colegio.cl" ref={correoRef}></input>
 
-                        <label className="label">Contraseña</label>
+                        <label className="admL-label">Contraseña</label>
                         <input className="input-box" type="password" placeholder="***********" ref={passRef}></input>
 
                         <button className="submit" type="submit"> Iniciar sesión </button>
