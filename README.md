@@ -1,7 +1,13 @@
 # Pi-Notas
  Proyecto basado en un sistema escolar de notas para estudiantes, profesores y apoderados.
 
-# -- Usuarios de Prueba
-    - Profesor: miguel@profesor.cl
-    - Contraseña: testeo123
+# -- Datos profesor de Prueba
+    - Profesor: miguel@gomez.cl
+    - Contraseña: 12345
+    
+# -- Rut estudiante prueba
     - Estudiante: 11.111.111-1
+
+# -- Datos administrador
+    -hbriamo0@apple.com
+    -admin1
