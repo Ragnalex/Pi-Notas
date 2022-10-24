@@ -74,12 +74,12 @@
 }
 
 @media(min-width:1280px) and ( max-width:1370px){
-    .content{
+    .admL-content{
         width: 1200px;
         height: 400px;
         
     }
-    .imag{
+    .admL-imag{
         width: 400px;
     }
    
