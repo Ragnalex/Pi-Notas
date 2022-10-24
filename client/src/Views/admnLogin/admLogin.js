@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
-import "./pLogin.css";
+import "./admLogin.css";
 import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../context/context";
@@ -22,18 +22,18 @@ const PLogin = () => {
         e.preventDefault();
         dispatch ( { type: "LOGIN_START" } );
         try {
-            const res = await axios.post("http://localhost:5000/api/auth/profesor/ingreso", {
+            const res = await axios.post("http://localhost:5000/api/auth/admin/ingreso", {
                 correo: correoRef.current.value,
                 contrasena: passRef.current.value
             });
-            if (res.data.rut == null){
+
+            if (res.data.correo == null){
                 dispatch ( {type: "LOGIN_FAILURE"} );
                 alert(res.data);            //Devuelve el mensaje fallido enviado desde el backend
                 return;
             }
-
             dispatch ( {type: "LOGIN_SUCCESS", payload: {...res.data} } );
-            alert("Datos ingresados encontrados: " + res.data.correo + " a rut de :" + res.data.rut);       //Si llega hasta aca (pasa el if), es que encontro los datos y estan bien
+            alert("Datos ingresados encontrados: " + res.data.correo + " cargo: " + res.data.cargo);       //Si llega hasta aca (pasa el if), es que encontro los datos y estan bien
             const ruturl = res.data.rut.replace(/\./g, '').replace(/\-/g, '').trim().toLowerCase();
             //navigate(`/profesor/profile/${ruturl}`, {rut:ruturl});
             navigate(`/profesor/profile/`);
@@ -48,20 +48,20 @@ const PLogin = () => {
         <div>
 
             <button className="back-button" onClick={() => navigate("/")}> Regresar </button>
-            <div className="content">
+            <div className="admL-content">
 
             
-                <div className="body">
+                <div className="admL-body">
 
                     <div className="titulo t-login">
                         Ingreso Profesores
                     </div>
 
-                    <form className="formBox" onSubmit={handleSubmit}>
-                        <label className="label"> Correo Institucional </label>
+                    <form className="admL-formBox" onSubmit={handleSubmit}>
+                        <label className="admL-label"> Correo Institucional </label>
                         <input className="input-box" type="text" placeholder="profesor@colegio.cl" ref={correoRef}></input>
 
-                        <label className="label">Contraseña</label>
+                        <label className="admL-label">Contraseña</label>
                         <input className="input-box" type="password" placeholder="***********" ref={passRef}></input>
 
                         <button className="submit" type="submit"> Iniciar sesión </button>

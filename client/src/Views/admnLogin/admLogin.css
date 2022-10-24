@@ -1,4 +1,4 @@
-.body{
+.admL-body{
     display: flex;
     justify-content: center;
     align-content: center;
@@ -6,12 +6,12 @@
     margin-left: 5%;
 }
 
-.imag{
+.admL-imag{
     width: 500px;
     height: auto;
    
 }
-.formBox{
+.admL-formBox{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -19,7 +19,7 @@
     
 }
 
-.content{
+.admL-content{
     margin-bottom: 50px;
     margin-top: 50px;
     display: flex;
@@ -34,7 +34,7 @@
     width: 1500px;
     
 }
-.label{
+.admL-label{
 
     width: 524px;
     height: 49px;
@@ -52,39 +52,35 @@
 
 
 @media(min-width: 300px) and (max-width: 400px){
-    .content{
+    .admL-content{
         width: 260px;
         height: 500px;
         justify-content: content;
     }
-    .imag{
+    .admL-imag{
         width: 150px;
     }
-    .label{
+    .admL-label{
         width: 200px;
         font-size: 20px;
     }
-    .formBox{
+    .admL-formBox{
         width: 200px;
     }
-    .titulo{
+    .admL-titulo{
         font-size: 48px;
     }
 
 }
 
 @media(min-width:1280px) and ( max-width:1370px){
-    .content{
+    .admL-content{
         width: 1200px;
         height: 400px;
         
     }
-    .imag{
+    .admL-imag{
         width: 400px;
     }
    
 }
-
-
-
-

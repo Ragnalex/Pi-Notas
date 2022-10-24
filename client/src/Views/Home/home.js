@@ -13,8 +13,8 @@ const Home = () => {
 
     return (
         <div>
+            <button onClick={() => navigate("/administrador/login")}> Administrador </button>
             <div className="center">
-
                 <div className="tittle">
                     Bienvenido al portal estudiantil π-notas
                 </div>

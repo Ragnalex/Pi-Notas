@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./pProfile.css";
 import Lottie from "lottie-react";
 import { Context } from "../../context/context";
@@ -11,11 +12,17 @@ import libros from "../../imgs/libros.json";
 
 
 const PProfile = () => {
+    
+    const navigate = useNavigate();
 
-    const { user } = useContext(Context);           //El usuario user contiene todo lo que tiene el profesor (rut, apellidop, apellidom, contrasena, correo, pnombre, snombre)
+    const { user, dispatch } = useContext(Context);           //El usuario user contiene todo lo que tiene el profesor (rut, apellidop, apellidom, contrasena, correo, pnombre, snombre)
 
     const [asignaturas, setAsignaturas] = useState([]);
 
+    const handleLogout = () => {
+        dispatch( { type: "LOGOUT"});
+        navigate("/")
+    }
     
     const updateAsignaturas = async() => {          //Funcion que llama la informacion de las asignaturas del backend
         try {
@@ -35,11 +42,13 @@ const PProfile = () => {
     return(
         
         <div>
+            <button onClick={handleLogout} > Cerrar sesion </button>
             
             <div className="p-content">
+                
                 <div className="encabezado">
 
-                    <div className="titulo t-profile">
+                    <div className="t-profile">
                         Asignaturas
                     </div>
 
@@ -77,8 +86,9 @@ const PProfile = () => {
                     </div>
 
                 </div>
-                <img className="nubesita" src = {sefirot} alt="FondoEducador"/>
+                
             </div>
+            <img className="nubesita" src = {sefirot} alt="FondoEducador"/>
         </div>
     );
 }
