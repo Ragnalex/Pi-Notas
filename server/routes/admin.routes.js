@@ -6,6 +6,8 @@ const {
     CreateAsignatura,
     CreateCurso,
     AsignarRamoProfesor,
+    VerAsignaturas,
+    VerCursos
 } = require("../controllers/admin.controller");
 
 //Creación de Usuarios
@@ -18,4 +20,8 @@ router.post("/ingresarAsignatura", CreateAsignatura);
 router.post("/ingresarCurso", CreateCurso);
 //agregar n Asignaturas a un profesor
 router.post("/asignaturaProfesor", AsignarRamoProfesor);
+//Ver todas las asignaturas
+router.get("/verAsignaturas", VerAsignaturas);
+//ver todos los cursos
+router.get("/verCursos", VerCursos);
 module.exports = router;

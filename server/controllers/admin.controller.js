@@ -13,7 +13,7 @@ const CreateAlumno = async (req, res) => {
       snombre: req.body.snombre,
       apellidop: req.body.apellidop,
       apellidom: req.body.apellidom,
-      curso: req.body.curso
+      curso: req.body.curso,
     });
     await newAlumno.save();
     res.status(200).json(newAlumno);
@@ -35,7 +35,7 @@ const CreateProfesor = async (req, res) => {
       correo: req.body.correo.toLowerCase(),
       contrasena: hashedPass,
       jefatura: req.body.jefatura,
-      asignaturas: req.body.asignaturas
+      asignaturas: req.body.asignaturas,
     });
     await newProfesor.save();
     res.status(200).json(newProfesor);
@@ -61,7 +61,7 @@ const CreateCurso = async (req, res) => {
     const newCurso = new Curso({
       nombre: req.body.nombre,
       año: req.body.año,
-      asignaturas : req.body.asignaturas
+      asignaturas: req.body.asignaturas,
     });
     await newCurso.save();
     res.status(200).json(newCurso);
@@ -69,7 +69,6 @@ const CreateCurso = async (req, res) => {
     res.status(500).json(err);
   }
 };
-
 
 const AsignarRamoProfesor = async (req, res) => {
   //recibe una lista de ids
@@ -87,10 +86,32 @@ const AsignarRamoProfesor = async (req, res) => {
   }
 };
 
+const VerAsignaturas = async (res) => {
+  //manda todas las asignaturas del colegio
+  try {
+    const asignaturas = await Asignatura.find({});
+    res.status(200).json(asignaturas);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+const VerCursos = async (res) => {
+  //Manda todas lso cursos del colegio
+  try {
+    const cursos = await Curso.find({});
+    res.status(200).json(cursos);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
 module.exports = {
   CreateAlumno,
   CreateProfesor,
   CreateAsignatura,
   CreateCurso,
   AsignarRamoProfesor,
+  VerAsignaturas,
+  VerCursos,
 };

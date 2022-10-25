@@ -46,7 +46,7 @@ const AsignarNotaAlumno = async (req, res) => {
         numero: req.body.numero,
         ponderacion: req.body.ponderacion,
       });
-      await alumno.save()
+      await alumno.save();
     }
     res.status(200).json(alumno);
   } catch (error) {
