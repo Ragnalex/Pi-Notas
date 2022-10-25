@@ -54,11 +54,11 @@ const PLogin = () => {
                 <div className="admL-body">
 
                     <div className="titulo t-login">
-                        Ingreso Profesores
+                        Ingreso Administrador
                     </div>
 
                     <form className="admL-formBox" onSubmit={handleSubmit}>
-                        <label className="admL-label"> Correo Institucional </label>
+                        <label className="admL-label"> Correo administrador </label>
                         <input className="input-box" type="text" placeholder="profesor@colegio.cl" ref={correoRef}></input>
 
                         <label className="admL-label">Contraseña</label>
@@ -69,8 +69,6 @@ const PLogin = () => {
                     
 
                 </div>
-
-                <Lottie animationData={educator} loop={true} autoPlay ={true}  className="imag" ></Lottie>
 
             
             

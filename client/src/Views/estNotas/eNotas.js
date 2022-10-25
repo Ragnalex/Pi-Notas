@@ -14,28 +14,28 @@ const ENotas = () => {
 
     return (
         <div>
-            <div className="p-content">
-                <div className="encabezado">
+            <div className="est-content">
+                <div className="est-encabezado">
 
-                    <div className="titulo t-profile pad">
+                    <div className="t-profile">
                         Calificaciones
                     </div>
 
-                    <div className="info-group">
-                        <div className="p-nombre">
+                    <div className="est-info-group">
+                        <div className="est-nombre">
                             {user.pnombre + " " +  user.apellidop + " " +  user.apellidom}
                         </div>
 
-                        <div className="p-rut">
+                        <div className="est-rut">
                             {user.rut}
                         </div>
                     </div>
 
                 </div>
 
-                <button className="submit calendario">Calendario de Actividades</button>
+                <button className="calendario">Calendario de Actividades</button>
 
-                <div className="b-profile">
+                <div className="est-notas-content">
                     <div className="column">
                         <div className="col-titulo">
                             Asignatura

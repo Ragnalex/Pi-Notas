@@ -4,6 +4,7 @@
   pointer-events: none;
 }
 .App-bg{ 
+    height: 500px;
     min-height: 100vh;
     background: #4583FB;
     overflow: hidden;

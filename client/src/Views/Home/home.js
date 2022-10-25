@@ -13,34 +13,36 @@ const Home = () => {
 
     return (
         <div>
-            <button onClick={() => navigate("/administrador/login")}> Administrador </button>
+
+            <button className="adm-button back-button" onClick={() => navigate("/administrador/login")}> Administrador </button>
+            
             <div className="center">
+
                 <div className="tittle">
                     Bienvenido al portal estudiantil π-notas
                 </div>
 
-                <body className="center">
+                <div className="center">
                 
-                <div className="botones">
-                    
-                    <button onClick={() => navigate("/estudiante/login")} className="home-button">
-                        Ingreso estudiantil
-                    </button>
-                    
-                    <button onClick={() => navigate("/profesor/login")} className="home-button">
-                        Ingreso profesores
-                    </button>
+                    <div className="botones">
+                        
+                        <button onClick={() => navigate("/estudiante/login")} className="home-button">
+                            Ingreso estudiantil
+                        </button>
+                        
+                        <button onClick={() => navigate("/profesor/login")} className="home-button">
+                            Ingreso profesores
+                        </button>
 
-                </div>
+                    </div>
                 
                 <img className="img" src = {imgEducador} alt="FondoEducador"/>
-
+            
                 
-                </body>
-                
-                
+                </div>
 
             </div>
+            
         </div>
         
     );

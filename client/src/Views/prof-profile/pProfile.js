@@ -19,7 +19,7 @@ const PProfile = () => {
 
     const [asignaturas, setAsignaturas] = useState([]);
 
-    const handleLogout = () => {
+    const handleLogout = () => {        //Metodo de cierre de sesión para el boton
         dispatch( { type: "LOGOUT"});
         navigate("/")
     }
@@ -67,17 +67,37 @@ const PProfile = () => {
                 </div>
 
                 <div className="b-profile">
+
                     <div className="class-group">
 
                         {
                             asignaturas.map((asignatura, index)=> {         //Renderizado de los botones del backend
                                 return (
-                                <button className="home-button" key={index}>
+                                <button className="asign-button" key={index}>
                                     {asignatura.asignatura.nombre}
                                 </button>
                                 )
                             })
                         }
+                        {/* <button className="asign-button">
+                                    Lenguaje
+                        </button>
+                        <button className="asign-button">
+                                    Matematicas
+                        </button>
+                        <button className="asign-button">
+                                    Ingles
+                        </button>
+                        <button className="asign-button">
+                                    Filosofia
+                        </button>
+                        <button className="asign-button">
+                                    Compu
+                        </button>
+                        <button className="asign-button">
+                                    Religion
+                        </button> */}
+
 
                     </div>
 

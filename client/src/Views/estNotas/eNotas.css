@@ -1,16 +1,55 @@
+.est-content{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    
+    align-content: center;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0px 0px 20px -8px rgb(0, 0, 0, 0.9);
+    width: 1200px;
+    height: 500px;
+    
+}
+
 .calendario {
     width: 400px;
     background: #63d494;
     border-color: #347651;
+    box-sizing:content-box;
+
+    font-size: 18px;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
 }
+
+.est-encabezado{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
 
 .calendario:hover{
     background-color: #347651;
     color: #eeeeee;
 }
 
-.pad {
-    padding-right: 23rem;
+.est-info-group{
+    display: flex;
+    
+}
+
+.est-nombre, .est-rut{
+    padding: 5px;
+    margin-left: 10px;
+    background-color: #F0CA0E;
+    border-radius: 5px;
+
+    font-size: 18px;
 }
 
 .column {
@@ -63,4 +102,14 @@
 
 .l-prom {
     width: 80px;
+}
+
+.est-notas-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+    margin-top: 10px;
+
 }

@@ -11,19 +11,21 @@
     padding: 10px;
     box-shadow: 0px 0px 20px -8px rgb(0, 0, 0, 0.9);
     width: 1200px;
-    height: 500px;
+    height: 450px;
     
 }
 
 .encabezado {
-    align-items: flex-start;
+    margin-top: 50px;
+    align-items: center;
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
 
 }
 
 .t-profile {
-    padding-right: 2.5rem;
+    margin-left: 100px;
     font-size: 40px;
     font-weight: 70;
     color: #2D79EB;
@@ -36,6 +38,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    margin-right: 20px;
 }
 
 .p-nombre, .p-correo, .p-rut{
@@ -44,7 +47,7 @@
     background-color: #F0CA0E;
     border-radius: 5px;
 
-    font-size: 17px;
+    font-size: 24px;
 }
 
 .p-correo {
@@ -55,18 +58,47 @@
     
     display: flex;
     flex-direction: row;
-    align-content: center;
+    align-items: center;
     justify-content: center;
+    
 }
 
 .class-group {
     display: flex;
-    margin-right: 10px;
+    justify-content: center;
     flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    width:650px;
+    height: 300px;
+    
 }
 
 .imag-p{
     width: 420px;
     height: auto;
-    margin-left: 100px;
+    
+}
+.asign-button{
+    width: 250px;
+    height: 51.84px;
+    margin-top: 30px;
+  
+    background: #D9D9D9;
+    border: 1px solid #2D79EB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 11px;
+  
+    font-family: 'Changa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+  
+    color: #000000;
+  
+    text-align: center;
+}
+
+.asign-button:hover{
+    background: #5346c5;
 }

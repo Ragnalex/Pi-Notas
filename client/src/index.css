@@ -15,6 +15,7 @@ code {
 /* DISEÑOS GENERALES EN CUERPO */
 
 /*   título de login y paneles siguientes   */
+
 .titulo {
   font-style: normal;
   font-weight: 700;
@@ -68,24 +69,6 @@ página anterior o ver calendario   */
   background-color: #614bb6;;
 }
 
-/*DISEÑO DE FONDO*/
-.nubesita{
-  width: 100% !important;
-  height: 60px;
-  position: fixed;
-  display: flex;
-  bottom: 0;
-  left: 0;
-  margin-top: 100px;
-}
-
-.formBox{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 500px;
-  
-}
 .back-button{
   box-sizing:content-box;
   width: 120px;
@@ -104,6 +87,27 @@ página anterior o ver calendario   */
 .back-button:hover{
   background: #4804a0;
 }
+
+/*DISEÑO DE FONDO*/
+.nubesita{
+  width: 100% !important;
+  height: 60px;
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  left: 0;
+  margin-top: 100px;
+}
+
+.formBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 500px;
+  
+}
+
+
 
 @media(min-width: 300px)and(max-width: 400px){
   .nubesita{

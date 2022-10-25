@@ -4,6 +4,27 @@
     flex-direction: column;
 }
 
+.tittle{
+    width: 885px;
+    height: 107px;
+
+    margin-top: 10px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 58px;
+    text-align: center;
+    
+    
+    color: #5E70DE;
+
+    text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -2px #000,
+             1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+    
+}
+
 .img{
     box-shadow: 5px #000;
     width: auto;
@@ -40,25 +61,12 @@
     background-color: #5346c5;
 }
 
-.tittle{
-    width: 885px;
-    height: 107px;
-
-    margin-top: 10px;
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 48px;
-    line-height: 58px;
-    text-align: center;
-    
-    
-    color: #5E70DE;
-
-    text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -2px #000,
-             1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
-    
+.adm-button{
+    display: flex;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 16px;
 }
 
 
