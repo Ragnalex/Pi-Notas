@@ -79,25 +79,7 @@ const PProfile = () => {
                                 )
                             })
                         }
-                        {/* <button className="asign-button">
-                                    Lenguaje
-                        </button>
-                        <button className="asign-button">
-                                    Matematicas
-                        </button>
-                        <button className="asign-button">
-                                    Ingles
-                        </button>
-                        <button className="asign-button">
-                                    Filosofia
-                        </button>
-                        <button className="asign-button">
-                                    Compu
-                        </button>
-                        <button className="asign-button">
-                                    Religion
-                        </button> */}
-
+                        
 
                     </div>
 
