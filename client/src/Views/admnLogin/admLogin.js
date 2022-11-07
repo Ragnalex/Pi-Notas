@@ -48,6 +48,7 @@ const PLogin = () => {
         <div>
 
             <button className="back-button" onClick={() => navigate("/")}> Regresar </button>
+
             <div className="admL-content">
 
             
@@ -73,6 +74,7 @@ const PLogin = () => {
             
             
             </div>
+            
             <img className="nubesita" src = {sefirot} alt="FondoEducador"/>
             
             
