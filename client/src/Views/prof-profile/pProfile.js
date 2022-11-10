@@ -73,7 +73,7 @@ const PProfile = () => {
                         {
                             asignaturas.map((asignatura, index)=> {         //Renderizado de los botones del backend
                                 return (
-                                <button className="asign-button" key={index}>
+                                <button onClick={() => navigate("/profesor/cursos")} className="asign-button" key={index}>
                                     {asignatura.asignatura.nombre}
                                 </button>
                                 )

@@ -13,6 +13,7 @@ import PProfile from "./Views/prof-profile/pProfile";
 import ENotas from './Views/estNotas/eNotas';
 import PGrades from "./Views/prof-grades/PGrades";
 import AdmnLogin from "./Views/admnLogin/admLogin";
+import PNotas from "./Views/prof-notas/pNotas";
 
 
 function App() {
@@ -39,6 +40,8 @@ function App() {
               <Route path="/estudiante/notas" element={ <ENotas/> }> </Route> {/*Ruta de perfil y notas del estudiante*/}
               
               <Route path="/profesor/cursos" element={ <PGrades/>}> </Route> {/*Ruta cursos de profesor*/}
+
+              <Route path="/profesor/notas" element={ <PNotas/>}> </Route> {/*Ruta de edición de notas puestas por profesores*/}
 
               <Route path="/administrador/login" element={ <AdmnLogin/> }> </Route>
 
