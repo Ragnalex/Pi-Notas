@@ -8,6 +8,9 @@ import { Context } from "../../context/context";
 
 //Images
 import sefirot from "../../imgs/Ellipse.png";
+import add_circle from "../../imgs/plus-circle.png";
+import edit from "../../imgs/pencil.png";
+import delete_btn from "../../imgs/delete.png";
 
 const PNotas = () => {
     const navigate = useNavigate();
@@ -39,52 +42,129 @@ const PNotas = () => {
 
                     <div className="header-tools">
                         <div className="tools">
-                            <ul>
-                                <li><span><input type="checkbox"/></span></li>
 
-                                <li>
-                                    <button>
-                                        <i className="material-icons">añadir círculo</i>
-                                    </button>
-                                </li>
+                            <button className="notas-btn">
+                                <img className="material-icons" src = {add_circle} alt="add_circle"/>
+                            </button>
+                            
+                            <button className="notas-btn">
+                                <img className="material-icons" src = {edit} alt="edit"/>
+                            </button>
 
-                                <li>
-                                    <button>
-                                        <i className="material-icons">edit</i>
-                                    </button>
-                                </li>
-
-                                <li>
-                                    <button>
-                                        <i className="material-icons">delete</i>
-                                    </button>
-                                </li>
-
-                                <li>
-                                    <button>
-                                        <i className="material-icons">share</i>
-                                    </button>
-                                </li>
-
-                            </ul>
+                            <button className="notas-btn">
+                                <img className="material-icons" src = {delete_btn} alt="delete_btn"/>
+                            </button>
                         </div>
 
                         <div className="search">
-
+                            <input type="text" name="" id="" className="input-box"/>
                         </div>
 
                     </div>
 
-                    <table className="datatable">
+                    {/*Tabla de notas*/}
+                    <div>
+                        <table className="datatable">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>N°</th>
+                                    <th>Nombre</th>
+                                    <th>Nota 1</th>
+                                    <th>Nota 2</th>
+                                    <th>Nota 3</th>
+                                    <th>Nota 4</th>
+                                    <th>Nota 5</th>
+                                    <th>Nota 6</th>
+                                    <th>Nota 7</th>
+                                    <th>Nota 8</th>
+                                    <th>Promedio</th>
+                                </tr>
+                            </thead>
 
-                    </table>
+                            <tbody>
+                                <tr>
+                                    <td><span className="available"></span></td>
+                                    <td>01</td>
+                                    <td>Marcos Rivas</td>
+                                    <td>5.5</td>
+                                    <td>6.4</td>
+                                    <td>5.0</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
 
-                    <div className="footer-tools">
+                                <tr>
+                                    <td><span className="available"></span></td>
+                                    <td>02</td>
+                                    <td>Marcos Rivas</td>
+                                    <td>5.5</td>
+                                    <td>6.4</td>
+                                    <td>5.0</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
 
+                                <tr>
+                                    <td><span className="available"></span></td>
+                                    <td>03</td>
+                                    <td>Marcos Rivas</td>
+                                    <td>5.5</td>
+                                    <td>6.4</td>
+                                    <td>5.0</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td><span className="available"></span></td>
+                                    <td>04</td>
+                                    <td>Marcos Rivas</td>
+                                    <td>5.5</td>
+                                    <td>6.4</td>
+                                    <td>5.0</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td><span className="available"></span></td>
+                                    <td>05</td>
+                                    <td>Marcos Rivas</td>
+                                    <td>5.5</td>
+                                    <td>6.4</td>
+                                    <td>5.0</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
                     </div>
+                    
 
                 </div>
-
+                <img className="nubesita" src = {sefirot} alt="FondoEducador"/>
             </div>
         </div>
     );
