@@ -4,13 +4,13 @@ import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import { Context } from "../../context/context";
+import { Context } from "../../../context/context";
 
 //Images
-import sefirot from "../../imgs/Ellipse.png";
-import add_circle from "../../imgs/plus-circle.png";
-import edit from "../../imgs/pencil.png";
-import delete_btn from "../../imgs/delete.png";
+import sefirot from "../../../imgs/Ellipse.png";
+import add_circle from "../../../imgs/plus-circle.png";
+import edit from "../../../imgs/pencil.png";
+import delete_btn from "../../../imgs/delete.png";
 
 const PNotas = () => {
     const navigate = useNavigate();

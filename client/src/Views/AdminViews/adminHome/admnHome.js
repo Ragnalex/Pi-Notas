@@ -8,9 +8,11 @@ import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 
 //img
-import configAnim from "../../imgs/configAnim.json"
+import configAnim from "../../../imgs/configAnim.json"
 
 const AdmnHome = () => {
+
+    const navigate = useNavigate();
 
 
     return(

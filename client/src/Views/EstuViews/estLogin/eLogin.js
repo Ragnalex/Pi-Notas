@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useRef } from "react";
 import "./eLogin.css";
 import Lottie from "lottie-react";
 import axios from "axios"
-import { Context } from "../../context/context";
+import { Context } from "../../../context/context";
 import { useNavigate } from "react-router-dom";
 
 //Images
 
-import sefirot from "../../imgs/Ellipse.png";
-import student from "../../imgs/reading-boy.json";
+import sefirot from "../../../imgs/Ellipse.png";
+import student from "../../../imgs/reading-boy.json";
 
 const ELogin = () => {
 

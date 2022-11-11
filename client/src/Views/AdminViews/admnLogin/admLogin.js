@@ -2,14 +2,14 @@ import React, { useContext, useRef } from "react";
 import "./admLogin.css";
 import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
-import { Context } from "../../context/context";
+import { Context } from "../../../context/context";
 import axios from "axios"
 
 
 //IMAGES
 
-import educator from "../../imgs/educatorAnim.json";
-import sefirot from "../../imgs/Ellipse.png";
+import educator from "../../../imgs/educatorAnim.json";
+import sefirot from "../../../imgs/Ellipse.png";
 
 const PLogin = () => {
 

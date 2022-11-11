@@ -8,18 +8,19 @@ import { Context } from "../src/context/context";
 import Home from "./Views/Home/home";
 
 //Import vistas profesor
-import PLogin from "./Views/profLogin/pLogin";
-import PProfile from "./Views/prof-profile/pProfile";
-import PGrades from "./Views/prof-grades/PGrades";
-import PNotas from "./Views/prof-notas/pNotas";
+import PLogin from "./Views/ProfViews/profLogin/pLogin";
+import PProfile from "./Views/ProfViews/prof-profile/pProfile";
+import PGrades from "./Views/ProfViews/prof-grades/PGrades";
+import PNotas from "./Views/ProfViews/prof-notas/pNotas";
 
 //Import vistas estudiantes
-import ELogin from "./Views/estLogin/eLogin";
-import ENotas from './Views/estNotas/eNotas';
+import ELogin from "./Views/EstuViews/estLogin/eLogin";
+import ENotas from './Views/EstuViews/estNotas/eNotas';
 
 //Import vistas administrador
-import AdmnLogin from "./Views/admnLogin/admLogin";
-import AdmnHome from './Views/adminHome/admnHome';
+import AdmnLogin from "./Views/AdminViews/admnLogin/admLogin";
+import AdmnHome from './Views//AdminViews/adminHome/admnHome';
+import AdmnAsign from "./Views/AdminViews/adminAsignaturas/adminAsignaturas"
 
 
 
@@ -53,6 +54,7 @@ function App() {
               {/* Rutas de administrador */}
               <Route path="/administrador/login" element={ <AdmnLogin/> }> </Route>
               <Route path="/administrador/inicio" element={ <AdmnHome/> }></Route>
+              <Route path="/administrador/asignaturas" element={ <AdmnAsign/> }></Route>
 
             </Routes>
 
