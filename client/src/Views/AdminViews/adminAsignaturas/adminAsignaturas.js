@@ -5,8 +5,11 @@ const AdminAsignaturas = () => {
 
     return(
 
-        <div>
-            Este es admin asignaturas
+        <div className="admn-acontent">
+            <div className="admn-atitle">
+                Gestión de Asignaturas
+            </div>
+            
         </div>
 
     )
