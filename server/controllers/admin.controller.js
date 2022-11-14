@@ -86,7 +86,7 @@ const AsignarRamoProfesor = async (req, res) => {
   }
 };
 
-const VerAsignaturas = async (res) => {
+const VerAsignaturas = async (req,res) => {
   //manda todas las asignaturas del colegio
   try {
     const asignaturas = await Asignatura.find({});
@@ -96,7 +96,7 @@ const VerAsignaturas = async (res) => {
   }
 };
 
-const VerCursos = async (res) => {
+const VerCursos = async (req, res) => {
   //Manda todas lso cursos del colegio
   try {
     const cursos = await Curso.find({});

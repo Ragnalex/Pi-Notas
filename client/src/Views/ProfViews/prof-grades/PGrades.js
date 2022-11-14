@@ -4,8 +4,8 @@ import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
 
 // IMAGES
-import sefirot from "../../imgs/Ellipse.png";
-import cursos from "../../imgs/reading-boy.json";
+import sefirot from "../../../imgs/Ellipse.png";
+import cursos from "../../../imgs/reading-boy.json";
 
 const PGrades = () => {
 
@@ -15,11 +15,11 @@ const PGrades = () => {
 
         <div>
 
-            <button className="back-button" onClick={() => navigate("/profesor/profile")}> Regresar </button>
+            <button className="back-button" onClick={() => navigate("/profesor/profile")}> Volver </button>
             
             <div className="content-cursos">
                 <div className="encabezado">
-                    <div className="titulo-cursos">
+                    <div className="t-profile">
                         Cursos
                     </div>
 
@@ -39,15 +39,15 @@ const PGrades = () => {
 
                 <div className="content-imag">
                     <div className="class-group">
-                        <button className="home-button">
+                        <button onClick={() => navigate("/profesor/notas")} className="home-button">
                             Séptimo A
                         </button>
 
-                        <button className="home-button">
+                        <button onClick={() => navigate("/profesor/notas")} className="home-button">
                             Séptimo B
                         </button>
 
-                        <button className="home-button">
+                        <button onClick={() => navigate("/profesor/notas")} className="home-button">
                             Séptimo C
                         </button>
 

@@ -4,11 +4,11 @@ import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import { Context } from "../../context/context";
+import { Context } from "../../../context/context";
 
 
 //IMAGES
-import sefirot from "../../imgs/Ellipse.png";
+import sefirot from "../../../imgs/Ellipse.png";
 
 const ENotas = () => {
 

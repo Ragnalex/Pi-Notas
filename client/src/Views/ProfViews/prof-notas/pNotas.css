@@ -1,0 +1,61 @@
+.header-tools {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tools {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.notas-btn {
+    margin: 5px;
+    background-color: #eee;
+    border-radius: 25px;
+    border-color:#4583fb;
+
+}
+
+.notas-btn:hover {
+    background-color: #4583fb;
+    transition: .3s;
+}
+
+.material-icons {
+    height: 30px;
+    width: 30px;
+    margin-top: 5px;
+}
+
+.datatable {
+    margin-top: 1rem;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 20px;
+}
+
+.datatable th, td {
+    padding: 10px;
+}
+
+.datatable th {
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 2px #4583fb;
+}
+
+.datatable td {
+    border-bottom: solid 2px #8baef6;
+}
+
+.datatable tbody tr:nth-child(even){
+    background-color: #8baef6;
+}
+
+.datatable tbody tr:hover{
+    background-color: #4583fb;
+}

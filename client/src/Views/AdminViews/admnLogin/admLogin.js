@@ -1,15 +1,15 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useRef } from "react";
 import "./admLogin.css";
 import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
-import { Context } from "../../context/context";
+import { Context } from "../../../context/context";
 import axios from "axios"
 
 
 //IMAGES
 
-import educator from "../../imgs/educatorAnim.json";
-import sefirot from "../../imgs/Ellipse.png";
+import educator from "../../../imgs/educatorAnim.json";
+import sefirot from "../../../imgs/Ellipse.png";
 
 const PLogin = () => {
 
@@ -34,9 +34,8 @@ const PLogin = () => {
             }
             dispatch ( {type: "LOGIN_SUCCESS", payload: {...res.data} } );
             alert("Datos ingresados encontrados: " + res.data.correo + " cargo: " + res.data.cargo);       //Si llega hasta aca (pasa el if), es que encontro los datos y estan bien
-            const ruturl = res.data.rut.replace(/\./g, '').replace(/\-/g, '').trim().toLowerCase();
-            //navigate(`/profesor/profile/${ruturl}`, {rut:ruturl});
-            navigate(`/profesor/profile/`);
+            
+            navigate(`/administrador/inicio`);
             
         } catch (error) {
             console.log(error);

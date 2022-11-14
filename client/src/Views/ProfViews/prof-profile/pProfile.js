@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./pProfile.css";
 import Lottie from "lottie-react";
-import { Context } from "../../context/context";
+import { Context } from "../../../context/context";
 import axios from "axios";
 
 //IMAGES
-import sefirot from "../../imgs/Ellipse.png";
-import libros from "../../imgs/libros.json";
+import sefirot from "../../../imgs/Ellipse.png";
+import libros from "../../../imgs/libros.json";
 
 
 
@@ -73,7 +73,7 @@ const PProfile = () => {
                         {
                             asignaturas.map((asignatura, index)=> {         //Renderizado de los botones del backend
                                 return (
-                                <button className="asign-button" key={index}>
+                                <button onClick={() => navigate("/profesor/cursos")} className="asign-button" key={index}>
                                     {asignatura.asignatura.nombre}
                                 </button>
                                 )
