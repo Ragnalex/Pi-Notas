@@ -3,6 +3,7 @@ import "./adminAsignaturas.css"
 
 //utilities
 import React, { useEffect, useRef, useContext, useState } from "react";
+import Popup from "reactjs-popup"
 
 //middleware
 import axios from "axios";
@@ -10,10 +11,12 @@ import axios from "axios";
 //ico import
 import editIco from "../../../imgs/icons/editIco.svg"
 
+
 const AdminAsignaturas = () => {
 
-
     const [Asignaturas, setAsignaturas ] = useState([]);
+
+    const newAsignatura = useRef();
 
     const getAsignaturas = async() => {
         try {
@@ -24,8 +27,18 @@ const AdminAsignaturas = () => {
         }
     }
 
+    const AddAsignatura = async() => {
+        try {
+            const res = await axios.post("http://localhost:5000/api/admin/ingresarAsignatura", {
+                nombre: newAsignatura.current.value
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
     useEffect(() => {getAsignaturas()}, []);
-    
 
     return(
 
@@ -35,8 +48,23 @@ const AdminAsignaturas = () => {
             </div>
 
             <div className="admn-topButtons">
-                <button className="admn-addbutton"> añadir asignatura </button>
+                <Popup trigger={<button className="admn-addbutton"> Añadir asignatura </button>} modal>
+                    <div className="admn-test">
+                        <div className="admn-poptitle" >
+                            Añadiendo asignatura
+                        </div>
+                        <form className="admn-form" onSubmit={AddAsignatura}>
+                            <label className="admn-label">
+                                Ingrese nombre de asignatura
+                            </label>
+                            <input className="admn-input" type="text" placeholder="Lenguaje..." ref={newAsignatura}></input>
+
+                            <button type="submit" className="admn-submit"> Añadir</button>
+                        </form>
+                    </div>
+                </Popup>
                 <button className="admn-delbutton"> eliminar asignatura </button>
+                
             </div>
 
             <div className="admn-listAsignaturas">
@@ -48,6 +76,7 @@ const AdminAsignaturas = () => {
                                     {asignatura.nombre}
                                 </div>
                                 <button className="admn-editIco"><img src={editIco}></img></button>
+                                
                             </div>
                         )
                     }
