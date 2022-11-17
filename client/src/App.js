@@ -43,8 +43,15 @@ function App() {
 
               <Route path="/profesor/login" element={ <PLogin/> }> </Route> {/*Ruta Login*/}
               <Route path="/profesor/profile/" element={<PProfile/> }>  </Route> {/*Ruta de inicio de profesor*/}
-              <Route path="/profesor/cursos" element={ <PGrades/>}> </Route> {/*Ruta cursos de profesor*/}
-              <Route path="/profesor/notas" element={ <PNotas/>}> </Route> {/*Ruta de edición de notas puestas por profesores*/}
+              <Route path="/profesor/cursos" element={ <PGrades/>}> 
+                <Route path="/profesor/cursos/:asignatura" element={ <PGrades/>}> 
+                
+                </Route>
+              </Route> {/*Ruta cursos de profesor*/}
+              
+              <Route path="/profesor/notas" element={ <PNotas/>}> 
+                {/* <Route path="/profesor/notas/:curso" element={ <PNotas/>}> </Route> */}
+              </Route> {/*Ruta de edición de notas puestas por profesores*/}
               
               {/* Rutas de estudiantes */}
               

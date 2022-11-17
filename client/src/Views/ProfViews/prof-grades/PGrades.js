@@ -1,13 +1,16 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import "./PGrades.css";
 import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
+import { Context } from "../../../context/context"
 
 // IMAGES
 import sefirot from "../../../imgs/Ellipse.png";
 import cursos from "../../../imgs/reading-boy.json";
 
 const PGrades = () => {
+
+    const { user, dispatch } = useContext(Context);  
 
     const navigate = useNavigate();
 
@@ -18,30 +21,34 @@ const PGrades = () => {
             <button className="back-button" onClick={() => navigate("/profesor/profile")}> Volver </button>
             
             <div className="content-cursos">
-                <div className="encabezado">
+
+                <div className="cursos-encabezado">
                     <div className="t-profile">
                         Cursos
                     </div>
 
-                    <div className="info-group">
-                        <div className="p-nombre">
-                            Juanito Alcachofa
+                    <div className="cursos-infogroup">
+                        <div className="cursos-pnombre">
+                            {user.pnombre + " " + user.apellidop + " " + user.apellidom}
                         </div>
-                        <div className="p-correo">
-                            juanito@profesor.cl
+                        <div className="cursos-pcorreo">
+                            {user.correo}
                         </div>
-                        <div className="p-rut">
-                            12.345.678-9
+                        <div className="cursos-prut">
+                            {user.rut}
                         </div>
                     </div>
                 </div>
 
 
-                <div className="content-imag">
-                    <div className="class-group">
+                <div className="cursos-body">
+                    <div className="cursos-list">
+                        
                         <button onClick={() => navigate("/profesor/notas")} className="home-button">
                             Séptimo A
                         </button>
+                        
+                        
 
                         <button onClick={() => navigate("/profesor/notas")} className="home-button">
                             Séptimo B
@@ -53,10 +60,11 @@ const PGrades = () => {
 
                         
                     </div>
-                    <Lottie animationData={cursos} loop={true} autoPlay ={true}  className="imag" ></Lottie>
+                    <Lottie animationData={cursos} loop={true} autoPlay ={true}  className="imag-cursos" ></Lottie>
                 </div>
 
                 <img className="nubesita" src = {sefirot} alt="FondoEducador"/>
+
             </div>
             
         </div>
