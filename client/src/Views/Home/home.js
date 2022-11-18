@@ -1,21 +1,25 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./home.css";
 import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-web";
+import Calendario from "../../Components/Calendar/Calendar.js";
+
+
+
 
 //IMG
 import imgEducador from "../../imgs/mainImg.svg"
 
 const Home = () => {
 
-
     const navigate = useNavigate();
+
 
     return (
         <div>
-
+            <Calendario></Calendario>
             <button className="adm-button back-button" onClick={() => navigate("/administrador/login")}> Administrador </button>
-            
+
             <div className="center">
 
                 <div className="tittle">
@@ -23,28 +27,28 @@ const Home = () => {
                 </div>
 
                 <div className="center">
-                
+
                     <div className="botones">
-                        
+
                         <button onClick={() => navigate("/estudiante/login")} className="home-button">
                             Ingreso estudiantil
                         </button>
-                        
+
                         <button onClick={() => navigate("/profesor/login")} className="home-button">
                             Ingreso profesores
                         </button>
 
                     </div>
-                
-                <img className="img" src = {imgEducador} alt="FondoEducador"/>
-            
-                
+
+                    <img className="img" src={imgEducador} alt="FondoEducador" />
+
+
                 </div>
 
             </div>
-            
+
         </div>
-        
+
     );
 
 

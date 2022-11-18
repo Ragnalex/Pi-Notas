@@ -6,7 +6,6 @@ import { Context } from "../../../context/context"
 import axios from "axios"
 
 // IMAGES
-import sefirot from "../../../imgs/Ellipse.png";
 import cursos from "../../../imgs/reading-boy.json";
 
 const PGrades = () => {
