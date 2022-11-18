@@ -1,6 +1,6 @@
 import './App.css';
 import React, { Fragment, useContext }  from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useMatch } from "react-router-dom";
 import { Context } from "../src/context/context";
 
 
@@ -27,6 +27,7 @@ import AdmnAsign from "./Views/AdminViews/adminAsignaturas/adminAsignaturas"
 function App() {
 
   const { user } = useContext(Context);
+
   
   return (
     <Fragment>
@@ -42,16 +43,13 @@ function App() {
               {/*Rutas de profesor*/}
 
               <Route path="/profesor/login" element={ <PLogin/> }> </Route> {/*Ruta Login*/}
-              <Route path="/profesor/profile/" element={<PProfile/> }>  </Route> {/*Ruta de inicio de profesor*/}
-              <Route path="/profesor/cursos" element={ <PGrades/>}> 
-                <Route path="/profesor/cursos/:asignatura" element={ <PGrades/>}> 
-                
-                </Route>
+              <Route path="/profesor/asignaturas/" element={<PProfile/> }>  </Route> {/*Ruta de inicio de profesor*/}
+              <Route exact path="/profesor/:asignatura" element={ <PGrades/>}> 
               </Route> {/*Ruta cursos de profesor*/}
+
+              <Route path="/profesor/:asignatura/:idcurso" element={ <PNotas/>}> </Route>
               
-              <Route path="/profesor/notas" element={ <PNotas/>}> 
-                {/* <Route path="/profesor/notas/:curso" element={ <PNotas/>}> </Route> */}
-              </Route> {/*Ruta de edición de notas puestas por profesores*/}
+              
               
               {/* Rutas de estudiantes */}
               

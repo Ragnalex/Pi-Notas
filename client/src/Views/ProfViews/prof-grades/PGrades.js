@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useState } from "react";
 import "./PGrades.css";
 import Lottie from "lottie-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { Context } from "../../../context/context"
+import axios from "axios"
 
 // IMAGES
 import sefirot from "../../../imgs/Ellipse.png";
@@ -12,7 +13,22 @@ const PGrades = () => {
 
     const { user, dispatch } = useContext(Context);  
 
+    const [ Listcursos, setListcursos ] = useState([]);
+
     const navigate = useNavigate();
+    
+    const getCursos = async () => {
+        try {
+            const res = await axios.post("http://localhost:5000/api/prof/verCursoAsignaturas", {
+                rut:user.rut
+            })
+            setListcursos(res.data);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {getCursos()}, []);
 
     return (
 
@@ -44,19 +60,20 @@ const PGrades = () => {
                 <div className="cursos-body">
                     <div className="cursos-list">
                         
-                        <button onClick={() => navigate("/profesor/notas")} className="home-button">
-                            Séptimo A
-                        </button>
-                        
-                        
-
-                        <button onClick={() => navigate("/profesor/notas")} className="home-button">
-                            Séptimo B
-                        </button>
-
-                        <button onClick={() => navigate("/profesor/notas")} className="home-button">
-                            Séptimo C
-                        </button>
+                        {
+                            Listcursos.map((curso,index) => {
+                                return (
+                                    <li key={curso._id}>
+                                        <Link to={`${curso._id}`}  key={index}>
+                                            <button className="home-button">
+                                                {curso.nombre}
+                                            </button>
+                                        </Link>
+                                    </li>
+                                    
+                                )
+                            })
+                        }
 
                         
                     </div>

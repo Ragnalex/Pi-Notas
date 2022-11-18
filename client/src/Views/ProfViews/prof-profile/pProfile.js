@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import "./pProfile.css";
 import Lottie from "lottie-react";
 import { Context } from "../../../context/context";
@@ -12,6 +12,8 @@ import libros from "../../../imgs/libros.json";
 
 
 const PProfile = () => {
+
+    const { _id } = useParams();
     
     const navigate = useNavigate();
 
@@ -73,12 +75,14 @@ const PProfile = () => {
                         {
                             asignaturas.map((asignatura, index)=> {         //Renderizado de los botones del backend
                                 return (
+                                <li key={asignatura.asignatura.nombre}>
+                                    <Link to ={`/profesor/${asignatura.asignatura.nombre}`}>
+                                        <button className="asign-button" key={index}>
+                                        {asignatura.asignatura.nombre}
+                                        </button>
+                                    </Link>
+                                </li>
                                 
-                                <Link to ={`/profesor/cursos/${asignatura.asignatura.nombre}`}>
-                                    <button className="asign-button" key={index}>
-                                    {asignatura.asignatura.nombre}
-                                    </button>
-                                </Link>
                                     
                                 )
                             })
