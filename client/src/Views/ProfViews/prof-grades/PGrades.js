@@ -4,7 +4,6 @@ import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
 
 // IMAGES
-import sefirot from "../../../imgs/Ellipse.png";
 import cursos from "../../../imgs/reading-boy.json";
 
 const PGrades = () => {
