@@ -16,7 +16,7 @@ const VerAsignaturas = async (req, res) => {
 };
 
 const VerCursosAsignaturas = async (req, res) => {
-  try {
+  try {   
     const prof = await Profesor.findOne({ rut: req.body.rut });
     const cursos = await Curso.find({ id: prof.asignaturas.cursos });
     res.status(200).json(cursos);

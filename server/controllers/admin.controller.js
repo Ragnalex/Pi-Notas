@@ -105,6 +105,14 @@ const VerCursos = async (req, res) => {
     res.status(500).json(err);
   }
 };
+const EliminarAsignatura = async (req, res) => {
+  try {
+    const cursos = await Curso.deleteOne({id:req.body.id});
+    res.status(200).json(cursos);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
 
 module.exports = {
   CreateAlumno,
@@ -114,4 +122,5 @@ module.exports = {
   AsignarRamoProfesor,
   VerAsignaturas,
   VerCursos,
+  EliminarAsignatura,
 };
