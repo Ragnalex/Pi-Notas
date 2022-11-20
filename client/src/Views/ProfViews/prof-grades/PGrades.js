@@ -7,6 +7,7 @@ import axios from "axios"
 
 // IMAGES
 import cursos from "../../../imgs/reading-boy.json";
+import sefirot from "../../../imgs/Ellipse.png";
 
 const PGrades = () => {
 
@@ -79,9 +80,11 @@ const PGrades = () => {
                     <Lottie animationData={cursos} loop={true} autoPlay ={true}  className="imag-cursos" ></Lottie>
                 </div>
 
-                <img className="nubesita" src = {sefirot} alt="FondoEducador"/>
+                
 
             </div>
+
+            <img className="nubesita" src = {sefirot} alt="FondoEducador"/>
             
         </div>
         

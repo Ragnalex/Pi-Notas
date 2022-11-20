@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import "./pNotas.css";
 import Lottie from "lottie-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 import { Context } from "../../../context/context";
@@ -12,8 +12,32 @@ import add_circle from "../../../imgs/plus-circle.png";
 import edit from "../../../imgs/pencil.png";
 import delete_btn from "../../../imgs/delete.png";
 
+
+
 const PNotas = () => {
+
     const navigate = useNavigate();
+
+    const [alumnos, setAlumnos] = useState([]);
+
+    const { idcurso } = useParams();
+
+    const { asignatura } = useParams();
+
+    const getAlumnos = async () => {
+        try {
+            const res = await axios.post("http://localhost:5000/api/prof/verAlumnosCurso", {
+                id: idcurso
+            })
+            setAlumnos(res.data)
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {getAlumnos()}, [])
+
     return (
         <div>
             <button onClick={() => navigate("/profesor/cursos")} className="back-button"> Volver </button>
@@ -83,80 +107,40 @@ const PNotas = () => {
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td><span className="available"></span></td>
-                                    <td>01</td>
-                                    <td>Marcos Rivas</td>
-                                    <td>5.5</td>
-                                    <td>6.4</td>
-                                    <td>5.0</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                {
+                                    alumnos.map((alumno, index) => {
 
-                                <tr>
-                                    <td><span className="available"></span></td>
-                                    <td>02</td>
-                                    <td>Marcos Rivas</td>
-                                    <td>5.5</td>
-                                    <td>6.4</td>
-                                    <td>5.0</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                        const listNotas = [];
+                                        const getNotas = () => {
+                                            for (let i = 0; i < alumno.notas.length ; i++){
+                                                if (alumno.notas[i].asignatura == asignatura ){
+                                                    listNotas[alumno.notas[i].numero] = alumno.notas[i].calificacion;
+                                                    
+                                                }
+                                            }
+                                        }
 
-                                <tr>
-                                    <td><span className="available"></span></td>
-                                    <td>03</td>
-                                    <td>Marcos Rivas</td>
-                                    <td>5.5</td>
-                                    <td>6.4</td>
-                                    <td>5.0</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
 
-                                <tr>
-                                    <td><span className="available"></span></td>
-                                    <td>04</td>
-                                    <td>Marcos Rivas</td>
-                                    <td>5.5</td>
-                                    <td>6.4</td>
-                                    <td>5.0</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-
-                                <tr>
-                                    <td><span className="available"></span></td>
-                                    <td>05</td>
-                                    <td>Marcos Rivas</td>
-                                    <td>5.5</td>
-                                    <td>6.4</td>
-                                    <td>5.0</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                        getNotas();
+                                        return (
+                                            
+                                            <tr>
+                                                <td><span className="available"></span></td>
+                                                <td>{index+1}</td>
+                                                <td>{alumno.pnombre + " " + alumno.apellidop + " " + alumno.apellidom}</td>
+                                                <td>{(listNotas.length > 0 && listNotas[1] != null && listNotas[1]) || "-" }</td>
+                                                <td>{(listNotas.length > 0 && listNotas[2] != null && listNotas[2]) || "-" }</td>
+                                                <td>{(listNotas.length > 0 && listNotas[3] != null && listNotas[3]) || "-" }</td>
+                                                <td>{(listNotas.length > 0 && listNotas[4] != null && listNotas[4]) || "-" }</td>
+                                                <td>{(listNotas.length > 0 && listNotas[5] != null && listNotas[5]) || "-" }</td>
+                                                <td>{(listNotas.length > 0 && listNotas[6] != null && listNotas[6]) || "-" }</td>
+                                                <td>{(listNotas.length > 0 && listNotas[7] != null && listNotas[7]) || "-" }</td>
+                                                <td>{(listNotas.length > 0 && listNotas[8] != null && listNotas[8]) || "-" }</td>
+                                                <td>{(listNotas.length > 0 && listNotas[9] != null && listNotas[9]) || "-" }</td>
+                                            </tr>
+                                        )
+                                    })
+                                }
                                 
                             </tbody>
                         </table>

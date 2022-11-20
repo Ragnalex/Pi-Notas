@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./home.css";
 import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-web";
-import Calendario from "../../Components/Calendar/Calendar.js";
+import Calendario from "../../components/Calendar/Calendar";
 
 
 
