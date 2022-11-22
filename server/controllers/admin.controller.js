@@ -21,11 +21,10 @@ const CreateAlumno = async (req, res) => {
     res.status(500).json(err);
   }
 };
-
 const CreateProfesor = async (req, res) => {
   try {
     const salt = await bcrypt.genSalt(10);
-    const hashedPass = await bcrypt.hash(req.body.contrasena, salt);
+    const hashedPass = await bcrypt.hash(_req.body.contrasena, salt);
     const newProfesor = new Profesor({
       rut: req.body.rut,
       pnombre: req.body.pnombre,
@@ -43,7 +42,6 @@ const CreateProfesor = async (req, res) => {
     res.status(500).json(err);
   }
 };
-
 const CreateAsignatura = async (req, res) => {
   try {
     const newAsignatura = new Asignatura({
@@ -55,6 +53,7 @@ const CreateAsignatura = async (req, res) => {
     res.status(500).json(err);
   }
 };
+
 
 const CreateCurso = async (req, res) => {
   try {
@@ -69,6 +68,8 @@ const CreateCurso = async (req, res) => {
     res.status(500).json(err);
   }
 };
+
+
 
 const AsignarRamoProfesor = async (req, res) => {
   //recibe una lista de ids
@@ -105,15 +106,45 @@ const VerCursos = async (req, res) => {
     res.status(500).json(err);
   }
 };
-const EliminarAsignatura = async (req, res) => {
+const EliminarAlumno = async (req, res) => {
   try {
-    const cursos = await Curso.deleteOne({id:req.body.id});
-    res.status(200).json(cursos);
+    const alumno = await Alumno.deleteOne({_id:req.body.id});
+    res.status(200).json(alumno);
   } catch (err) {
     res.status(500).json(err);
   }
 };
 
+const EliminarProfesor = async (req, res) => {
+  try {
+    const profesores = await Profesor.deleteOne({_id:req.body.id});
+    res.status(200).json(profesores);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+const EliminarAsignatura = async (req, res) => {
+  try {
+    const asignatura = await Asignatura.deleteOne({_id:req.body.id});
+    await Profesor.updateMany({},{$pull: {asignaturas: {asignatura:req.body.id}}});
+    await Curso.updateMany({},{$pull: {asignaturas: req.body.id}});
+    res.status(200).json(asignatura);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+const EliminarCurso = async (req, res) => {
+  try {
+    const curso = await Curso.deleteOne({_id:req.body.id});
+    await Profesor.updateOne({jefatura:req.body.id},{$set : {jefatura:null}});
+    await Alumno.updateMany({curso:req.body.id},{$set : {curso:null}});
+    res.status(200).json(curso);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
 module.exports = {
   CreateAlumno,
   CreateProfesor,
@@ -122,5 +153,8 @@ module.exports = {
   AsignarRamoProfesor,
   VerAsignaturas,
   VerCursos,
+  EliminarAlumno,
+  EliminarProfesor,
   EliminarAsignatura,
+  EliminarCurso
 };
