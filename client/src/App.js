@@ -21,6 +21,7 @@ import ENotas from './Views/EstuViews/estNotas/eNotas';
 import AdmnLogin from "./Views/AdminViews/admnLogin/admLogin";
 import AdmnHome from './Views//AdminViews/adminHome/admnHome';
 import AdmnAsign from "./Views/AdminViews/adminAsignaturas/adminAsignaturas"
+import AdmnCurs from "./Views/AdminViews/adminCursos/adminCursos"
 
 
 
@@ -60,6 +61,7 @@ function App() {
               <Route path="/administrador/login" element={ <AdmnLogin/> }> </Route>
               <Route path="/administrador/inicio" element={ <AdmnHome/> }></Route>
               <Route path="/administrador/asignaturas" element={ <AdmnAsign/> }></Route>
+              <Route path="/administrador/cursos" element={ <AdmnCurs/> }></Route>
 
             </Routes>
 

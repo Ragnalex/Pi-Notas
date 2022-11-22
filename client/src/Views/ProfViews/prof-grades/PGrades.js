@@ -34,7 +34,7 @@ const PGrades = () => {
 
         <div>
 
-            <button className="back-button" onClick={() => navigate("/profesor/profile")}> Volver </button>
+            <button className="back-button" onClick={() => navigate("/profesor/asignaturas/")}> Volver </button>
             
             <div className="content-cursos">
 

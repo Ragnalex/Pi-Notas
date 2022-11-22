@@ -24,6 +24,8 @@ const PNotas = () => {
 
     const { asignatura } = useParams();
 
+    const { user, dispatch } = useContext(Context);
+
     const getAlumnos = async () => {
         try {
             const res = await axios.post("http://localhost:5000/api/prof/verAlumnosCurso", {
@@ -49,13 +51,13 @@ const PNotas = () => {
 
                     <div className="est-info-group">
                         <div className="p-nombre">
-                            Juanito Alcachofa
+                            {user.pnombre + " " + user.apellidop + " " + user.apellidom}
                         </div>
                         <div className="p-correo">
-                            juanito@profesor.cl
+                            {user.correo}
                         </div>
                         <div className="p-rut">
-                            12.345.678-9
+                            {user.rut}
                         </div>
                     </div>
                 </div>
@@ -111,13 +113,19 @@ const PNotas = () => {
                                     alumnos.map((alumno, index) => {
 
                                         const listNotas = [];
+                                        let suma = 0;
+                                        let cant = 0;
                                         const getNotas = () => {
                                             for (let i = 0; i < alumno.notas.length ; i++){
                                                 if (alumno.notas[i].asignatura == asignatura ){
                                                     listNotas[alumno.notas[i].numero] = alumno.notas[i].calificacion;
-                                                    
+                                                    cant++;
+                                                    if (i == 0){
+                                                        suma = alumno.notas[i].calificacion;
+                                                    } else suma = suma + alumno.notas[i].calificacion;
                                                 }
                                             }
+                                            listNotas[9] = suma/cant;
                                         }
 
 
