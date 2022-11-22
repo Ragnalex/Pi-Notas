@@ -8,7 +8,10 @@ const {
     AsignarRamoProfesor,
     VerAsignaturas,
     VerCursos,
-    EliminarAsignatura
+    EliminarAsignatura,
+    EliminarAlumno,
+    EliminarProfesor,
+    EliminarCurso
 } = require("../controllers/admin.controller");
 
 //Creación de Usuarios
@@ -26,5 +29,8 @@ router.get("/verAsignaturas", VerAsignaturas);
 //ver todos los cursos
 router.get("/verCursos", VerCursos);
 //eliminar una asignatura
-router.get("/elimiarCurso", EliminarAsignatura);
+router.post("/eliminarAlumno", EliminarAlumno);
+router.post("/eliminarProfesor", EliminarProfesor);
+router.post("/eliminarCurso", EliminarCurso);
+router.post("/eliminarAsignatura", EliminarAsignatura);
 module.exports = router;
