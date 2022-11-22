@@ -16,7 +16,7 @@ const VerAsignaturas = async (req, res) => {
 };
 
 const VerCursosAsignaturas = async (req, res) => {
-  try {   
+  try {
     const prof = await Profesor.findOne({ rut: req.body.rut });
     const cursos = await Curso.find({ id: prof.asignaturas.cursos });
     res.status(200).json(cursos);
@@ -72,6 +72,27 @@ const CreateEvento = async (req, res) => {
   }
 };
 
+const EliminarNotaAlumno = async (req, res) => {
+  try {
+    const alumno = await Alumno.updateOne(
+      { rut: req.body.rut },
+      { $pull: { notas: req.body.idNota } }
+    );
+    res.status(200).json(alumno);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+const EliminarEvento = async (req, res) => {
+  try {
+    const eventos = await Evento.deleteOne({ _id: req.body.idEvento });
+    await Curso.updateMany({}, { $pull: { calendario: req.body.idEvento } });
+    res.status(200).json(eventos);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
 module.exports = {
   VerAsignaturas,
   VerCursosAsignaturas,
