@@ -1,6 +1,6 @@
 import './App.css';
 import React, { Fragment, useContext }  from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useMatch } from "react-router-dom";
 import { Context } from "../src/context/context";
 
 
@@ -21,12 +21,14 @@ import ENotas from './Views/EstuViews/estNotas/eNotas';
 import AdmnLogin from "./Views/AdminViews/admnLogin/admLogin";
 import AdmnHome from './Views//AdminViews/adminHome/admnHome';
 import AdmnAsign from "./Views/AdminViews/adminAsignaturas/adminAsignaturas"
+import AdmnCurs from "./Views/AdminViews/adminCursos/adminCursos"
 
 
 
 function App() {
 
   const { user } = useContext(Context);
+
   
   return (
     <Fragment>
@@ -42,9 +44,13 @@ function App() {
               {/*Rutas de profesor*/}
 
               <Route path="/profesor/login" element={ <PLogin/> }> </Route> {/*Ruta Login*/}
-              <Route path="/profesor/profile/" element={<PProfile/> }>  </Route> {/*Ruta de inicio de profesor*/}
-              <Route path="/profesor/cursos" element={ <PGrades/>}> </Route> {/*Ruta cursos de profesor*/}
-              <Route path="/profesor/notas" element={ <PNotas/>}> </Route> {/*Ruta de edición de notas puestas por profesores*/}
+              <Route path="/profesor/asignaturas/" element={<PProfile/> }>  </Route> {/*Ruta de inicio de profesor*/}
+              <Route exact path="/profesor/:asignatura" element={ <PGrades/>}> 
+              </Route> {/*Ruta cursos de profesor*/}
+
+              <Route path="/profesor/:asignatura/:idcurso" element={ <PNotas/>}> </Route>
+              
+              
               
               {/* Rutas de estudiantes */}
               
@@ -55,6 +61,7 @@ function App() {
               <Route path="/administrador/login" element={ <AdmnLogin/> }> </Route>
               <Route path="/administrador/inicio" element={ <AdmnHome/> }></Route>
               <Route path="/administrador/asignaturas" element={ <AdmnAsign/> }></Route>
+              <Route path="/administrador/cursos" element={ <AdmnCurs/> }></Route>
 
             </Routes>
 

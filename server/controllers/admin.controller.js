@@ -145,6 +145,17 @@ const EliminarCurso = async (req, res) => {
     res.status(500).json(err);
   }
 };
+const ObtenerProfJefe = async(req, res) => {
+  try {
+    const profesor = await (Profesor.findOne({
+      jefatura: req.body.idcurso
+    }))
+    res.status(200).json(profesor);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+}
+
 module.exports = {
   CreateAlumno,
   CreateProfesor,
@@ -156,5 +167,6 @@ module.exports = {
   EliminarAlumno,
   EliminarProfesor,
   EliminarAsignatura,
-  EliminarCurso
+  EliminarCurso,
+  ObtenerProfJefe
 };

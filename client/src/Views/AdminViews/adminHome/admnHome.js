@@ -27,7 +27,7 @@ const AdmnHome = () => {
                     <div name="buttons content" className="adm-bcontent">
                         <button className="opt-button"> Gestionar profesores</button>
                         <button className="opt-button" onClick={() => navigate("/administrador/asignaturas")}> Gestionar asignaturas </button>
-                        <button className="opt-button"> Gestionar cursos </button>
+                        <button className="opt-button" onClick={() => navigate("/administrador/cursos")}> Gestionar cursos </button>
                         <button className="opt-button"> Gestionar estudiantes </button>
                     </div>
                 </div>
