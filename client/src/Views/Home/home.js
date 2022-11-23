@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./home.css";
 import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-web";
-import Calendario from "../../components/Calendar/Calendar";
+//import Calendario from "../../components/Calendar/Calendar";
 
 
 
@@ -17,7 +17,7 @@ const Home = () => {
 
     return (
         <div>
-            <Calendario></Calendario>
+            {/*<Calendario></Calendario>*/}
             <button className="adm-button back-button" onClick={() => navigate("/administrador/login")}> Administrador </button>
 
             <div className="center">
