@@ -87,6 +87,9 @@ página anterior o ver calendario   */
 .back-button:hover{
   background: #4804a0;
 }
+.back-button:active{
+  background: #6638a1;
+}
 
 /*DISEÑO DE FONDO*/
 .nubesita{
