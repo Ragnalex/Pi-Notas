@@ -37,23 +37,31 @@
 }
 
 .admn-addbutton{
-    background-color: #2ff170;
-    border-radius: 10px;
-    padding: 5px;
-    font-size: 16px;
+    background-color: #eeeeee;
+    border: 3px solid #4dd47a;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4dd47a;
 }
 .admn-addbutton:hover{
     background-color: #7bf0a2;
+    color: #eeeeee;
+    transition: .3s;
 }
 .admn-asignatura{
     width: 400px;
     background: #D9D9D9;
-    border: 1px solid #2D79EB;
+    border: 2px solid #2D79EB;
+    border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     text-align: center;
     font-size: 24px;
+    color: #29255d;
 }
+
 .admn-listAsignaturas{
     margin-top: 10px;
     display: flex;
@@ -77,10 +85,18 @@
     color: red;
 }
 .admn-delbtn{
-    background-color: #f34141;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background-color: #e44e4e;
+    border: 2px solid #960b0b;
+    border-radius: 10px;
 }
 .admn-delbtn:hover{
-    background-color: #cc1212;
+    background-color: #D9D9D9;
+    border-color: #e44e4e;
+    transition: .3s;
 }
 .admn-delbtn:active{
     background-color: #960b0b;
@@ -115,7 +131,6 @@
     border: 1px solid rgba(0, 0, 0, 0.5);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-
 }
 .admn-poptitle{
     color: #000000;

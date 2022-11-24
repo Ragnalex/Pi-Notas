@@ -11,3 +11,8 @@
 # -- Datos administrador
     -hbriamo0@apple.com
     -admin1
+
+
+# -- FONT: ADMIN
+    Base para todas las ventanas => adminAsignaturas.css
+                                    adminAsignaturas.js
