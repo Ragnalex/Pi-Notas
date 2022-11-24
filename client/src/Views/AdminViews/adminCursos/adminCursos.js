@@ -12,10 +12,11 @@ import editIco from "../../../imgs/pencil.png"
 import calendarIco from "../../../imgs/calendarIco.png"
 import bottomCloud from "../../../imgs/Ellipse.png"
 import addCircle from "../../../imgs/plus-circle.png"
+import delIco from "../../../imgs/trash.svg"
 
 const AdminCursos = () => {
 
-    const [ cursos, setCursos ] = useState([]);
+    const [cursos, setCursos] = useState([]);
     const nuevoCursoRef = useRef();
     const paraleloCursoRef = useRef();
     const anioCursoRef = useRef();
@@ -23,12 +24,12 @@ const AdminCursos = () => {
     const navigate = useNavigate();
 
     const year = (new Date()).getFullYear();
-    const years = Array.from(new Array(20),( val, index) => index + year);
+    const years = Array.from(new Array(20), (val, index) => index + year);
 
-    const getCursos = async() => {
+    const getCursos = async () => {
         try {
             const res = await axios.get("http://localhost:5000/api/admin/verCursos")
-            const sortData = res.data.sort((elem1, elem2) => elem1.nombre - elem2.nombre )
+            const sortData = res.data.sort((elem1, elem2) => elem1.nombre.localeCompare(elem2.nombre))
             setCursos(sortData);
         } catch (error) {
             console.log(error);
@@ -39,20 +40,31 @@ const AdminCursos = () => {
         try {
             const res = await axios.post("http://localhost:5000/api/admin/ingresarCurso", {
                 nombre: nuevoCursoRef.current.value,
-                paralelo:paraleloCursoRef.current.value,
-                año:anioCursoRef.current.value,
+                paralelo: paraleloCursoRef.current.value,
+                año: anioCursoRef.current.value,
             })
             alert("Curso creado exitosamente");
         } catch (error) {
             console.log(error)
         }
     }
+    const handleDelete = async (curso) => {
+        try {
+            const res = await axios.post("http://localhost:5000/api/admin/eliminarCurso", {
+                id: curso._id
+            })
+            alert("Curso " + curso.nombre + " " + curso.paralelo + " Eliminado exitosamente.");
+            window.location.reload();
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
-    
 
-    useEffect(() => {getCursos()}, []);
 
-    return(
+    useEffect(() => { getCursos() }, []);
+
+    return (
         <div className="admn-cursosall">
             <div className="admn-ccontent">
                 <div className="admn-topcontent">
@@ -61,13 +73,13 @@ const AdminCursos = () => {
                     </div>
                     <button onClick={() => navigate("/administrador/inicio")} className="back-button"> Volver </button>
                 </div>
-                
+
                 <div className="admn-tools">
-                    
+
 
                     <Popup trigger={<button className="admn-addBtn">
-                                    <img className="material-icons" src = {addCircle} alt="añadir"/>
-                                    </button>} modal>
+                        <img className="material-icons" src={addCircle} alt="añadir" />
+                    </button>} modal>
 
                         <div className="admn-popContent">
                             <div className="admn-popuptitle" >
@@ -79,22 +91,22 @@ const AdminCursos = () => {
                                         Seleccione curso
                                     </label>
                                     <select ref={nuevoCursoRef} className="admn-popupOptions" placeholder="año....">
-                                            <option value="1° Básico">1° Básico</option>
-                                            <option value="2° Básico">2° Básico</option>
-                                            <option value="3° Básico">3° Básico</option>
-                                            <option value="4° Básico">4° Básico</option>
-                                            <option value="5° Básico">5° Básico</option>
-                                            <option value="6° Básico">6° Básico</option>
-                                            <option value="7° Básico">7° Básico</option>
-                                            <option value="8° Básico">8° Básico</option>
-                                            <option value="1° Medio">1° Medio</option>
-                                            <option value="2° Medio">2° Medio</option>
-                                            <option value="3° Medio">3° Medio</option>
-                                            <option value="4° Medio">4° Medio</option>
+                                        <option value="1° Básico">1° Básico</option>
+                                        <option value="2° Básico">2° Básico</option>
+                                        <option value="3° Básico">3° Básico</option>
+                                        <option value="4° Básico">4° Básico</option>
+                                        <option value="5° Básico">5° Básico</option>
+                                        <option value="6° Básico">6° Básico</option>
+                                        <option value="7° Básico">7° Básico</option>
+                                        <option value="8° Básico">8° Básico</option>
+                                        <option value="1° Medio">1° Medio</option>
+                                        <option value="2° Medio">2° Medio</option>
+                                        <option value="3° Medio">3° Medio</option>
+                                        <option value="4° Medio">4° Medio</option>
                                     </select>
                                 </div>
-                                
-                                
+
+
                                 <div className="admn-popupSelect">
                                     <label className="admn-popupLabel">
                                         Seleccione Paralelo
@@ -107,10 +119,10 @@ const AdminCursos = () => {
                                         <option value="E">E</option>
                                         <option value="F">F</option>
                                     </select>
-                                    
+
                                 </div>
-                                
-                                
+
+
                                 <div className="admn-popupSelect">
                                     <label className="admn-popupLabel">
                                         Seleccione año
@@ -130,13 +142,13 @@ const AdminCursos = () => {
                                         <option value="2011">2011</option>
                                     </select>
                                 </div>
-                                
+
                                 <button type="submit" className="admn-submit"> Añadir</button>
                             </form>
                         </div>
                     </Popup>
                 </div>
-                
+
 
                 <div className="admn-bodycursos">
 
@@ -144,7 +156,7 @@ const AdminCursos = () => {
 
                         {/*Tabla de notas*/}
                         <div>
-                            
+
                             <table className="admn-datatable">
                                 <thead>
                                     <tr>
@@ -161,52 +173,67 @@ const AdminCursos = () => {
 
                                 <tbody>
 
-                                {
-                                    cursos.map((curso, index) => {      
-                                        
+                                    {
+                                        cursos.map((curso, index) => {
 
-                                        return(
-                                            
-                                            <tr key={index}>
-                                            <td></td>
-                                            <td>{index+1}</td>
-                                            <td>{curso.nombre}</td>
-                                            <td>{curso.paralelo}</td>
-                                            <td>{curso.año}</td>
-                                            <td>
-                                                <button className="admn-btn">
-                                                    <img className="material-icons" src = {editIco} alt="editar"/>
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button className="admn-btn">
-                                                    <img className="material-icons" src = {calendarIco} alt="calendario"/>
-                                                </button>
-                                            </td>
-                                            <td></td>
-                                            </tr>
-                                            
-                                            
-                                        )
-                                    })
-                                }
-                                
+
+                                            return (
+
+                                                <tr key={index}>
+                                                    <td></td>
+                                                    <td>{index + 1}</td>
+                                                    <td>{curso.nombre}</td>
+                                                    <td>{curso.paralelo}</td>
+                                                    <td>{curso.año}</td>
+                                                    <td>
+                                                        <button className="admn-btn">
+                                                            <img className="material-icons" src={editIco} alt="editar" />
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <button className="admn-btn">
+                                                            <img className="material-icons" src={calendarIco} alt="calendario" />
+                                                        </button>
+                                                    </td>
+                                                    <td>
+
+                                                        <Popup trigger={<button className="admn-btn"><img src={delIco} className="material-icons"></img></button>} modal>
+                                                            <div className="admn-test">
+                                                                <div className="admn-poptitle" >
+                                                                    ¿Esta seguro de eliminar {curso.nombre} {curso.paralelo} del año {curso.año}?
+
+                                                                </div>
+                                                                <div className="admn-delModalbuttons">
+                                                                    <button onClick={() => handleDelete(curso)} className="admn-delModalbtn"> Eliminar</button>
+                                                                    <button className="admn-submit"> Cancelar</button>
+                                                                </div>
+
+                                                            </div>
+                                                        </Popup>
+                                                    </td>
+                                                </tr>
+
+
+                                            )
+                                        })
+                                    }
+
                                 </tbody>
                             </table>
-                        
+
                         </div>
 
-                        
+
                     </div>
-                    
+
                 </div>
 
-                
+
 
             </div>
 
-            <img className="admn-nubesita" src = {bottomCloud} />
-        
+            <img className="admn-nubesita" src={bottomCloud} />
+
         </div>
     )
 }
