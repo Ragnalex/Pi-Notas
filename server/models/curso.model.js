@@ -7,6 +7,10 @@ const CursoSchema = new Schema({
     required: true,
     unique: true,
   },
+  paralelo:{
+    type: String,
+    require: true
+  },
   año: {
     type: String,
     required: true,

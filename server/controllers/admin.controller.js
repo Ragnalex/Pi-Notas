@@ -58,6 +58,7 @@ const CreateCurso = async (req, res) => {
   try {
     const newCurso = new Curso({
       nombre: req.body.nombre,
+      paralelo: req.body.paralelo,
       año: req.body.año,
       asignaturas: req.body.asignaturas,
     });

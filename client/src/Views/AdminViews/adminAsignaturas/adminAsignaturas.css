@@ -1,13 +1,22 @@
+.admn-asignall{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    height: 700px;
+    width: 1360px;
+}
 
 .admn-acontent{
-    flex-direction: row;
-    flex-wrap: wrap;
     padding: 20px;
+    padding-bottom: 50px;
     background-color: #FFFFFF;
     border-radius: 20px;
     box-shadow: 0px 0px 20px -8px rgb(0, 0, 0, 0.9);
     width: 1200px;
-    min-height: 500px;
+    min-height: auto;
+    margin-top: 50px;
+    margin-bottom: 10px;
 }
 
 .admn-atitle{
@@ -46,16 +55,18 @@
     font-size: 24px;
 }
 .admn-listAsignaturas{
-    margin-top: 30px;
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin-left: 50px;
     min-height: 260px;
     overflow-y: auto;
 }
 .admn-filaAsignatura{
+    margin-right: 5%;
+    margin-left: 3%;
     margin-top: 10px;
     display: flex;
     flex-direction: row;
@@ -169,5 +180,28 @@
 }
 
 
+.admn-nubesita{
+    width: 100% !important;
+    height: 70px;
+    position:static;
+    display: flex;
+    bottom: 0;
+    left: 0;
+  }
 
-
+  @media(min-width: 300px)and(max-width: 400px){
+    .admn-asignall{
+        min-width: 300px;
+    }
+    .admn-acontent{
+        min-width: 50px;
+        height: 50px;
+    }
+    .admn-listAsignaturas{
+        min-height: 100px;
+    }
+    .admn-asignatura{
+        width: 50px;
+        font-size: 18;
+    }
+  }

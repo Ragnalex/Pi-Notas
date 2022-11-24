@@ -11,12 +11,13 @@ import axios from "axios";
 
 //ico import
 import editIco from "../../../imgs/trash.svg"
+import bottomCloud from "../../../imgs/Ellipse.png"
 
 
 
 const AdminAsignaturas = () => {
 
-    const [Asignaturas, setAsignaturas ] = useState([]);
+    const [Asignaturas, setAsignaturas] = useState([]);
     const [opendelModal, setOpendelModal] = useState(false);
     const closeModal = () => setOpendelModal(false);
 
@@ -24,16 +25,16 @@ const AdminAsignaturas = () => {
 
     const navigate = useNavigate();
 
-    const getAsignaturas = async() => {
+    const getAsignaturas = async () => {
         try {
             const res = await axios.get("http://localhost:5000/api/admin/verAsignaturas")
             setAsignaturas(res.data);
         } catch (error) {
-           console.log(error); 
+            console.log(error);
         }
     }
 
-    const AddAsignatura = async() => {
+    const AddAsignatura = async () => {
         try {
             const res = await axios.post("http://localhost:5000/api/admin/ingresarAsignatura", {
                 nombre: newAsignatura.current.value
@@ -56,77 +57,78 @@ const AdminAsignaturas = () => {
     }
 
 
-    useEffect(() => {getAsignaturas()}, []);
+    useEffect(() => { getAsignaturas() }, []);
 
-    return(
+    return (
+        <div className="admn-asignall">
 
-        <div className="admn-acontent">
-            <div className="admn-top">
-                <div className="admn-atitle">
-                    Gestión de Asignaturas
+            <div className="admn-acontent">
+                <div className="admn-top">
+                    <div className="admn-atitle">
+                        Gestión de Asignaturas
+                    </div>
+
+                    <button onClick={() => navigate("/administrador/inicio")} className="back-button"> Volver </button>
                 </div>
 
-                <button onClick={() => navigate("/administrador/inicio")} className="back-button"> Volver </button>
-            </div>
-            
 
-            <div className="admn-topButtons">
-                <Popup trigger={<button className="admn-addbutton"> Añadir asignatura </button>} modal>
-                    <div className="admn-test">
-                        <div className="admn-poptitle" >
-                            Añadiendo asignatura
-                        </div>
-                        <form className="admn-form" onSubmit={AddAsignatura}>
-                            <label className="admn-label">
-                                Ingrese nombre de asignatura
-                            </label>
-                            <input className="admn-input" type="text" placeholder="Lenguaje..." ref={newAsignatura}></input>
-
-                            <button type="submit" className="admn-submit"> Añadir</button>
-                        </form>
-                    </div>
-                </Popup>
-                
-            </div>
-
-            <div className="admn-listAsignaturas">
-                {
-                    Asignaturas.map((asignatura, index)=> {
-                        return(
-                            <div className="admn-filaAsignatura" key={index}>
-                                <div className="admn-asignatura">
-                                    {asignatura.nombre}
-                                </div>
-                                
-                                
-                                <Popup trigger={<button className="admn-delbtn"><img src={editIco} className="admn-delIco"></img></button>} onClose={closeModal} modal>
-                                    <div className="admn-test">
-                                        <div className="admn-poptitle" >
-                                            ¿Esta seguro de eliminar {asignatura.nombre} ?
-                                            
-                                        </div>
-                                        <div className="admn-delModalbuttons">
-                                            <button onClick={() => handleDelete(asignatura)} className="admn-delModalbtn"> Eliminar</button>
-                                            <button onClick={() => closeModal} className="admn-submit"> Cancelar</button>
-                                        </div>
-                                        
-                                    </div>
-                                </Popup>
+                <div className="admn-topButtons">
+                    <Popup trigger={<button className="admn-addbutton"> Añadir asignatura </button>} modal>
+                        <div className="admn-test">
+                            <div className="admn-poptitle" >
+                                Añadiendo asignatura
                             </div>
+                            <form className="admn-form" onSubmit={AddAsignatura}>
+                                <label className="admn-label">
+                                    Ingrese nombre de asignatura
+                                </label>
+                                <input className="admn-input" type="text" placeholder="Lenguaje..." ref={newAsignatura}></input>
+
+                                <button type="submit" className="admn-submit"> Añadir</button>
+                            </form>
+                        </div>
+                    </Popup>
+
+                </div>
+
+                <div className="admn-listAsignaturas">
+                    {
+                        Asignaturas.map((asignatura, index) => {
+                            return (
+                                <div className="admn-filaAsignatura" key={index}>
+                                    <div className="admn-asignatura">
+                                        {asignatura.nombre}
+                                    </div>
+
+
+                                    <Popup trigger={<button className="admn-delbtn"><img src={editIco} className="admn-delIco"></img></button>} onClose={closeModal} modal>
+                                        <div className="admn-test">
+                                            <div className="admn-poptitle" >
+                                                ¿Esta seguro de eliminar {asignatura.nombre} ?
+
+                                            </div>
+                                            <div className="admn-delModalbuttons">
+                                                <button onClick={() => handleDelete(asignatura)} className="admn-delModalbtn"> Eliminar</button>
+                                                <button onClick={() => closeModal} className="admn-submit"> Cancelar</button>
+                                            </div>
+
+                                        </div>
+                                    </Popup>
+                                </div>
+                            )
+                        }
                         )
                     }
-                    )
-                }
 
-                
+
+                </div>
+
+
             </div>
 
-            
+            <img className="admn-nubesita" src = {bottomCloud} />
+
         </div>
-
-
-        
-
 
     )
 
