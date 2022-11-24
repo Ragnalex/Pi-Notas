@@ -3,7 +3,7 @@ import "./adminCursos.css"
 
 //utilities
 import axios from "axios"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import Popup from "reactjs-popup"
 
@@ -16,6 +16,9 @@ import addCircle from "../../../imgs/plus-circle.png"
 const AdminCursos = () => {
 
     const [ cursos, setCursos ] = useState([]);
+    const nuevoCursoRef = useRef();
+    const paraleloCursoRef = useRef();
+    const anioCursoRef = useRef();
 
     const navigate = useNavigate();
 
@@ -25,10 +28,23 @@ const AdminCursos = () => {
     const getCursos = async() => {
         try {
             const res = await axios.get("http://localhost:5000/api/admin/verCursos")
-
-            setCursos(res.data);
+            const sortData = res.data.sort((elem1, elem2) => elem1.nombre - elem2.nombre )
+            setCursos(sortData);
         } catch (error) {
             console.log(error);
+        }
+    }
+
+    const handleSubmit = async () => {
+        try {
+            const res = await axios.post("http://localhost:5000/api/admin/ingresarCurso", {
+                nombre: nuevoCursoRef.current.value,
+                paralelo:paraleloCursoRef.current.value,
+                año:anioCursoRef.current.value,
+            })
+            alert("Curso creado exitosamente");
+        } catch (error) {
+            console.log(error)
         }
     }
 
@@ -57,12 +73,12 @@ const AdminCursos = () => {
                             <div className="admn-popuptitle" >
                                 Añadiendo nuevo curso
                             </div>
-                            <form className="admn-popupForm">
+                            <form className="admn-popupForm" onSubmit={handleSubmit}>
                                 <div className="admn-popupSelect">
                                     <label className="admn-popupLabel">
                                         Seleccione curso
                                     </label>
-                                    <select className="admn-popupOptions" placeholder="año....">
+                                    <select ref={nuevoCursoRef} className="admn-popupOptions" placeholder="año....">
                                             <option value="1° Básico">1° Básico</option>
                                             <option value="2° Básico">2° Básico</option>
                                             <option value="3° Básico">3° Básico</option>
@@ -83,7 +99,7 @@ const AdminCursos = () => {
                                     <label className="admn-popupLabel">
                                         Seleccione Paralelo
                                     </label>
-                                    <select className="admn-popupOptions" placeholder="año....">
+                                    <select ref={paraleloCursoRef} className="admn-popupOptions" placeholder="año....">
                                         <option value="A">A</option>
                                         <option value="B">B</option>
                                         <option value="C">C</option>
@@ -99,7 +115,7 @@ const AdminCursos = () => {
                                     <label className="admn-popupLabel">
                                         Seleccione año
                                     </label>
-                                    <select className="admn-popupOptions" placeholder="año....">
+                                    <select ref={anioCursoRef} className="admn-popupOptions" placeholder="año....">
                                         <option value="2022">2022</option>
                                         <option value="2021">2021</option>
                                         <option value="2020">2020</option>

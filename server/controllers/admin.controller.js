@@ -63,7 +63,7 @@ const CreateCurso = async (req, res) => {
       asignaturas: req.body.asignaturas,
     });
     await newCurso.save();
-    res.status(200).json(newCurso);
+    res.status(200).send("Curso creado exitosamente");
   } catch (err) {
     res.status(500).json(err);
   }

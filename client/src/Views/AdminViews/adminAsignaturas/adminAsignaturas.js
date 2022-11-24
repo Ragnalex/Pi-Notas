@@ -50,6 +50,7 @@ const AdminAsignaturas = () => {
                 id: asignatura._id
             })
             alert(asignatura.nombre + " Ha sido eliminado exitosamente.");
+            window.location.reload();
 
         } catch (error) {
             console.log(error)
