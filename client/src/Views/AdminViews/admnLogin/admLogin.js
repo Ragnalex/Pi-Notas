@@ -59,7 +59,7 @@ const PLogin = () => {
 
                     <form className="admL-formBox" onSubmit={handleSubmit}>
                         <label className="admL-label"> Correo administrador </label>
-                        <input className="input-box" type="text" placeholder="profesor@colegio.cl" ref={correoRef}></input>
+                        <input className="input-box" type="text" placeholder="administrador@colegio.cl" ref={correoRef}></input>
 
                         <label className="admL-label">Contraseña</label>
                         <input className="input-box" type="password" placeholder="***********" ref={passRef}></input>

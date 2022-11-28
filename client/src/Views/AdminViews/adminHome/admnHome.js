@@ -28,7 +28,7 @@ const AdmnHome = () => {
                         <button className="opt-button" onClick={() => navigate("/administrador/profesores")}> Gestionar profesores</button>
                         <button className="opt-button" onClick={() => navigate("/administrador/asignaturas")}> Gestionar asignaturas </button>
                         <button className="opt-button" onClick={() => navigate("/administrador/cursos")}> Gestionar cursos </button>
-                        <button className="opt-button"> Gestionar estudiantes </button>
+                        <button className="opt-button" onClick={() => navigate("/administrador/estudiantes")}> Gestionar estudiantes </button>
                     </div>
                 </div>
 

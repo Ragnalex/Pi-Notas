@@ -1,0 +1,65 @@
+.admn-estudall{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    height: 700px;
+    width: 1360px;
+}
+/*content blanco*/
+.admn-econtent{
+    padding: 20px;
+    padding-bottom: 50px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px -8px rgb(0, 0, 0, 0.9);
+    width: 1200px;
+    min-height: auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+/*Title style*/
+.admn-etitle{
+    color: #4583FB;
+    font-size: 40px;
+    margin-left: 50px;
+    text-align: start;
+}
+/*body style*/
+.admn-ebody{
+    display: flex;
+}
+
+/*table style*/
+.admn-edatatable{
+    margin-top: 1rem;
+    border-collapse: collapse;
+    border: solid rgb(104, 102, 102) 1px;
+    width: 100%;
+    font-size: 20px;
+}
+
+.admn-edatatable th, td {
+    padding: 10px;
+}
+
+.admn-edatatable th {
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 2px #4583fb;
+}
+
+.admn-edatatable td {
+    border-bottom: solid 2px #8baef6;
+    text-align: center;
+    
+}
+
+.admn-edatatable tbody tr:nth-child(even){
+    background-color: #8baef6;
+}
+
+.admn-edatatable tbody tr:hover{
+    background-color: #4583fb;
+}
+

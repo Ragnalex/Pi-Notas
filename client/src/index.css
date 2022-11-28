@@ -97,7 +97,7 @@ página anterior o ver calendario   */
   height: 60px;
   position: fixed;
   display: flex;
-  bottom: 0;
+  margin-bottom: 0px;
   left: 0;
   margin-top: 100px;
 }

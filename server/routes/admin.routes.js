@@ -8,6 +8,8 @@ const {
     AsignarRamoProfesor,
     VerAsignaturas,
     VerCursos,
+    VerEstudiantes,
+    VerProfesores,
     EliminarAsignatura,
     EliminarAlumno,
     EliminarProfesor,
@@ -29,6 +31,10 @@ router.post("/asignaturaProfesor", AsignarRamoProfesor);
 router.get("/verAsignaturas", VerAsignaturas);
 //ver todos los cursos
 router.get("/verCursos", VerCursos);
+//ver todos los estudiantes
+router.get("/verEstudiantes", VerEstudiantes);
+//Ver todos los profesores
+router.get("/verProfesores", VerProfesores);
 //eliminar una asignatura
 router.post("/eliminarAlumno", EliminarAlumno);
 router.post("/eliminarProfesor", EliminarProfesor);

@@ -23,6 +23,7 @@ import AdmnHome from './Views//AdminViews/adminHome/admnHome'; //Se muestra el l
 import AdmnAsign from "./Views/AdminViews/adminAsignaturas/adminAsignaturas";
 import AdmnCurs from "./Views/AdminViews/adminCursos/adminCursos";
 import AdmnProf from "./Views/AdminViews/adminProfesores/adminProf";
+import AdmnEstud from "./Views/AdminViews/AdminEstudiantes/admnEstud";
 
 function App() {
 
@@ -62,6 +63,7 @@ function App() {
               <Route path="/administrador/asignaturas" element={ <AdmnAsign/> }></Route>
               <Route path="/administrador/cursos" element={ <AdmnCurs/> }></Route>
               <Route path="/administrador/profesores" element={ <AdmnProf/> }></Route>
+              <Route path="/administrador/estudiantes" element={ <AdmnEstud/> }></Route>
 
             </Routes>
 

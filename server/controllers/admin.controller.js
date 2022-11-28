@@ -104,6 +104,27 @@ const VerCursos = async (req, res) => {
     res.status(500).json(err);
   }
 };
+
+const VerEstudiantes = async (req, res) => {
+  //Manda todas los estudiantes del colegio
+  try {
+    const estudiantes = await Alumno.find({});
+    res.status(200).json(estudiantes);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+const VerProfesores = async (req, res) => {
+  //Manda todas los profesores del colegio
+  try {
+    const profesores = await Profesor.find({});
+    res.status(200).json(profesores);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
 const EliminarAlumno = async (req, res) => {
   try {
     const alumno = await Alumno.deleteOne({ _id: req.body.id });
@@ -168,6 +189,8 @@ module.exports = {
   AsignarRamoProfesor,
   VerAsignaturas,
   VerCursos,
+  VerEstudiantes,
+  VerProfesores,
   EliminarAlumno,
   EliminarProfesor,
   EliminarAsignatura,
