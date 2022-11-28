@@ -51,7 +51,7 @@
 
 .admn-edatatable td {
     border-bottom: solid 2px #8baef6;
-    text-align: center;
+    text-align: start;
     
 }
 
@@ -61,5 +61,21 @@
 
 .admn-edatatable tbody tr:hover{
     background-color: #4583fb;
+}
+
+.admn-editBtn{
+    margin: 5px;
+    background-color: #eee;
+    border-color:#4583fb;
+    align-items: center;
+    border-radius: 10px;
+}
+.admn-editIco{
+    height: 20px;
+    width: 25px;
+    margin-top: 5px;
+}
+.admn-editBtn:hover{
+    background-color: rgb(111, 150, 235);
 }
 

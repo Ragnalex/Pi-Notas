@@ -7,6 +7,9 @@ import axios from "axios";
 //Style
 import "./admnEstud.css"
 
+//ico
+import editIco from "../../../imgs/pencil.png";
+
 
 const AdmnEstudiantes = () => {
 
@@ -14,7 +17,8 @@ const AdmnEstudiantes = () => {
 
     const getEstudiantes = async() => {
         try {
-            
+            const res = await axios.get("http://localhost:5000/api/admin/verEstudiantes");
+            setEstudiantes(res.data);
         } catch (error) {
             console.log(error)
         }
@@ -29,7 +33,7 @@ const AdmnEstudiantes = () => {
                     Gestión de estudiantes
                 </div>
                 <div>
-                    <div className="admn-edatatable">
+                    <table className="admn-edatatable">
                         <thead>
                             <tr>
                                 <th></th>
@@ -44,10 +48,33 @@ const AdmnEstudiantes = () => {
                         </thead>
 
                         <tbody>
+                            {
+                                Estudiantes.map((estudiante,index) => {
+
+
+                                    return(
+                                        <tr key={index}>
+                                            <td></td>
+                                            <td>{index}</td>
+                                            <td>{estudiante.rut}</td>
+                                            <td>{estudiante.pnombre}</td>
+                                            <td>{estudiante.snombre}</td>
+                                            <td>{estudiante.apellidop}</td>
+                                            <td>{estudiante.apellidom}</td>
+                                            <td> 
+                                                <button className="admn-editBtn">
+                                                    <img className="admn-editIco" src={editIco} alt="editar" />
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        
+                                    )
+                                })
+                            }
 
                         </tbody>
 
-                    </div>
+                    </table>
                 </div>
                 
             </div>
