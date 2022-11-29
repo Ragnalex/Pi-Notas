@@ -19,6 +19,11 @@
     margin-bottom: 30px;
 }
 /*Title style*/
+.admin-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .admn-etitle{
     color: #4583FB;
     font-size: 40px;
@@ -76,6 +81,57 @@
     margin-top: 5px;
 }
 .admn-editBtn:hover{
-    background-color: rgb(111, 150, 235);
+    background-color: rgb(112, 140, 233);
 }
 
+/*Edit PopupStyle*/
+.admn-popEstContent{
+    background-color: #B8ACFF;
+    border-color: #000;
+    border: 1px solid;
+    border-radius: 10px;
+    min-height: 150px;
+    width: 500px;
+    text-align: center;
+    font-size: 72px;
+    padding: 40px;
+}
+
+.admn-popupEsttitle{
+    color: #000000;
+    font-weight: 900;
+    font-size: 32px;
+    text-align: center;
+}
+
+.admn-popupEstForm{
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: #E7E3E3;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.admn-popupEstBox{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.admn-popupEstLabel{
+    font-size: 24px;
+    line-height: 39px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.admn-popupEstinput{
+    height: 100px;
+    width: 200px;
+}

@@ -1,0 +1,82 @@
+/*Edit PopupStyle*/
+.admn-popEstContent{
+    background-color: #B8ACFF;
+    border-color: #000;
+    border: 1px solid;
+    border-radius: 10px;
+    min-height: 150px;
+    min-width: 500px;
+    padding: 10px;
+}
+
+.admn-popupEsttitle{
+    color: #000000;
+    font-weight: 900;
+    font-size: 32px;
+    text-align: center;
+}
+
+.admn-popupEstForm{
+    margin-top: 10px;
+    min-width: 500px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    background: #E7E3E3;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.admn-popupEstBox{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.admn-popupEstLabel{
+    font-size: 24px;
+    line-height: 39px;
+    color: #000000;
+    margin-bottom: 10px;
+    text-align: start;
+}
+
+.admn-popupEstinput{
+    height: 30px;
+    width: 200px;
+    font-size: 20px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    padding-left: 5px;
+}
+
+.admn-popupText{
+    width: 200px;
+    font-size: 20px;
+    text-align: start;
+    background-color: #ffffff;
+    border: solid 1px rgba(88, 88, 88, 0.507);
+    padding-left: 5px;
+}
+.admn-infocontent{
+    display: flex;
+    flex-direction: row;
+}
+.admn-handleIco{
+    width: 35px;
+    height: 35px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    align-content: center;
+    justify-content: center;
+}
+.admn-ico{
+    width: 20px;
+    height: 20px;
+}
+.admn-handleIco:hover{
+    background-color: aquamarine;
+}
