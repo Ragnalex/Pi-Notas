@@ -5,7 +5,7 @@ const {
     ObtenerCurso,
 } = require("../controllers/alum.controller");
 
-router.post("/verAsignaturas", VerAsignaturas);
-router.post("/ObtenerCurso", ObtenerCurso);
+router.get("/verAsignaturas", VerAsignaturas);
+router.get("/ObtenerCurso", ObtenerCurso);
 
 module.exports = router;
