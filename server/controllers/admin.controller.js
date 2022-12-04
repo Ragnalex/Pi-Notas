@@ -162,7 +162,7 @@ const EliminarCurso = async (req, res) => {
     const curso = await Curso.deleteOne({ _id: req.body.id });
     await Profesor.updateOne(
       { jefatura: req.body.id },
-      { $set: { jefatura: null } }
+      { $unset: { jefatura } }
     );
     await Alumno.updateMany({ curso: req.body.id }, { $set: { curso: null } });
     res.status(200).json(curso);
