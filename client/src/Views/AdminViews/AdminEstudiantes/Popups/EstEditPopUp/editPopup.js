@@ -1,5 +1,5 @@
 //utilities
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Popup from "reactjs-popup";
 import axios from "axios";
 
@@ -7,13 +7,17 @@ import axios from "axios";
 import "./editPopup.css";
 
 //ico
-import editIco from "../../imgs/pencil.png"
+import editIco from "../../../../../imgs/pencil.png"
 
 
 
 const EditPopup = ({estudiante}) => {
 
     const [ curso, setCurso] = useState();
+
+    const [ listCursos, setlistCursos] = useState([]);
+
+    const [submitActive, setsubmitActive] = useState(false);
 
     const [editRut, seteditRut] = useState(false);
 
@@ -27,16 +31,28 @@ const EditPopup = ({estudiante}) => {
 
     const [editCurso, seteditCurso] = useState(false);
 
+    const rutRef = useRef();
+    const pnombreRef = useRef();
+    const snombreRef = useRef();
+    const apellidopRef = useRef();
+    const apellidomRef = useRef();
+    const cursoRef = useRef();
+
     const getCurso = async() => {
         try {
             const res = await axios.post("http://localhost:5000/api/alum/ObtenerCurso", {
                 id:estudiante.curso
             })
-            setCurso(res.data.nombre);
+            setCurso(res.data.nombre + " " + res.data.año);
+
+            const res2 = await axios.get("http://localhost:5000/api/admin/verCursos");
+            setlistCursos(res2.data);
         } catch (error) {
             setCurso("No Asignado");
         }
     }
+
+
 
     useEffect(() => {getCurso()}, [])
 
@@ -58,7 +74,7 @@ const EditPopup = ({estudiante}) => {
                         </label>
                         <div className="admn-infocontent">
                             {
-                            editRut ? (<input className="admn-popupEstinput" placeholder={estudiante.rut}/>) //Ocurre esto si editRut es true
+                            editRut ? (<input className="admn-popupEstinput" placeholder={estudiante.rut} ref={rutRef}/>) //Ocurre esto si editRut es true
                             : 
                             (<div className="admn-popupText">{estudiante.rut}</div>)         //Ocurre esto si editRut es false
                             }
@@ -73,7 +89,7 @@ const EditPopup = ({estudiante}) => {
                         </label>
                         <div className="admn-infocontent">
                         {
-                            editpNombre ? (<input className="admn-popupEstinput" placeholder={estudiante.pnombre}/>)
+                            editpNombre ? (<input className="admn-popupEstinput" placeholder={estudiante.pnombre} ref={pnombreRef}/>)
                             :
                             (<div className="admn-popupText">{estudiante.pnombre}</div>)
 
@@ -88,7 +104,7 @@ const EditPopup = ({estudiante}) => {
                         </label>
                         <div className="admn-infocontent">
                         {
-                            editsNombre ? (<input className="admn-popupEstinput" placeholder={estudiante.snombre}/>)
+                            editsNombre ? (<input className="admn-popupEstinput" placeholder={estudiante.snombre} ref={snombreRef}/>)
                             :
                             (<div className="admn-popupText">{estudiante.snombre}</div>)
                         }
@@ -101,7 +117,7 @@ const EditPopup = ({estudiante}) => {
                         </label>
                         <div className="admn-infocontent">
                         {
-                            editApellidop ? (<input className="admn-popupEstinput" placeholder={estudiante.apellidop}/>)
+                            editApellidop ? (<input className="admn-popupEstinput" placeholder={estudiante.apellidop} ref={apellidopRef}/>)
                             :
                             (<div className="admn-popupText">{estudiante.apellidop}</div>)
                         }
@@ -115,7 +131,7 @@ const EditPopup = ({estudiante}) => {
                         </label>
                         <div className="admn-infocontent">
                         {
-                            editApellidom ? (<input className="admn-popupEstinput" placeholder={estudiante.apellidom}/>)
+                            editApellidom ? (<input className="admn-popupEstinput" placeholder={estudiante.apellidom} ref={apellidomRef}/>)
                             :
                             (<div className="admn-popupText">{estudiante.apellidom}</div>)
                         }
@@ -128,7 +144,19 @@ const EditPopup = ({estudiante}) => {
                         </label>
                         <div className="admn-infocontent">
                         {
-                            editCurso ? (<input className="admn-popupEstinput" placeholder={curso}/>)
+                            editCurso ? 
+                            (<select className="admn-popupEstinput" ref={cursoRef}>
+                                <option value={curso}>
+                                    {curso}
+                                </option>
+                                {
+                                    listCursos.map((curso, index) => {
+                                        return(
+                                            <option value={curso._id}>{curso.nombre + " " + curso.año}</option>
+                                        )
+                                    })
+                                }
+                            </select>)
                             :
                             (<div className="admn-popupText">{curso}</div>)
                         }

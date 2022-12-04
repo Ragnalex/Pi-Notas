@@ -6,8 +6,8 @@ import axios from "axios";
 import Popup from "reactjs-popup";
 
 //Component
-import EditPopup from "../../../components/EstEditPopUp/editPopup";
-
+import EditPopup from "./Popups/EstEditPopUp/editPopup";
+import AddPopUp from "./Popups/addEstPopup/addEst";
 
 //Style
 import "./admnEstud.css"
@@ -41,6 +41,7 @@ const AdmnEstudiantes = () => {
                     </div>
                     <button className="back-button" onClick={() => navigate("/administrador/inicio")}>Volver</button>
                 </div>
+                <AddPopUp></AddPopUp>
                 
                 <div>
                     <table className="admn-edatatable">
