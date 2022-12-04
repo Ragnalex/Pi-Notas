@@ -35,7 +35,7 @@ const EditPopup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            if(curso.current.value != "No Definido"){
+            if(cursoRef.current.value != "No Definido"){
                 const res = await axios.post("http://localhost:5000/api/admin/ingresarAlumno", {
                     rut: rutRef.current.value,
                     pnombre: pnombreRef.current.value,
@@ -44,6 +44,7 @@ const EditPopup = () => {
                     apellidom: apellidomRef.current.value,
                     curso: cursoRef.current.value
                 })
+                setSuccess(true);
             }
             else{
                 const res = await axios.post("http://localhost:5000/api/admin/ingresarAlumno", {
@@ -53,8 +54,9 @@ const EditPopup = () => {
                     apellidop: apellidopRef.current.value,
                     apellidom: apellidomRef.current.value,
                 })
+                setSuccess(true);
             }
-            setSuccess(true);
+            
         } catch (error) {
             console.log(error)
         }

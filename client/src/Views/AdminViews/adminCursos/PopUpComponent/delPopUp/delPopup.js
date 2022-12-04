@@ -13,7 +13,7 @@ const DelPopUp = (curso) => {
 
     const handleDelete = async (cursoDel) => {
         try {
-            const res = await axios.post("http://localhost:5000/api/admin/eliminarCurso", {
+            const res = await axios.delete("http://localhost:5000/api/admin/eliminarCurso", {
                 id: cursoDel._id
             })
             alert("Curso " + cursoDel.nombre + " " + cursoDel.paralelo + " Eliminado exitosamente.");

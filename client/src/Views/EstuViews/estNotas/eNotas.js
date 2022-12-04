@@ -27,7 +27,7 @@ const ENotas = () => {
         //Funcion utilizada para traer todas las asignaturas asignadas al curso que posee el estudiante
 
         try {
-            const res = await axios.post("http://localhost:5000/api/alum/verAsignaturas", {
+            const res = await axios.get("http://localhost:5000/api/alum/verAsignaturas", {
                 idCurso: user.curso
             })
             setAsignaturas(res.data);
