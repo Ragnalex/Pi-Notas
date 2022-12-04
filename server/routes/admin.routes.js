@@ -35,10 +35,12 @@ router.get("/verCursos", VerCursos);
 router.get("/verEstudiantes", VerEstudiantes);
 //Ver todos los profesores
 router.get("/verProfesores", VerProfesores);
+//Obtener profesor jefe del curso
+router.post("/obtenerProfesor", ObtenerProfJefe);
 //eliminar una asignatura
 router.delete("/eliminarAlumno", EliminarAlumno);
 router.delete("/eliminarProfesor", EliminarProfesor);
 router.delete("/eliminarCurso", EliminarCurso);
 router.delete("/eliminarAsignatura", EliminarAsignatura);
-router.delete("/obtenerProfesor", ObtenerProfJefe);
+
 module.exports = router;

@@ -11,7 +11,7 @@ const {
 //Ver asignaturas que hace el profesor
 router.get("/verAsignaturas", VerAsignaturas);
 router.get("/verCursoAsignaturas", VerCursosAsignaturas);
-router.get("/verAlumnosCurso", VerAlumnosCurso);
+router.post("/verAlumnosCurso", VerAlumnosCurso);
 router.get("/asignarNotaAlumno", AsignarNotaAlumno);
 router.post("/ingresarEvento", CreateEvento);
 module.exports = router;
