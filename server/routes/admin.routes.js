@@ -36,9 +36,9 @@ router.get("/verEstudiantes", VerEstudiantes);
 //Ver todos los profesores
 router.get("/verProfesores", VerProfesores);
 //eliminar una asignatura
-router.post("/eliminarAlumno", EliminarAlumno);
-router.post("/eliminarProfesor", EliminarProfesor);
-router.post("/eliminarCurso", EliminarCurso);
-router.post("/eliminarAsignatura", EliminarAsignatura);
-router.post("/obtenerProfesor", ObtenerProfJefe);
+router.delete("/eliminarAlumno", EliminarAlumno);
+router.delete("/eliminarProfesor", EliminarProfesor);
+router.delete("/eliminarCurso", EliminarCurso);
+router.delete("/eliminarAsignatura", EliminarAsignatura);
+router.delete("/obtenerProfesor", ObtenerProfJefe);
 module.exports = router;
