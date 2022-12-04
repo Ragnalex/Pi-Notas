@@ -7,56 +7,37 @@ import { useState, useEffect, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import Popup from "reactjs-popup"
 
+
+//Popup
+import AddPopup from "./PopUpComponent/AddPopup/addPopup"
+import DelPopUp from "./PopUpComponent/delPopUp/delPopup"
+import MemPopUp from "./PopUpComponent/memberPopUp/membersPopups"
+import AsignPopup from "./PopUpComponent/asignaturaPopUp/asignPopup"
+
+
+
 //ico
 import editIco from "../../../imgs/pencil.png"
 import calendarIco from "../../../imgs/calendarIco.png"
 import bottomCloud from "../../../imgs/Ellipse.png"
-import addCircle from "../../../imgs/plus-circle.png"
-import delIco from "../../../imgs/trash.svg"
+import userIco from "../../..//imgs/userIco.svg"
+
+
 
 const AdminCursos = () => {
 
     const [cursos, setCursos] = useState([]);
-    const nuevoCursoRef = useRef();
-    const paraleloCursoRef = useRef();
-    const anioCursoRef = useRef();
+    const [integrantes, setIntegrantes] = useState(false);
 
     const navigate = useNavigate();
 
-    const year = (new Date()).getFullYear();
-    const years = Array.from(new Array(20), (val, index) => index + year);
-
-    const getCursos = async () => {
+    const getCursos = async (e) => {
         try {
             const res = await axios.get("http://localhost:5000/api/admin/verCursos")
             const sortData = res.data.sort((elem1, elem2) => elem1.nombre.localeCompare(elem2.nombre))
             setCursos(sortData);
         } catch (error) {
             console.log(error);
-        }
-    }
-
-    const handleSubmit = async () => {
-        try {
-            const res = await axios.post("http://localhost:5000/api/admin/ingresarCurso", {
-                nombre: nuevoCursoRef.current.value,
-                paralelo: paraleloCursoRef.current.value,
-                año: anioCursoRef.current.value,
-            })
-            alert("Curso creado exitosamente");
-        } catch (error) {
-            console.log(error)
-        }
-    }
-    const handleDelete = async (curso) => {
-        try {
-            const res = await axios.post("http://localhost:5000/api/admin/eliminarCurso", {
-                id: curso._id
-            })
-            alert("Curso " + curso.nombre + " " + curso.paralelo + " Eliminado exitosamente.");
-            window.location.reload();
-        } catch (error) {
-            console.log(error)
         }
     }
 
@@ -75,78 +56,7 @@ const AdminCursos = () => {
                 </div>
 
                 <div className="admn-tools">
-
-
-                    <Popup trigger={<button className="admn-addBtn">
-                        <img className="material-icons" src={addCircle} alt="añadir" />
-                    </button>} modal>
-
-                        <div className="admn-popContent">
-                            <div className="admn-popuptitle" >
-                                Añadiendo nuevo curso
-                            </div>
-                            <form className="admn-popupForm" onSubmit={handleSubmit}>
-                                <div className="admn-popupSelect">
-                                    <label className="admn-popupLabel">
-                                        Seleccione curso
-                                    </label>
-                                    <select ref={nuevoCursoRef} className="admn-popupOptions" placeholder="año....">
-                                        <option value="1° Básico">1° Básico</option>
-                                        <option value="2° Básico">2° Básico</option>
-                                        <option value="3° Básico">3° Básico</option>
-                                        <option value="4° Básico">4° Básico</option>
-                                        <option value="5° Básico">5° Básico</option>
-                                        <option value="6° Básico">6° Básico</option>
-                                        <option value="7° Básico">7° Básico</option>
-                                        <option value="8° Básico">8° Básico</option>
-                                        <option value="1° Medio">1° Medio</option>
-                                        <option value="2° Medio">2° Medio</option>
-                                        <option value="3° Medio">3° Medio</option>
-                                        <option value="4° Medio">4° Medio</option>
-                                    </select>
-                                </div>
-
-
-                                <div className="admn-popupSelect">
-                                    <label className="admn-popupLabel">
-                                        Seleccione Paralelo
-                                    </label>
-                                    <select ref={paraleloCursoRef} className="admn-popupOptions" placeholder="año....">
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="C">C</option>
-                                        <option value="D">D</option>
-                                        <option value="E">E</option>
-                                        <option value="F">F</option>
-                                    </select>
-
-                                </div>
-
-
-                                <div className="admn-popupSelect">
-                                    <label className="admn-popupLabel">
-                                        Seleccione año
-                                    </label>
-                                    <select ref={anioCursoRef} className="admn-popupOptions" placeholder="año....">
-                                        <option value="2022">2022</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2019">2019</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2017">2017</option>
-                                        <option value="2016">2016</option>
-                                        <option value="2015">2015</option>
-                                        <option value="2014">2014</option>
-                                        <option value="2013">2013</option>
-                                        <option value="2012">2012</option>
-                                        <option value="2011">2011</option>
-                                    </select>
-                                </div>
-
-                                <button type="submit" className="admn-submit"> Añadir</button>
-                            </form>
-                        </div>
-                    </Popup>
+                    <AddPopup/>                  {/*Llama al componente addPopUp*/}
                 </div>
 
 
@@ -167,6 +77,8 @@ const AdminCursos = () => {
                                         <th>año</th>
                                         <th>Editar</th>
                                         <th>Calendario</th>
+                                        <th>Integrantes</th>
+                                        <th>Asignaturas</th>
                                         <th>Eliminar</th>
                                     </tr>
                                 </thead>
@@ -195,22 +107,9 @@ const AdminCursos = () => {
                                                             <img className="material-icons" src={calendarIco} alt="calendario" />
                                                         </button>
                                                     </td>
-                                                    <td>
-
-                                                        <Popup trigger={<button className="admn-btn"><img src={delIco} className="material-icons"></img></button>} modal>
-                                                            <div className="admn-test">
-                                                                <div className="admn-poptitle" >
-                                                                    ¿Esta seguro de eliminar {curso.nombre} {curso.paralelo} del año {curso.año}?
-
-                                                                </div>
-                                                                <div className="admn-delModalbuttons">
-                                                                    <button onClick={() => handleDelete(curso)} className="admn-delModalbtn"> Eliminar</button>
-                                                                    <button className="admn-submit"> Cancelar</button>
-                                                                </div>
-
-                                                            </div>
-                                                        </Popup>
-                                                    </td>
+                                                    <td><MemPopUp curso ={curso}/></td>
+                                                    <td><AsignPopup curso = {curso}/></td>
+                                                    <td><DelPopUp curso = {curso}/></td>
                                                 </tr>
 
 

@@ -1,0 +1,41 @@
+.admn-addBtn{
+    margin: 5px;
+    background-color: rgb(152, 236, 156);
+    border-radius: 10px;
+    border-radius: 25px;
+    border-color:#4583fb;
+    border-radius: 10px;
+}
+
+.admn-addBtn:hover {
+    background-color: #10c02d;
+    transition: .3s;
+}
+
+/*PopUp Form*/
+
+
+.admn-popupSelect{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.admn-popupLabel{
+    font-size: 24px;
+    line-height: 39px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.admn-popupOptions{
+    box-sizing: border-box;
+    padding-right: 15px;
+    padding-left: 5px;
+    height: 35px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    margin-left: 20px;
+}

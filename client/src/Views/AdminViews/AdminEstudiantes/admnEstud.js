@@ -21,7 +21,7 @@ const AdmnEstudiantes = () => {
     const [Estudiantes, setEstudiantes] = useState([]);
     const navigate = useNavigate();
 
-    const getEstudiantes = async () => {
+    const getEstudiantes = async (e) => {
         try {
             const res = await axios.get("http://localhost:5000/api/admin/verEstudiantes");
             const sortData = res.data.sort((elem1, elem2) => elem1.pnombre.localeCompare(elem2.pnombre));
