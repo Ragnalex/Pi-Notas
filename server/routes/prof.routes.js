@@ -9,9 +9,9 @@ const {
 } = require("../controllers/prof.controller");
 
 //Ver asignaturas que hace el profesor
-router.post("/verAsignaturas", VerAsignaturas);
-router.post("/verCursoAsignaturas", VerCursosAsignaturas);
+router.get("/verAsignaturas", VerAsignaturas);
+router.get("/verCursoAsignaturas", VerCursosAsignaturas);
 router.post("/verAlumnosCurso", VerAlumnosCurso);
-router.post("/asignarNotaAlumno", AsignarNotaAlumno);
+router.get("/asignarNotaAlumno", AsignarNotaAlumno);
 router.post("/ingresarEvento", CreateEvento);
 module.exports = router;

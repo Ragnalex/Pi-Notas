@@ -7,7 +7,7 @@ import axios from "axios";
 import "./editPopup.css";
 
 //ico
-import editIco from "../../../../../imgs/pencil.png"
+import editIco from "../../../../../imgs/pencil.png";
 
 
 
@@ -152,7 +152,7 @@ const EditPopup = ({estudiante}) => {
                                 {
                                     listCursos.map((curso, index) => {
                                         return(
-                                            <option value={curso._id}>{curso.nombre + " " + curso.año}</option>
+                                            <option key={index} value={curso._id}>{curso.nombre + " " + curso.año}</option>
                                         )
                                     })
                                 }

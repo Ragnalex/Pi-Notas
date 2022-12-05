@@ -46,7 +46,7 @@ const AdminAsignaturas = () => {
 
     const handleDelete = async (asignatura) => {
         try {
-            const res = axios.post("http://localhost:5000/api/admin/eliminarAsignatura", {
+            const res = axios.delete("http://localhost:5000/api/admin/eliminarAsignatura", {
                 id: asignatura._id
             })
             alert(asignatura.nombre + " Ha sido eliminado exitosamente.");
