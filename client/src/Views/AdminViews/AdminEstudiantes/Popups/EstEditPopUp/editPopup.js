@@ -7,7 +7,7 @@ import axios from "axios";
 import "./editPopup.css";
 
 //ico
-import editIco from "../../../../../imgs/pencil.png"
+import editIco from "../../../../../imgs/pencil.png";
 
 
 
