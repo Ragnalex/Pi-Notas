@@ -2,8 +2,8 @@
     display: flex;
     justify-content: flex-start;
     background-color:white;
-    border-color:rgb(0, 0, 0);
-    border: 3px solid;
+    border: rgb(0, 0, 0) 3px solid;
+    border-radius: 3%;
 
     
 }
