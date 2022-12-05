@@ -59,7 +59,7 @@ const Calendario = () => {
     return (
         <div>
             <Popup trigger={<button className="admn-addbutton"> Calendario </button>} modal>
-                <div className="home-prueba">
+                <div className="calendar-prueba">
 
                     <h3 Calendario de Eventos></h3>
                     <Calendar
@@ -72,31 +72,25 @@ const Calendario = () => {
 
                     <div>
                         <div className="calendar-titulo"> Agregar Evento </div>
-                        <div className="home-ordenar">
+                        <div className="calendar-ordenar">
                             
                             <input
                                 type="text"
-                                placeholder="Add Title"
+                                placeholder="Evento"
                                 value={newEvent.title}
                                 onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
                             />
                             <DatePicker
-                                placeholderText="Fecha Inicio"
+                                placeholderText="Fecha del Evento"
                                 selected={newEvent.start}
-                                onChange={(start) => setNewEvent({ ...newEvent, start })}
+                                onChange={(start) => setNewEvent({...newEvent, start: start,end: start})}
                                 
                             />
-                            <DatePicker
-                                placeholderText="Fecha Final"
-                                selected={newEvent.end}
-                                onChange={(end) => setNewEvent({ ...newEvent, end })}
-                            />
 
-
-                            <button onClick={handleAddEvents}> Add Event</button>
-
+                            <button onClick={handleAddEvents}> Agregar Evento</button>
+                            <Lottie animationData={calendarimg} loop={true} autoPlay={true} className="calendar-imag"></Lottie>
                         </div>
-                        <Lottie animationData={calendarimg} loop={true} autoPlay={true} className="calendar-imag"></Lottie>
+                        
                     </div>
                 </div>
             </Popup>
