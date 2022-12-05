@@ -84,6 +84,14 @@ const AsignarRamoProfesor = async (req, res) => {
     res.status(500).json(err);
   }
 };
+const VerAsignaturasCurso = async (req,res) => {
+  try {
+    const curso = await Curso.findById(req.body.idCurso).populate("asignaturas");
+    res.status(200).json(curso.asignaturas);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+}
 
 const VerAsignaturas = async (req, res) => {
   //manda todas las asignaturas del colegio
@@ -187,6 +195,7 @@ module.exports = {
   CreateAsignatura,
   CreateCurso,
   AsignarRamoProfesor,
+  VerAsignaturasCurso,
   VerAsignaturas,
   VerCursos,
   VerEstudiantes,
