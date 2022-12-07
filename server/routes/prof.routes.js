@@ -6,12 +6,16 @@ const {
   VerCursosAsignaturas,
   VerAlumnosCurso,
   AsignarNotaAlumno,
+  EliminarEvento,
+  EliminarNotaAlumno,
 } = require("../controllers/prof.controller");
 
 //Ver asignaturas que hace el profesor
-router.get("/verAsignaturas", VerAsignaturas);
-router.get("/verCursoAsignaturas", VerCursosAsignaturas);
+router.post("/verAsignaturas", VerAsignaturas);
+router.post("/verCursoAsignaturas", VerCursosAsignaturas);
 router.post("/verAlumnosCurso", VerAlumnosCurso);
-router.get("/asignarNotaAlumno", AsignarNotaAlumno);
+router.post("/asignarNotaAlumno", AsignarNotaAlumno);
 router.post("/ingresarEvento", CreateEvento);
+router.delete("/eliminarEvento", EliminarEvento);
+router.delete("/eliminarNotaAlumno", EliminarNotaAlumno);
 module.exports = router;

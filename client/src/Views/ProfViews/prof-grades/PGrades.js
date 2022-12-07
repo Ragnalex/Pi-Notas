@@ -19,7 +19,7 @@ const PGrades = () => {
     
     const getCursos = async () => {
         try {
-            const res = await axios.get("http://localhost:5000/api/prof/verAsignaturas", {
+            const res = await axios.post("http://localhost:5000/api/prof/verAsignaturas", {
                 rut:user.rut
             })
             setListcursos(res.data);

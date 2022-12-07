@@ -16,7 +16,7 @@ const CreateAlumno = async (req, res) => {
       curso: req.body.curso,
     });
     await newAlumno.save();
-    res.status(200).json(newAlumno);
+    res.status(201).json(newAlumno);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -37,7 +37,7 @@ const CreateProfesor = async (req, res) => {
       asignaturas: req.body.asignaturas,
     });
     await newProfesor.save();
-    res.status(200).json(newProfesor);
+    res.status(201).json(newProfesor);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -48,7 +48,7 @@ const CreateAsignatura = async (req, res) => {
       nombre: req.body.nombre,
     });
     await newAsignatura.save();
-    res.status(200).json(newAsignatura);
+    res.status(201).json(newAsignatura);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -63,7 +63,7 @@ const CreateCurso = async (req, res) => {
       asignaturas: req.body.asignaturas,
     });
     await newCurso.save();
-    res.status(200).send("Curso creado exitosamente");
+    res.status(201).send("Curso creado exitosamente");
   } catch (err) {
     res.status(500).json(err);
   }
@@ -84,14 +84,16 @@ const AsignarRamoProfesor = async (req, res) => {
     res.status(500).json(err);
   }
 };
-const VerAsignaturasCurso = async (req,res) => {
+const VerAsignaturasCurso = async (req, res) => {
   try {
-    const curso = await Curso.findById(req.body.idCurso).populate("asignaturas");
+    const curso = await Curso.findById(req.body.idCurso).populate(
+      "asignaturas"
+    );
     res.status(200).json(curso.asignaturas);
   } catch (err) {
     res.status(500).json(err);
   }
-}
+};
 
 const VerAsignaturas = async (req, res) => {
   //manda todas las asignaturas del colegio
@@ -172,7 +174,7 @@ const EliminarCurso = async (req, res) => {
       { jefatura: req.body.id },
       { $unset: { jefatura } }
     );
-    await Alumno.updateMany({ curso: req.body.id }, { $set: { curso: null } });
+    await Alumno.updateMany({ curso: req.body.id }, { $unset: { curso: "" } });
     res.status(200).json(curso);
   } catch (err) {
     res.status(500).json(err);
@@ -188,7 +190,6 @@ const ObtenerProfJefe = async (req, res) => {
     res.status(500).json(error);
   }
 };
-
 module.exports = {
   CreateAlumno,
   CreateProfesor,

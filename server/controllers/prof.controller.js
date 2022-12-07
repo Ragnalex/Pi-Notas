@@ -99,4 +99,6 @@ module.exports = {
   VerAlumnosCurso,
   AsignarNotaAlumno,
   CreateEvento,
+  EliminarEvento,
+  EliminarNotaAlumno
 };
