@@ -106,7 +106,7 @@ const VerAsignaturas = async (req, res) => {
 };
 
 const VerCursos = async (req, res) => {
-  //Manda todas lso cursos del colegio
+  //Manda todos los cursos del colegio
   try {
     const cursos = await Curso.find({});
     res.status(200).json(cursos);

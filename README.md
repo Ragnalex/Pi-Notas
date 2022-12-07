@@ -14,5 +14,5 @@
 
 
 # -- FONT: ADMIN
-    Base para todas las ventanas => adminAsignaturas.css
-                                    adminAsignaturas.js
+    Clases utilizadas como base para ventanas admin
+    se encuentran en las carpetas AdminEstudiantes > Popups > addEstPopup > addEst.css

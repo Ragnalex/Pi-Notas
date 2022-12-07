@@ -28,7 +28,7 @@ const EditProf = ({profesor}) => {
 
     const getJefatura = async(e) => {
         try {
-            const res = await axios.post("http://localhost:5000/api/prof/ObtenerCurso", {
+            const res = await axios.post("http://localhost:5000/api/prof/ObtenerProfJefe", {
                 id:profesor.jefatura
             })
             setJefatura(res.data.nombre + " " + res.data.año);

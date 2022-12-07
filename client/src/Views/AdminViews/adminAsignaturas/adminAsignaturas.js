@@ -92,38 +92,52 @@ const AdminAsignaturas = () => {
 
                 </div>
 
-                <div className="admn-listAsignaturas">
-                    {
-                        Asignaturas.map((asignatura, index) => {
-                            return (
-                                <div className="admn-filaAsignatura" key={index}>
-                                    <div className="admn-asignatura">
-                                        {asignatura.nombre}
-                                    </div>
+                {/*Tabla con nombre de asignaturas */}
 
+                <div>
+                    <table className="admn-edatatable">
 
-                                    <Popup trigger={<button className="admn-delbtn"><img src={editIco} className="admn-delIco"></img></button>} onClose={closeModal} modal>
-                                        <div className="admn-test">
-                                            <div className="admn-poptitle" >
-                                                ¿Esta seguro de eliminar {asignatura.nombre} ?
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>N°</th>
+                                <th>Nombre Asignatura</th>
+                                <th>Eliminar</th>
+                            </tr>
+                        </thead>
 
-                                            </div>
-                                            <div className="admn-delModalbuttons">
-                                                <button onClick={() => handleDelete(asignatura)} className="admn-delModalbtn"> Eliminar</button>
-                                                <button onClick={() => closeModal} className="admn-submit"> Cancelar</button>
-                                            </div>
+                        <tbody>
+                            {
+                                Asignaturas.map((asignatura,index) => {
 
-                                        </div>
-                                    </Popup>
-                                </div>
-                            )
-                        }
-                        )
-                    }
+                                    return (
+                                        <tr key={index}>
+                                            <td></td>
+                                            <td>{index}</td>
+                                            <td>{asignatura.nombre}</td>
+                                            <td>
+                                                <Popup trigger={<button className="admn-delbtn"><img src={editIco} className="admn-delIco"></img></button>} onClose={closeModal} modal>
+                                                    <div className="admn-test">
+                                                        <div className="admn-poptitle" >
+                                                            ¿Esta seguro de eliminar {asignatura.nombre} ?
 
+                                                        </div>
 
+                                                        <div className="admn-delModalbuttons">
+                                                            <button onClick={() => handleDelete(asignatura)} className="admn-delModalbtn"> Eliminar</button>
+                                                            <button onClick={() => closeModal} className="admn-submit"> Cancelar</button>
+                                                        </div>
+
+                                                    </div>
+                                                </Popup>
+                                            </td>
+                                        </tr>
+                                    )
+                                })
+                            }
+                        </tbody>
+                    </table>
                 </div>
-
 
             </div>
 
