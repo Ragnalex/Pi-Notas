@@ -13,19 +13,19 @@ const EditProf = () => {
 
     const [success, setSuccess] = useState(false);
     const closeModal = () => setSuccess(false);
-    const [cursos, setCursos] = useState([]);
+    const [jefatura, setJefatura] = useState([]);
 
     const rutRef = useRef();
     const pnombreRef = useRef();
     const snombreRef = useRef();
     const apellidopRef = useRef();
     const apellidomRef = useRef();
-    const cursoRef = useRef(null);
+    const jefaturaRef = useRef(null);
 
     const getJefatura = async () => {
         try {
             const res = await axios.get("http://localhost:5000/api/admin/verCursos");
-            setCursos(res.data);
+            setJefatura(res.data);
         } catch (error) {
             console.log(error)
         }
@@ -34,22 +34,22 @@ const EditProf = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            if(curso.current.value != "No Definido") {
+            if(jefatura.current.value != "No Definido") {
                 const res = await axios.post("http://localhost:5000/api/admin/ingresarProfesor",{
                     rut:rutRef.current.value,
-                    pnombre: pnombreRef.current.value,
-                    snombre: snombreRef.current.value,
-                    apellidop: apellidopRef.current.value,
-                    apellidom: apellidomRef.current.value,
-                    jefatura: cursoRef.current.value
+                    pnombre:pnombreRef.current.value,
+                    snombre:snombreRef.current.value,
+                    apellidop:apellidopRef.current.value,
+                    apellidom:apellidomRef.current.value,
+                    jefatura:jefaturaRef.current.value
                 })
             } else {
                 const res = await axios.post("http://localhost:5000/api/admin/ingresarProfesor", {
-                    rut: rutRef.current.value,
-                    pnombre: pnombreRef.current.value,
-                    snombre: snombreRef.current.value,
-                    apellidop: apellidopRef.current.value,
-                    apellidom: apellidomRef.current.value
+                    rut:rutRef.current.value,
+                    pnombre:pnombreRef.current.value,
+                    snombre:snombreRef.current.value,
+                    apellidop:apellidopRef.current.value,
+                    apellidom:apellidomRef.current.value
                 })
             }
             setSuccess(true);
@@ -141,14 +141,14 @@ const EditProf = () => {
                                         Jefatura
                                     </label>
 
-                                    <select className="admn-popupAddEstSelect" ref={cursoRef}>
+                                    <select className="admn-popupAddEstSelect" ref={jefaturaRef}>
                                         <option disabled={false} value={null}>
                                             No Definido
                                         </option>
                                         {
-                                            cursos.map((curso,index) => {
+                                            jefatura.map((jefatura,index) => {
                                                 return (
-                                                    <option value={curso._id} key={index} placeholder={"curso..."}> {curso.nombre + " " + curso.año} </option>
+                                                    <option value={jefatura._id} key={index} placeholder={"jefatura..."}> {jefatura.nombre + " " + jefatura.año} </option>
                                                 )
                                             })
                                         }

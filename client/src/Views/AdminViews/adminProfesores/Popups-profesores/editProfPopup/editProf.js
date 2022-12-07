@@ -10,37 +10,37 @@ import "./editProf.css";
 import editIco from "../../../../../imgs/pencil.png";
 
 const EditProf = ({profesor}) => {
-    const [curso, setCurso] = useState();
-    const [listCursos, setlistCursos] = useState([]);
+    const [jefatura, setJefatura] = useState();
+    const [listJefaturas, setlistJefaturas] = useState([]);
     const [editRut, seteditRut] = useState(false);
     const [editpNombre, seteditpNombre] = useState(false);
     const [editsNombre, seteditsNombre] = useState(false);
     const [editApellidop, seteditApellidop] = useState(false);
     const [editApellidom, seteditApellidom] = useState(false);
-    const [editCurso, seteditCurso] = useState(false);
+    const [editJefatura, seteditJefatura] = useState(false);
 
     const rutRef = useRef();
     const pnombreRef = useRef();
     const snombreRef = useRef();
     const apellidopRef = useRef();
     const apellidomRef = useRef();
-    const cursoRef = useRef();
+    const jefaturaRef = useRef();
 
-    const getCurso = async(e) => {
+    const getJefatura = async(e) => {
         try {
-            const res = await axios.post("http://localhost:5000/api/prof/ObtenerJefatura", {
+            const res = await axios.post("http://localhost:5000/api/prof/ObtenerCurso", {
                 id:profesor.jefatura
             })
-            setCurso(res.data.nombre + " " + res.data.año);
+            setJefatura(res.data.nombre + " " + res.data.año);
 
             const res2 = await axios.get("http://localhost:5000/api/admin/verCursos");
-            setlistCursos(res2.data);
+            setlistJefaturas(res2.data);
         }catch{
-            setCurso("No Asignado");
+            setJefatura("No Asignado");
         }
     }
 
-    useEffect(() => {getCurso()}, [])
+    useEffect(() => {getJefatura()}, [])
 
     return (
         <Popup trigger={<button className="admn-editBtn"><img className="admn-editIco" src={editIco} alt="editar" /></button>} modal>
@@ -83,7 +83,7 @@ const EditProf = ({profesor}) => {
                                 (<div className="admn-popupText">{profesor.pnombre}</div>)  
                             }
 
-                            <button className="admn-handleIco" type="button" onClick={() => seteditRut(!editpNombre)}><img className="admn-ico" src={editIco} /></button>
+                            <button className="admn-handleIco" type="button" onClick={() => seteditpNombre(!editpNombre)}><img className="admn-ico" src={editIco} /></button>
                         </div>
                     </div>
 
@@ -100,7 +100,7 @@ const EditProf = ({profesor}) => {
                                 (<div className="admn-popupText">{profesor.snombre}</div>) 
                             }
 
-                            <button className="admn-handleIco" type="button" onClick={() => seteditRut(!editsNombre)}><img className="admn-ico" src={editIco} /></button>
+                            <button className="admn-handleIco" type="button" onClick={() => seteditsNombre(!editsNombre)}><img className="admn-ico" src={editIco} /></button>
                         </div>
                     </div>
 
@@ -117,7 +117,7 @@ const EditProf = ({profesor}) => {
                                 (<div className="admn-popupText">{profesor.apellidop}</div>) 
                             }
 
-                            <button className="admn-handleIco" type="button" onClick={() => seteditRut(!editApellidop)}><img className="admn-ico" src={editIco} /></button>
+                            <button className="admn-handleIco" type="button" onClick={() => seteditApellidop(!editApellidop)}><img className="admn-ico" src={editIco} /></button>
                         </div>
                     </div>
 
@@ -134,7 +134,7 @@ const EditProf = ({profesor}) => {
                                 (<div className="admn-popupText">{profesor.apellidom}</div>) 
                             }
 
-                            <button className="admn-handleIco" type="button" onClick={() => seteditRut(!editApellidom)}><img className="admn-ico" src={editIco} /></button>
+                            <button className="admn-handleIco" type="button" onClick={() => seteditApellidom(!editApellidom)}><img className="admn-ico" src={editIco} /></button>
                         </div>
                     </div>
 
@@ -146,23 +146,23 @@ const EditProf = ({profesor}) => {
 
                         <div className="admn-infocontent">
                             {
-                                editCurso ? 
-                                (<select className="admn-popupEstinput" ref={cursoRef}>
-                                    <option value={curso}>
-                                        {curso}
+                                editJefatura ? 
+                                (<select className="admn-popupEstinput" ref={jefaturaRef}>
+                                    <option value={jefatura}>
+                                        {jefatura}
                                     </option>
                                     {
-                                        listCursos.map((curso, index) => {
+                                        listJefaturas.map((jefatura, index) => {
                                             return(
-                                                <option value={curso._id}>{curso.nombre + " " + curso.año}</option>
+                                                <option value={jefatura._id}>{jefatura.nombre + " " + jefatura.año}</option>
                                             )
                                         })
                                     }
                                 </select>)
                                 :
-                                (<div className="admn-popupText">{curso}</div>)
+                                (<div className="admn-popupText">{jefatura}</div>)
                             }
-                            <button className="admn-handleIco" type="button" onClick={() => seteditCurso(!editCurso)}><img className="admn-ico" src={editIco} /></button>
+                            <button className="admn-handleIco" type="button" onClick={() => seteditJefatura(!editJefatura)}><img className="admn-ico" src={editIco} /></button>
                         </div>
                     </div>
 

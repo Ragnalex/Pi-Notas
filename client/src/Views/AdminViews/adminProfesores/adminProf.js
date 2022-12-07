@@ -23,8 +23,8 @@ const AdmnProf = () => {
     const getProfesores = async (e) => {
         try {
             const res = await axios.get("http://localhost:5000/api/admin/verProfesores");
-            const sortData = res.data.sort((elem1, elem2) => elem1.pnombre.localCompare(elem2.pnombre));
-            setProfesores(res.data);
+            const sortData = res.data.sort((elem1, elem2) => elem1.pnombre.localeCompare(elem2.pnombre));
+            setProfesores(sortData);
         } catch (error) {
             console.log(error);
         }
@@ -33,11 +33,11 @@ const AdmnProf = () => {
     useEffect(() => { getProfesores() }, []);
 
     return (
-        <div className="admn-asignall">
-            <div className="admn-acontent">
+        <div className="admn-estudall">
+            <div className="admn-econtent">
         
                 <div className="admn-top">
-                    <div className="t-profile">
+                    <div className="admn-etitle">
                         Gestión de Profesores
                     </div>
 
@@ -45,7 +45,7 @@ const AdmnProf = () => {
                 </div>
                 <AddProf></AddProf>
 
-                {/*Sección que muestra los botones de agregar profesores */}
+                {/*Sección que muestra info profesores */}
                 <div>
                     <table className="admn-edatatable">
                         <thead>
@@ -87,7 +87,7 @@ const AdmnProf = () => {
             </div>
             <img className="admn-nubesita" src={bottomCloud} />
         </div>
-    );
+    )
 }
 
 export default AdmnProf;
