@@ -72,6 +72,15 @@ const CreateEvento = async (req, res) => {
   }
 };
 
+const ObtenerEventos = async (req,res) => {
+  try {
+    const eventos = await Evento.find({});
+    res.status(200).json(eventos);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+}
+
 const EliminarNotaAlumno = async (req, res) => {
   try {
     const alumno = await Alumno.updateOne(
@@ -99,6 +108,7 @@ module.exports = {
   VerAlumnosCurso,
   AsignarNotaAlumno,
   CreateEvento,
+  ObtenerEventos,
   EliminarEvento,
   EliminarNotaAlumno
 };

@@ -66,7 +66,7 @@ const AsignPopup = (props) => {
                                             <div>
                                             {profesores.map((profesor, index2) => {
                                                 return(
-                                                    {}
+                                                    
                                                     <div key={index2}>
                                                         {console.log(profesor)}
                                                     </div>
