@@ -50,34 +50,59 @@ const AsignPopup = (props) => {
                 <div className="admnasign-content">
                     
                     <div>
-                        <div className="adminasign-label">
-                        Asignaturas
+                        <div className="adminasign-titles">
+                            <div className="adminasign-label">
+                            Asignatura
+                            </div>
+                            <div className="adminasign-label">
+                            Profesor 
+                            </div>
                         </div>
                         
+                        
                         <div className="admnasign-body">
-                            {
-                                asignaturas.map((asignatura, index) => {
-                                    return(
-                                        <div key={index}>
-                                            
+                            { asignaturas.length > 0 ?
+                                (asignaturas.map((asignatura, index) => {
+
+                                    return (
+                                        <div className="admnasign-row" key={index}>
+
                                             <div className="admnasign-asignaturaBox" key={index}>
-                                            { asignatura.nombre}
+                                                {asignatura.nombre}
                                             </div>
-                                            <div>
+
                                             {profesores.map((profesor, index2) => {
-                                                return(
-                                                    
-                                                    <div key={index2}>
-                                                        {console.log(profesor)}
-                                                    </div>
+                                                return (
+                                                    profesor.asignaturas.map((asignaturaProf, index3) => {
+
+                                                        if (asignaturaProf.asignatura == asignatura._id) {
+                                                            return (
+                                                                <div className="admnasign-asignaturaBox" key={index3}>
+                                                                    {profesor.pnombre + " " + profesor.apellidop + " " + profesor.apellidom}
+                                                                </div>
+                                                            )
+                                                        }
+                                                    })
+
                                                 )
                                             })}
-                                            </div>
+
 
                                         </div>
                                     )
+
+
                                 })
+                                )
+                                :
+                                (
+                                    <div className="admnasign-asignaturaBox">
+                                        No posee Asignaturas
+                                    </div>
+                                )
+
                             }
+                            
                         </div>
                     </div>
                 </div>
