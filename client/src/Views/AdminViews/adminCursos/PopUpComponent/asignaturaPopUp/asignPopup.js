@@ -13,6 +13,7 @@ import bookIco from "../../../../../imgs/bookIco.svg"
 const AsignPopup = (props) => {
 
     const [asignaturas, setAsignaturas] = useState([]);
+    const [profesores, setProfesores] = useState([]);
 
     const getAsignaturas = async() => {
         try {
@@ -25,8 +26,20 @@ const AsignPopup = (props) => {
             console.log(error)
         }
     }
+    const getProfesores = async() => {
+        try {
+            const res = await axios.post("http://localhost:5000/api/admin/obtenerProfesorCurso", {
+                idCurso: props.curso._id
+            })
+            setProfesores(res.data);
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
-    useEffect(() => {getAsignaturas()}, []);
+    useEffect(() => {getAsignaturas()
+                     getProfesores()}
+                    , []);
 
     return(
         <Popup trigger={<button className="admn-btn"><img src={bookIco} className="material-icons"></img></button>} modal>
@@ -45,8 +58,22 @@ const AsignPopup = (props) => {
                             {
                                 asignaturas.map((asignatura, index) => {
                                     return(
-                                        <div className="admnasign-asignaturaBox" key={index}>
-                                        {asignatura.nombre}
+                                        <div key={index}>
+                                            
+                                            <div className="admnasign-asignaturaBox" key={index}>
+                                            { asignatura.nombre}
+                                            </div>
+                                            <div>
+                                            {profesores.map((profesor, index2) => {
+                                                return(
+                                                    {}
+                                                    <div key={index2}>
+                                                        {console.log(profesor)}
+                                                    </div>
+                                                )
+                                            })}
+                                            </div>
+
                                         </div>
                                     )
                                 })
