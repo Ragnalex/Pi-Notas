@@ -3,7 +3,8 @@
     justify-content: flex-start;
     background-color:white;
     border-color:rgb(0, 0, 0);
-    border: 3px solid;
+    border: rgb(9, 29, 207) 5px solid;
+    border-radius: 5%;
 
     
 }
@@ -15,9 +16,10 @@
 .calendar-titulo{
     display: flex;
     justify-content: center;
-    color:black;
-    font-size: "500px";
-    margin-top: "4000px";
+    color:rgb(0, 112, 187);
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 40px;
 }
 .calendar-imag{
     width: 400px;
