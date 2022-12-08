@@ -3,6 +3,7 @@ import "./pNotas.css";
 import Lottie from "lottie-react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import Calendario from "../../../Components/Calendar/Calendar"
 
 import { Context } from "../../../context/context";
 
@@ -62,7 +63,7 @@ const PNotas = () => {
                     </div>
                 </div>
 
-                <button className="calendario">Calendario de Actividades</button>
+                <Calendario idcurso={idcurso}></Calendario>
 
                 <div className="table-content">
 
