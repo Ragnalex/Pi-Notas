@@ -190,6 +190,17 @@ const ObtenerProfJefe = async (req, res) => {
     res.status(500).json(error);
   }
 };
+
+const ObtenerProfesorCurso = async (req, res) => {
+  try {
+    const profesores = await Profesor.find({
+      "asignaturas.cursos":req.body.idCurso
+    });
+    res.status(200).json(profesores);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
 module.exports = {
   CreateAlumno,
   CreateProfesor,
@@ -206,4 +217,5 @@ module.exports = {
   EliminarAsignatura,
   EliminarCurso,
   ObtenerProfJefe,
+  ObtenerProfesorCurso,
 };
