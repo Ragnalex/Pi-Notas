@@ -6,6 +6,7 @@ const {
   VerCursosAsignaturas,
   VerAlumnosCurso,
   AsignarNotaAlumno,
+  ObtenerEventos,
   EliminarEvento,
   EliminarNotaAlumno,
 } = require("../controllers/prof.controller");
@@ -16,6 +17,7 @@ router.post("/verCursoAsignaturas", VerCursosAsignaturas);
 router.post("/verAlumnosCurso", VerAlumnosCurso);
 router.post("/asignarNotaAlumno", AsignarNotaAlumno);
 router.post("/ingresarEvento", CreateEvento);
+router.get("/ObtenerEventos", ObtenerEventos);
 router.delete("/eliminarEvento", EliminarEvento);
 router.delete("/eliminarNotaAlumno", EliminarNotaAlumno);
 module.exports = router;
