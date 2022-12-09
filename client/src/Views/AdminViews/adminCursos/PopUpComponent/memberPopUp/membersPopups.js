@@ -10,17 +10,18 @@ import "./membersPopup.css"
 import userIco from "../../../../../imgs/userIco.svg"
 
 
-const MembersPopup = (curso) => {
+const MembersPopup = (props) => {
 
 
     const [jefatura, setJefatura] = useState();
+    const [config, setcConfig] = useState(false);
 
     const [alumnos, setAlumnos] = useState([]);
 
     const getJefatura = async (e) => {
         try {
             const profesor = await axios.post("http://localhost:5000/api/admin/obtenerProfesor", {
-                idcurso: curso.curso._id
+                idcurso: props.curso._id
             })
             setJefatura(profesor.data);
         } catch (error) {
@@ -31,8 +32,10 @@ const MembersPopup = (curso) => {
     const getAlumnos = async (e) => {
         try {
             const dataAlumn = await axios.post("http://localhost:5000/api/prof/verAlumnosCurso", {
-                idcurso: curso.curso._id
+                idCurso: props.curso._id
             })
+            console.log(dataAlumn.data);
+            
             setAlumnos(dataAlumn.data);
         } catch (error) {
             setAlumnos([]);
@@ -82,18 +85,30 @@ const MembersPopup = (curso) => {
                                 </thead>
                                 <tbody>
                                     {
-                                        alumnos.map((alumno,index) => {
-                                            return(
-                                                <tr key={index}>
-                                                    <td></td>
-                                                    <td>{alumno != null && index}</td>
-                                                    <td>{alumno != null && alumno.rut}</td>
-                                                    <td>{alumno != null && alumno.pnombre}</td>
-                                                    <td>{alumno != null && alumno.apellidop}</td>
-                                                    <td>{alumno != null && alumno.apellidom}</td>
-                                                </tr>
-                                            )
-                                        })
+                                        alumnos.length > 0 ? 
+                                            alumnos.map((alumno,index) => {
+                                                return(
+                                                    <tr key={index}>
+                                                        <td></td>
+                                                        <td>{alumno != null && index}</td>
+                                                        <td>{alumno != null && alumno.rut}</td>
+                                                        <td>{alumno != null && alumno.pnombre}</td>
+                                                        <td>{alumno != null && alumno.apellidop}</td>
+                                                        <td>{alumno != null && alumno.apellidom}</td>
+                                                    </tr>
+                                                )
+                                            })
+                                        :
+                                        (
+                                            <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                        )
                                     }
                                 </tbody>
                             </table>

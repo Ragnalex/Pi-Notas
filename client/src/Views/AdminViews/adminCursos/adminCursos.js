@@ -13,6 +13,7 @@ import AddPopup from "./PopUpComponent/AddPopup/addPopup"
 import DelPopUp from "./PopUpComponent/delPopUp/delPopup"
 import MemPopUp from "./PopUpComponent/memberPopUp/membersPopups"
 import AsignPopup from "./PopUpComponent/asignaturaPopUp/asignPopup"
+import Calendario from "../../../Components/Calendar/Calendar"
 
 
 
@@ -75,7 +76,7 @@ const AdminCursos = () => {
                                         <th>Nombre</th>
                                         <th>Paralelo</th>
                                         <th>año</th>
-                                        <th>Calendario</th>
+                                        
                                         <th>Integrantes</th>
                                         <th>Asignaturas</th>
                                         <th>Eliminar</th>
@@ -96,11 +97,6 @@ const AdminCursos = () => {
                                                     <td>{curso.nombre}</td>
                                                     <td>{curso.paralelo}</td>
                                                     <td>{curso.año}</td>
-                                                    <td>
-                                                        <button className="admn-btn">
-                                                            <img className="material-icons" src={calendarIco} alt="calendario" />
-                                                        </button>
-                                                    </td>
                                                     <td><MemPopUp curso={curso} /></td>
                                                     <td><AsignPopup curso={curso} /></td>
                                                     <td><DelPopUp curso={curso} /></td>
