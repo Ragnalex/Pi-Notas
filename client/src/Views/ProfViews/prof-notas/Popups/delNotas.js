@@ -6,7 +6,7 @@ import Popup from "reactjs-popup";
 import delIco from "../../../../imgs/trash.svg";
 
 //style
-import "./delNotas.css";
+//import "./delNotas.css";
 
 const DelNota = (alumno) => {
 
@@ -25,7 +25,7 @@ const DelNota = (alumno) => {
     return (
         <Popup trigger={<button className="admn-btn"><img src={delIco} className="material-icons"></img></button>} modal>
             <div className="admn-popContent">
-                <div className="admn-popuptitle" >
+                <div className="admn-popuptitle">
                     ¿Esta seguro de eliminar la nota {alumno.notas.numero}?
 
                 </div>

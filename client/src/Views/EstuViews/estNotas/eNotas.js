@@ -68,9 +68,8 @@ const ENotas = () => {
     useEffect(() => { getAsignaturas() }, []);
 
     return (
-        <div>
-            <button onClick={handleLogout} className="back-button"> Volver </button>
-            <div className="est-content">
+        <div className="admn-estuall">
+            <div className="admn-econtent">
                 <div className="est-encabezado">
 
                     <div className="t-profile">
@@ -87,170 +86,83 @@ const ENotas = () => {
                         </div>
                     </div>
 
+                    <button onClick={handleLogout} className="back-button"> Volver </button>
+
                 </div>
 
                 <button className="calendario">Calendario de Actividades</button>
+                
+                {/*Sección que muestra notas del alumno por asignatura */}
+                <div className="table-content">
+                    <div>
+                        <table className="datatable">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Asignatura</th>
+                                    <th>N1</th>
+                                    <th>N2</th>
+                                    <th>N3</th>
+                                    <th>N4</th>
+                                    <th>N5</th>
+                                    <th>N6</th>
+                                    <th>N7</th>
+                                    <th>N8</th>
+                                    <th>Promedio</th>
+                                </tr>
+                            </thead>
 
-                <div className="est-notas-content">
-                    
-                        <div className="column">
-                            {
-                                Asignaturas.map((asignatura, index) => {         //Renderizado de los botones del backend
+                            <tbody>
+                                {
+                                    Asignaturas.map((asignatura, index) =>{
+                                        return (
 
-                                    return (
-
-                                        <div className="fila-notas">
-                                            <div className="column">
-                                                <div className="col-titulo">
-                                                    Asignatura
-                                                </div>
-                                                <button className="asignatura" key={index}>
-                                                    {asignatura.nombre}
-                                                </button>
-                                            </div>
-
-                                            <div className="column">
-                                                <div className="col-titulo">
-                                                    P1
-                                                </div>
-
-                                                <div className="labels">
-                                                {getNotas(asignatura._id).length > 0 &&
-                                                    getNotas(asignatura._id)[0]
-                                                }
-                                                </div>
-                                                
-                                            </div>
-
-                                            <div className="column">
-                                                <div className="col-titulo">
-                                                    P2
-                                                </div>
-
-                                                <div className="labels">
-                                                {getNotas(asignatura._id).length > 1 &&
-                                                    getNotas(asignatura._id)[1]
-                                                }
-                                                </div>
-                                                
-                                            </div>
-
-                                            <div className="column">
-                                                <div className="col-titulo">
-                                                    P3
-                                                </div>
-
-                                                <div className="labels">
-                                                {getNotas(asignatura._id).length > 2 &&
-                                                    getNotas(asignatura._id)[2]
-                                                }
-                                                </div>
-                                                
-                                            </div>
-
-                                            <div className="column">
-                                                <div className="col-titulo">
-                                                    P4
-                                                </div>
-
-                                                <div className="labels">
-                                                {getNotas(asignatura._id).length > 3 &&
-                                                    getNotas(asignatura._id)[3]
-                                                }
-                                                </div>
-                                                
-                                            </div>
-
-                                            <div className="column">
-                                                <div className="col-titulo">
-                                                    P5
-                                                </div>
-
-                                                <div className="labels">
-                                                {getNotas(asignatura._id).length > 4 &&
-                                                    getNotas(asignatura._id)[4]
-                                                }
-                                                </div>
-                                                
-                                            </div>
-
-                                            <div className="column">
-                                                <div className="col-titulo">
-                                                    P6
-                                                </div>
-
-                                                <div className="labels">
-                                                {getNotas(asignatura._id).length > 5 &&
-                                                    getNotas(asignatura._id)[5]
-                                                }
-                                                </div>
-                                                
-                                            </div>
-
-                                            <div className="column">
-                                                <div className="col-titulo">
-                                                    P7
-                                                </div>
-
-                                                <div className="labels">
-                                                {getNotas(asignatura._id).length > 6 &&
-                                                    getNotas(asignatura._id)[6]
-                                                }
-                                                </div>
-                                                
-                                            </div>
-
-                                            <div className="column">
-                                                <div className="col-titulo">
-                                                    P8
-                                                </div>
-
-                                                <div className="labels">
-                                                {getNotas(asignatura._id).length > 7 &&
-                                                    getNotas(asignatura._id)[7]
-                                                }
-                                                </div>
-                                                
-                                            </div>
-
-                                            <div className="column">
-                                                <div className="col-titulo">
-                                                    P9
-                                                </div>
-
-                                                <div className="labels">
-                                                {getNotas(asignatura._id).length > 8 &&
-                                                    getNotas(asignatura._id)[8]
-                                                }
-                                                </div>
-                                                
-                                            </div>
-
-                                            <div className="column">
-                                                <div className="col-titulo">
-                                                    Promedio
-                                                </div>
-
-                                                <div className="labels l-prom">
+                                            <tr>
+                                                <td><span className="aviable"></span></td>
+                                                <td>{asignatura.nombre}</td>
+                                                <td>
                                                     {getNotas(asignatura._id).length > 0 &&
-                                                        getProm()
-                                                    }
-                                                </div>
-                                                
-
-
-                                            </div>
-      
-
-                                        </div>
-                                    )
-
-                                })
-
-                            }
-
-                        </div>     
-
+                                                    getNotas(asignatura._id)[0]}
+                                                </td>
+                                                <td>
+                                                    {getNotas(asignatura._id).length > 1 &&
+                                                    getNotas(asignatura._id)[1]}
+                                                </td>
+                                                <td>
+                                                    {getNotas(asignatura._id).length > 2 &&
+                                                    getNotas(asignatura._id)[2]}
+                                                </td>
+                                                <td>
+                                                    {getNotas(asignatura._id).length > 3 &&
+                                                    getNotas(asignatura._id)[3]}
+                                                </td>
+                                                <td>
+                                                    {getNotas(asignatura._id).length > 4 &&
+                                                    getNotas(asignatura._id)[4]}
+                                                </td>
+                                                <td>
+                                                    {getNotas(asignatura._id).length > 5 &&
+                                                    getNotas(asignatura._id)[5]}
+                                                </td>
+                                                <td>
+                                                    {getNotas(asignatura._id).length > 6 &&
+                                                    getNotas(asignatura._id)[6]}
+                                                </td>
+                                                <td>
+                                                    {getNotas(asignatura._id).length > 7 &&
+                                                    getNotas(asignatura._id)[7]}
+                                                </td>
+                                                <td>
+                                                    {getNotas(asignatura._id).length > 0 &&
+                                                        getProm()}
+                                                </td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <img className="nubesita" src={sefirot} alt="FondoEducador" />
