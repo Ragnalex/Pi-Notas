@@ -28,8 +28,8 @@ const EditProf = ({profesor}) => {
 
     const getJefatura = async(e) => {
         try {
-            const res = await axios.post("http://localhost:5000/api/prof/ObtenerProfJefe", {
-                id:profesor.jefatura
+            const res = await axios.post("http://localhost:5000/api/admin/obtenerProfesor", {
+                idcurso:profesor._id
             })
             setJefatura(res.data.nombre + " " + res.data.año);
 
@@ -143,11 +143,23 @@ const EditProf = ({profesor}) => {
                         <label className="admn-popupEstLabel">
                             Jefatura
                         </label>
+                        
+                        {/*
+                        <div className="admn-infocontent">
+                            {
+                                editJefatura ? (<input className="admn-popupEstinput" placeholder={profesor.jefatura} ref={jefaturaRef}/>) 
+                                : 
+                                (<div className="admn-popupText">{profesor.jefatura}</div>) 
+                            }
+
+                            <button className="admn-handleIco" type="button" onClick={() => seteditJefatura(!editJefatura )}><img className="admn-ico" src={editIco} /></button>
+                        </div>
+                        */}
 
                         <div className="admn-infocontent">
                             {
                                 editJefatura ? 
-                                (<select className="admn-popupEstinput" ref={jefaturaRef}>
+                                (<select className="admn-popupEstinput" placeholder={profesor.jefatura} ref={jefaturaRef}>
                                     <option value={jefatura}>
                                         {jefatura}
                                     </option>

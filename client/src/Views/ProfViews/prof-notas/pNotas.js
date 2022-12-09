@@ -13,6 +13,10 @@ import add_circle from "../../../imgs/plus-circle.png";
 import edit from "../../../imgs/pencil.png";
 import delete_btn from "../../../imgs/delete.png";
 
+//Componentes
+//import AddNota from "./addNotas";
+//import DelNota from "./delNotas";
+
 
 
 const PNotas = () => {
@@ -42,9 +46,8 @@ const PNotas = () => {
     useEffect(() => {getAlumnos()}, [])
 
     return (
-        <div>
-            <button onClick={() => navigate("/profesor/cursos")} className="back-button"> Volver </button>
-            <div className="est-content">
+        <div className="admn-estudall">
+            <div className="admn-econtent">
                 <div className="est-encabezado">
                     <div className="t-profile">
                         Calificaciones
@@ -61,12 +64,16 @@ const PNotas = () => {
                             {user.rut}
                         </div>
                     </div>
+
+                    <button onClick={() => navigate("/profesor/cursos")} className="back-button"> Volver </button>
                 </div>
 
                 <Calendario idcurso={idcurso}></Calendario>
 
+                {/*Sección que muestra notas alumnos */}
                 <div className="table-content">
 
+                    {/*
                     <div className="header-tools">
                         <div className="tools">
 
@@ -88,6 +95,7 @@ const PNotas = () => {
                         </div>
 
                     </div>
+                    */}
 
                     {/*Tabla de notas*/}
                     <div>
@@ -97,15 +105,17 @@ const PNotas = () => {
                                     <th></th>
                                     <th>N°</th>
                                     <th>Nombre</th>
-                                    <th>Nota 1</th>
-                                    <th>Nota 2</th>
-                                    <th>Nota 3</th>
-                                    <th>Nota 4</th>
-                                    <th>Nota 5</th>
-                                    <th>Nota 6</th>
-                                    <th>Nota 7</th>
-                                    <th>Nota 8</th>
+                                    <th>N1</th>
+                                    <th>N2</th>
+                                    <th>N3</th>
+                                    <th>N4</th>
+                                    <th>N5</th>
+                                    <th>N6</th>
+                                    <th>N7</th>
+                                    <th>N8</th>
                                     <th>Promedio</th>
+                                    <th>+ Nota</th>
+                                    <th>Eliminar</th>
                                 </tr>
                             </thead>
 
@@ -146,6 +156,14 @@ const PNotas = () => {
                                                 <td>{(listNotas.length > 0 && listNotas[7] != null && listNotas[7]) || "-" }</td>
                                                 <td>{(listNotas.length > 0 && listNotas[8] != null && listNotas[8]) || "-" }</td>
                                                 <td>{(listNotas.length > 0 && listNotas[9] != null && listNotas[9]) || "-" }</td>
+                                                {/*
+                                                <td>
+                                                    <AddNota listNotas = {listNotas} ></AddNota>
+                                                </td>
+                                                <td>
+                                                    <DelNota listNotas = {listNotas} ></DelNota>
+                                                </td>
+                                                */}
                                             </tr>
                                         )
                                     })

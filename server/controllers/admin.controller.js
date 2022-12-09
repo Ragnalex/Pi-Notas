@@ -70,13 +70,12 @@ const CreateCurso = async (req, res) => {
 };
 
 const AsignarRamoProfesor = async (req, res) => {
-  //recibe una lista de ids
   try {
     const prof = await Profesor.findOne({
-      rut: req.body.rut,
+      rut: req.body.rut
     });
     if (prof) {
-      prof.asignaturas = req.body.asignaturas;
+      prof.asignaturas.push({asignatura :req.body.idAsignatura,cursos: [req.body.idCurso]});
       await prof.save();
     }
     res.status(200).json(prof);
@@ -114,6 +113,18 @@ const VerCursos = async (req, res) => {
     res.status(500).json(err);
   }
 };
+
+const NuevaAsignaturaCurso = async (req,res) => {
+  try {
+    const curso = await Curso.findOne({_id: req.body.idCurso});
+    console.log(curso);
+    curso.asignaturas.push(req.body.idAsignatura);
+    await curso.save();
+    res.status(200);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+}
 
 const VerEstudiantes = async (req, res) => {
   //Manda todas los estudiantes del colegio
@@ -194,7 +205,7 @@ const ObtenerProfJefe = async (req, res) => {
 const ObtenerProfesorCurso = async (req, res) => {
   try {
     const profesores = await Profesor.find({
-      "asignaturas.cursos":req.body.idCurso
+      "asignaturas.cursos": req.body.idCurso,
     });
     res.status(200).json(profesores);
   } catch (error) {
@@ -207,6 +218,7 @@ module.exports = {
   CreateAsignatura,
   CreateCurso,
   AsignarRamoProfesor,
+  NuevaAsignaturaCurso,
   VerAsignaturasCurso,
   VerAsignaturas,
   VerCursos,

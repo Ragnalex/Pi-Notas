@@ -2,7 +2,7 @@
 //utilities
 import axios from "axios";
 import Popup from "reactjs-popup";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 //style
 import "./asignPopup.css";
@@ -10,10 +10,17 @@ import "./asignPopup.css";
 import bookIco from "../../../../../imgs/bookIco.svg"
 
 
+
 const AsignPopup = (props) => {
 
     const [asignaturas, setAsignaturas] = useState([]);
     const [profesores, setProfesores] = useState([]);
+    const [allProf, setAllProf] = useState([]);
+    const [config, setConfig] = useState(null);
+    const [addAsignatura, setAddAsignatura] = useState(false);
+    const [allAsignaturas, setAllAsignaturas] = useState([]);
+    const profRef = useRef();
+    const AsignRef = useRef();
 
     const getAsignaturas = async() => {
         try {
@@ -32,13 +39,48 @@ const AsignPopup = (props) => {
                 idCurso: props.curso._id
             })
             setProfesores(res.data);
+            const respAll = await axios.get("http://localhost:5000/api/admin/verProfesores");
+            setAllProf(respAll.data);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    const getAllAsignaturas = async () => {
+        try {
+            const res = await axios.get("http://localhost:5000/api/admin/verAsignaturas");
+            
+            setAllAsignaturas(res.data);
         } catch (error) {
             console.log(error)
         }
     }
 
+    const handleUpdate = async() => {
+        try {
+            console.log(profRef.current.value);
+            setConfig(null);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const handleAddAsign = async () => {
+        try {
+            console.log (props.curso._id);
+            alert("awaite");
+            const res = await axios.post("http://localhost:5000/api/admin/NuevaAsignaturaCurso", {
+                idAsignatura: AsignRef.current.value,
+                idCurso: props.curso._id
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
     useEffect(() => {getAsignaturas()
-                     getProfesores()}
+                     getProfesores()
+                     getAllAsignaturas()}
                     , []);
 
     return(
@@ -49,35 +91,109 @@ const AsignPopup = (props) => {
                 </div>
                 <div className="admnasign-content">
                     
+                    {addAsignatura ? 
+                    (
+                    <form className="admn-addForm" onSubmit={handleAddAsign}>
+                        <select ref={AsignRef} className="admnasign-option">
+                            <option value={null}>
+                                Seleccione asignatura...
+                            </option>
+                            {
+                               allAsignaturas.map((asign, index) => {
+                                return(
+                                    <option value={asign._id}> {asign.nombre} </option>
+                                )
+                               })
+                            }
+                        </select>
+                        <button className="admnasign-modbutton"> añadir </button>
+                    </form>
+                    )
+                    :
+                    (<button onClick={() => setAddAsignatura(!addAsignatura)} className="admn-addbutton"> Agregar asignatura </button>)
+                    }
+                    
+
+                    
+                    
+                    
                     <div>
-                        <div className="adminasign-label">
-                        Asignaturas
+                        <div className="adminasign-titles">
+                            <div className="adminasign-label">
+                            Asignatura
+                            </div>
+                            <div className="adminasign-label">
+                            Profesor 
+                            </div>
                         </div>
                         
+                        
                         <div className="admnasign-body">
-                            {
-                                asignaturas.map((asignatura, index) => {
-                                    return(
-                                        <div key={index}>
-                                            
-                                            <div className="admnasign-asignaturaBox" key={index}>
-                                            { asignatura.nombre}
-                                            </div>
-                                            <div>
-                                            {profesores.map((profesor, index2) => {
-                                                return(
-                                                    
-                                                    <div key={index2}>
-                                                        {console.log(profesor)}
-                                                    </div>
-                                                )
-                                            })}
-                                            </div>
+                            { (asignaturas.length > 0) ?
+                                    (
+                                        asignaturas.map((asignatura, index) => {
+                                            let find = false;
+                                            return (
+                                                config == asignatura._id ?
+                                                    (
+                                                        <form className="admnasign-row" onSubmit={handleUpdate}  key={index}>
+                                                            <div className="admnasign-asignaturaBox">
+                                                                {asignatura.nombre}
+                                                            </div>
+                                                            <select className="admnasign-option" ref={profRef}>
+                                                                <option value={null}> Seleccione profesor... </option>
+                                                                {allProf.map((profesor, index2) => {
+                                                                    return (
+                                                                        <option key={index2} value={profesor.rut}>
+                                                                            {profesor.pnombre + " " + profesor.apellidop + " " + profesor.apellidom}
+                                                                        </option>
+                                                                    )
+                                                                })}
+                                                            </select>
+                                                            <button type="submit" className="admnasign-modbutton"> actualizar</button>
+                                                        </form>
+                                                    )
+                                                    :
+                                                    (
+                                                        <div className="admnasign-row">
+                                                            <div className="admnasign-asignaturaBox" key={index}>
+                                                                {asignatura.nombre}
+                                                            </div>
+                                                            {profesores.map((profesor, index2) => {
 
-                                        </div>
+                                                                return (
+                                                                    profesor.asignaturas.map((asignaturaProf, index3) => {
+
+                                                                        if (asignaturaProf.asignatura == asignatura._id) {
+                                                                            find = true;
+                                                                            return (
+                                                                                <div className="admnasign-asignaturaBox" key={index3}>
+                                                                                    {profesor.pnombre + " " + profesor.apellidop + " " + profesor.apellidom}
+                                                                                </div>
+                                                                            )
+                                                                        }
+                                                                    }
+                                                                    )
+                                                                )
+                                                            })}
+                                                            {!find && <div className="admnasign-asignaturaBox"> No Asignado </div>}
+                                                            {config == null && <button onClick={() => setConfig(asignatura._id)} className="admnasign-modbutton">Modificar</button>}
+
+                                                        </div>
+                                                    )
+                                            )
+                                        })
                                     )
-                                })
+
+                                :
+                                (
+                                    <div className="admnasign-asignaturaBox">
+                                        No posee Asignaturas
+                                    </div>
+                                )
+                                
                             }
+
                         </div>
                     </div>
                 </div>

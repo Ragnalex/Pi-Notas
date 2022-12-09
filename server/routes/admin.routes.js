@@ -8,6 +8,7 @@ const {
     AsignarRamoProfesor,
     VerAsignaturasCurso,
     VerAsignaturas,
+    NuevaAsignaturaCurso,
     VerCursos,
     VerEstudiantes,
     VerProfesores,
@@ -31,6 +32,8 @@ router.post("/ingresarCurso", CreateCurso);
 router.post("/asignaturaProfesor", AsignarRamoProfesor);
 //Ver todas las asignaturas de un curso
 router.post("/verAsignaturasCurso", VerAsignaturasCurso);
+//
+router.post("/NuevaAsignaturaCurso", NuevaAsignaturaCurso)
 //Ver todas las asignaturas
 router.get("/verAsignaturas", VerAsignaturas);
 //ver todos los cursos

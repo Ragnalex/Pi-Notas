@@ -152,7 +152,7 @@ const EditPopup = ({estudiante}) => {
                                 {
                                     listCursos.map((curso, index) => {
                                         return(
-                                            <option key={index} value={curso._id}>{curso.nombre + " " + curso.año}</option>
+                                            <option value={curso._id}>{curso.nombre + " " + curso.año}</option>
                                         )
                                     })
                                 }
