@@ -115,6 +115,18 @@ const VerCursos = async (req, res) => {
   }
 };
 
+const NuevaAsignaturaCurso = async (req,res) => {
+  try {
+    const curso = await Curso.findOne({_id: req.body.idCurso});
+    console.log(curso);
+    curso.asignaturas.push(req.body.idAsignatura);
+    await curso.save();
+    res.status(200);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+}
+
 const VerEstudiantes = async (req, res) => {
   //Manda todas los estudiantes del colegio
   try {
@@ -207,6 +219,7 @@ module.exports = {
   CreateAsignatura,
   CreateCurso,
   AsignarRamoProfesor,
+  NuevaAsignaturaCurso,
   VerAsignaturasCurso,
   VerAsignaturas,
   VerCursos,
