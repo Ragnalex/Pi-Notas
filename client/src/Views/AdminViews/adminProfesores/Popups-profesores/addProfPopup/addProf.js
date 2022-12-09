@@ -43,6 +43,7 @@ const EditProf = () => {
                     apellidom:apellidomRef.current.value,
                     jefatura:jefaturaRef.current.value
                 })
+                setSuccess(true);
             } else {
                 const res = await axios.post("http://localhost:5000/api/admin/ingresarProfesor", {
                     rut:rutRef.current.value,
@@ -51,8 +52,8 @@ const EditProf = () => {
                     apellidop:apellidopRef.current.value,
                     apellidom:apellidomRef.current.value
                 })
+                setSuccess(true);
             }
-            setSuccess(true);
         } catch (error) {
             console.log(error)
         }

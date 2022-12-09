@@ -70,13 +70,12 @@ const CreateCurso = async (req, res) => {
 };
 
 const AsignarRamoProfesor = async (req, res) => {
-  //recibe una lista de ids
   try {
     const prof = await Profesor.findOne({
-      rut: req.body.rut,
+      rut: req.body.rut
     });
     if (prof) {
-      prof.asignaturas = req.body.asignaturas;
+      prof.asignaturas.push({asignatura :req.body.idAsignatura,cursos: [req.body.idCurso]});
       await prof.save();
     }
     res.status(200).json(prof);
@@ -206,7 +205,7 @@ const ObtenerProfJefe = async (req, res) => {
 const ObtenerProfesorCurso = async (req, res) => {
   try {
     const profesores = await Profesor.find({
-      "asignaturas.cursos":req.body.idCurso
+      "asignaturas.cursos": req.body.idCurso,
     });
     res.status(200).json(profesores);
   } catch (error) {
