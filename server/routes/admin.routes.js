@@ -17,7 +17,8 @@ const {
     EliminarProfesor,
     EliminarCurso,
     ObtenerProfJefe,
-    ObtenerProfesorCurso
+    ObtenerProfesorCurso,
+    modificarAlumno
 } = require("../controllers/admin.controller");
 
 //Creación de Usuarios
@@ -51,5 +52,6 @@ router.delete("/eliminarAlumno", EliminarAlumno);
 router.delete("/eliminarProfesor", EliminarProfesor);
 router.delete("/eliminarCurso", EliminarCurso);
 router.delete("/eliminarAsignatura", EliminarAsignatura);
+router.delete("/modificarAlumno", modificarAlumno);
 
 module.exports = router;

@@ -18,8 +18,19 @@ import bottomCloud from "../../../imgs/Ellipse.png"
 
 const AdmnEstudiantes = () => {
 
-    const [Estudiantes, setEstudiantes] = useState([]);
+    const [Estudiantes, setEstudiantes] = useState({ N: "", Rut: "", Primer_Nombre: "" , Segundo_Nombre: "", Apellido_Paterno: "", Apellido_Materno: ""});
     const navigate = useNavigate();
+
+    async function modificarEstudiante() {
+        await axios.post("http://localhost:5000/api/admin/modificarAlumno", {
+            rut:Estudiante.Rut,
+            primer_nombre:Estudiante.Primer_Nombre,
+            segundo_nombre:Estudiante.Segundo_Nombre,
+            apellido_parteno:Estudiante.Apellido_Paterno,
+            apellido_materno:Estudiante.Apellido_Materno
+            }
+        )   
+    }
 
     const getEstudiantes = async (e) => {
         try {
@@ -42,19 +53,44 @@ const AdmnEstudiantes = () => {
                     <button className="back-button" onClick={() => navigate("/administrador/inicio")}>Volver</button>
                 </div>
                 <AddPopUp></AddPopUp>
-                
+
                 <div>
                     <table className="admn-edatatable">
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>N°</th>
-                                <th>Rut</th>
-                                <th>Primer Nombre</th>
-                                <th>Segundo Nombre</th>
-                                <th>Apellido Paterno</th>
-                                <th>Apellido Materno</th>
-                                <th>Editar</th>
+                                
+                                <input
+                                    type="text"
+                                    placeholder="Rut"
+                                    value={Estudiante.Rut}
+                                    onChange={(e) => setEstudiantes({ ...Estudiante, Rut: e.target.value })}
+                                />
+                                 <input
+                                    type="text"
+                                    placeholder="Primer Nombre"
+                                    value={Estudiante.Primer_Nombre}
+                                    onChange={(e) => setEstudiantes({ ...Estudiante, Primer_Nombre: e.target.value })}
+                                />
+                                 <input
+                                    type="text"
+                                    placeholder="Segundo Nombre"
+                                    value={Estudiante.Segundo_Nombre}
+                                    onChange={(e) => setEstudiantes({ ...Estudiante, Segundo_Nombre: e.target.value })}
+                                />
+                                 <input
+                                    type="text"
+                                    placeholder="Apellido Paterno"
+                                    value={Estudiante.Apellido_Paterno}
+                                    onChange={(e) => setEstudiantes({ ...Estudiante, Apellido_Paterno: e.target.value })}
+                                />
+                                 <input
+                                    type="text"
+                                    placeholder="Apellido Materno"
+                                    value={Estudiante.Apellido_Materno}
+                                    onChange={(e) => setEstudiantes({ ...Estudiante, Apellido_Materno: e.target.value })}
+                                />
+                                <button classname="admn-editBtn" onClick={modificarEstudiante}> Modificar Estudiante</button>
                             </tr>
                         </thead>
 
@@ -73,7 +109,7 @@ const AdmnEstudiantes = () => {
                                             <td>{estudiante.apellidop}</td>
                                             <td>{estudiante.apellidom}</td>
                                             <td>
-                                                <EditPopup estudiante = {estudiante} ></EditPopup>
+                                                <EditPopup estudiante={estudiante} ></EditPopup>
                                             </td>
                                         </tr>
 

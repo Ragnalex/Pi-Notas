@@ -75,7 +75,7 @@ const AsignarRamoProfesor = async (req, res) => {
       rut: req.body.rut
     });
     if (prof) {
-      prof.asignaturas.push({asignatura :req.body.idAsignatura, cursos: [req.body.idCurso]});
+      prof.asignaturas.push({asignatura :req.body.idAsignatura,cursos: req.body.idCurso});
       await prof.save();
     }
     res.status(200).json(prof);
@@ -212,6 +212,22 @@ const ObtenerProfesorCurso = async (req, res) => {
     res.status(500).json(error);
   }
 };
+
+const modificarAlumno = async (req, res) => {
+  try {
+    const alumno = await Alumno.findOne({
+      rut: req.body.rut,
+    });
+      alumno.pnombre = req.body.pnombrep;
+      alumno.snombre =req.body.snombre;
+      alumno.apellidop = req.body.apellidop;
+      alumno.apellidom = req.body.apellidom;
+      await alumno.save();
+    res.status(200).json(profesores);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
 module.exports = {
   CreateAlumno,
   CreateProfesor,
@@ -230,4 +246,5 @@ module.exports = {
   EliminarCurso,
   ObtenerProfJefe,
   ObtenerProfesorCurso,
+  modificarAlumno,
 };
