@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import "./pNotas.css";
 import Lottie from "lottie-react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import axios from "axios";
 
 import { Context } from "../../../context/context";
@@ -63,8 +63,10 @@ const PNotas = () => {
                             {user.rut}
                         </div>
                     </div>
-
-                    <button onClick={() => navigate("/profesor/cursos")} className="back-button"> Volver </button>
+                    
+                    <button onClick={() => navigate(-1)} className="back-button"> Volver </button>
+                    
+                    
                 </div>
 
                 <button className="calendario">Calendario de Actividades</button>

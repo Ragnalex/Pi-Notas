@@ -55,9 +55,13 @@ const AsignPopup = (props) => {
         }
     }
 
-    const handleUpdate = async() => {
+    const handleUpdate = async(e) => {
         try {
-            console.log(profRef.current.value);
+            const res = await axios.post("http://localhost:5000/api/admin/asignaturaProfesor", {
+                rut: profRef.current.value,
+                idCurso: props.curso._id,
+                idAsignatura: config
+            })
             setConfig(null);
         } catch (error) {
             console.log(error);
@@ -66,8 +70,7 @@ const AsignPopup = (props) => {
 
     const handleAddAsign = async () => {
         try {
-            console.log (props.curso._id);
-            alert("awaite");
+            
             const res = await axios.post("http://localhost:5000/api/admin/NuevaAsignaturaCurso", {
                 idAsignatura: AsignRef.current.value,
                 idCurso: props.curso._id
@@ -101,7 +104,7 @@ const AsignPopup = (props) => {
                             {
                                allAsignaturas.map((asign, index) => {
                                 return(
-                                    <option value={asign._id}> {asign.nombre} </option>
+                                    <option value={asign._id} key={index}> {asign.nombre} </option>
                                 )
                                })
                             }
@@ -136,7 +139,7 @@ const AsignPopup = (props) => {
                                             return (
                                                 config == asignatura._id ?
                                                     (
-                                                        <form className="admnasign-row" onSubmit={handleUpdate}  key={index}>
+                                                        <form className="admnasign-row" onSubmit={handleUpdate} key={index}>
                                                             <div className="admnasign-asignaturaBox">
                                                                 {asignatura.nombre}
                                                             </div>
@@ -160,12 +163,13 @@ const AsignPopup = (props) => {
                                                                 {asignatura.nombre}
                                                             </div>
                                                             {profesores.map((profesor, index2) => {
-
+                                                                let c = 0;
                                                                 return (
                                                                     profesor.asignaturas.map((asignaturaProf, index3) => {
 
-                                                                        if (asignaturaProf.asignatura == asignatura._id) {
+                                                                        if (asignaturaProf.asignatura == asignatura._id && c == 0) {
                                                                             find = true;
+                                                                            c++;
                                                                             return (
                                                                                 <div className="admnasign-asignaturaBox" key={index3}>
                                                                                     {profesor.pnombre + " " + profesor.apellidop + " " + profesor.apellidom}

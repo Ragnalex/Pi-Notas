@@ -14,13 +14,15 @@ const PGrades = () => {
     const { user, dispatch } = useContext(Context);  
 
     const [ Listcursos, setListcursos ] = useState([]);
+    const { asignatura } = useParams();
 
     const navigate = useNavigate();
     
     const getCursos = async () => {
         try {
-            const res = await axios.post("http://localhost:5000/api/prof/verAsignaturas", {
-                rut:user.rut
+            const res = await axios.post("http://localhost:5000/api/prof/verCursoAsignaturas", {
+                rut:user.rut,
+                idAsignatura: asignatura
             })
             setListcursos(res.data);
         } catch (error) {
@@ -63,13 +65,13 @@ const PGrades = () => {
                         {
                             Listcursos.map((curso,index) => {
                                 return (
-                                    <li key={curso._id}>
+                                    <div key={curso._id}>
                                         <Link to={`${curso._id}`}  key={index}>
                                             <button className="home-button">
                                                 {curso.nombre}
                                             </button>
                                         </Link>
-                                    </li>
+                                    </div>
                                     
                                 )
                             })

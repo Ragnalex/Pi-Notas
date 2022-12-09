@@ -75,13 +75,15 @@ const PProfile = () => {
                         {
                             asignaturas.map((asignatura, index)=> {         //Renderizado de los botones del backend
                                 return (
-                                <li key={asignatura.asignatura.nombre}>
+                                    
+                                <div key={asignatura.asignatura.nombre}>
+                                    {console.log(asignatura)}
                                     <Link to ={`/profesor/${asignatura.asignatura._id}`}>
                                         <button className="asign-button" key={index}>
                                         {asignatura.asignatura.nombre}
                                         </button>
                                     </Link>
-                                </li>
+                                </div>
                                 
                                     
                                 )

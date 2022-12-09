@@ -18,7 +18,7 @@ const VerAsignaturas = async (req, res) => {
 const VerCursosAsignaturas = async (req, res) => {
   try {
     const prof = await Profesor.findOne({ rut: req.body.rut });
-    const cursos = await Curso.find({ id: prof.asignaturas.cursos });
+    const cursos = await Curso.find({ id: prof.asignaturas.cursos, asignaturas: req.body.idAsignatura});
     res.status(200).json(cursos);
   } catch (error) {
     console.log(error);

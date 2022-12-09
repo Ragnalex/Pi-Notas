@@ -56,7 +56,7 @@ const AdminCursos = () => {
                 </div>
 
                 <div className="admn-tools">
-                    <AddPopup/>                  {/*Llama al componente addPopUp*/}
+                    <AddPopup />                  {/*Llama al componente addPopUp*/}
                 </div>
 
 
@@ -75,7 +75,6 @@ const AdminCursos = () => {
                                         <th>Nombre</th>
                                         <th>Paralelo</th>
                                         <th>año</th>
-                                        <th>Editar</th>
                                         <th>Calendario</th>
                                         <th>Integrantes</th>
                                         <th>Asignaturas</th>
@@ -99,17 +98,12 @@ const AdminCursos = () => {
                                                     <td>{curso.año}</td>
                                                     <td>
                                                         <button className="admn-btn">
-                                                            <img className="material-icons" src={editIco} alt="editar" />
-                                                        </button>
-                                                    </td>
-                                                    <td>
-                                                        <button className="admn-btn">
                                                             <img className="material-icons" src={calendarIco} alt="calendario" />
                                                         </button>
                                                     </td>
-                                                    <td><MemPopUp curso ={curso}/></td>
-                                                    <td><AsignPopup curso = {curso}/></td>
-                                                    <td><DelPopUp curso = {curso}/></td>
+                                                    <td><MemPopUp curso={curso} /></td>
+                                                    <td><AsignPopup curso={curso} /></td>
+                                                    <td><DelPopUp curso={curso} /></td>
                                                 </tr>
 
 

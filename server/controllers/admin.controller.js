@@ -75,7 +75,7 @@ const AsignarRamoProfesor = async (req, res) => {
       rut: req.body.rut
     });
     if (prof) {
-      prof.asignaturas.push({asignatura :req.body.idAsignatura,cursos: [req.body.idCurso]});
+      prof.asignaturas.push({asignatura :req.body.idAsignatura, cursos: [req.body.idCurso]});
       await prof.save();
     }
     res.status(200).json(prof);
