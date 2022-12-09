@@ -135,10 +135,12 @@ const PNotas = () => {
                                                 <td>{(listNotas.length > 0 && listNotas[8] != null && listNotas[8]) || "-" }</td>
                                                 <td>{(listNotas.length > 0 && listNotas[9] != null && listNotas[9]) || "-" }</td>
                                                 <td>
-                                                    {/*<AddNota listNotas = {listNotas} ></AddNota>*/}
+                                                    {/*<AddNota alumno = {alumno} ></AddNota>*/}
+                                                    <button className="admn-editBtn"><img className="material-icons" src={add_circle} alt="añadir" /></button>
                                                 </td>
                                                 <td>
-                                                    {/*<DelNota listNotas = {listNotas} ></DelNota>*/}
+                                                    {/*<DelNota alumno = {alumno} ></DelNota>*/}
+                                                    <button className="admn-editBtn"><img className="material-icons" src={delete_btn} alt="eliminar" /></button>
                                                 </td>
                                             </tr>
                                         )
