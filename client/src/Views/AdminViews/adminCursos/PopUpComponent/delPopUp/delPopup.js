@@ -9,7 +9,7 @@ import delIco from "../../../../../imgs/trash.svg"
 //style
 import "./delPopup.css";
 
-const DelPopUp = (curso) => {
+const DelPopUp = (props) => {
 
     const handleDelete = async (cursoDel) => {
         try {
@@ -27,7 +27,7 @@ const DelPopUp = (curso) => {
         <Popup trigger={<button className="admn-btn"><img src={delIco} className="material-icons"></img></button>} modal>
             <div className="admn-popContent">
                 <div className="admn-popuptitle" >
-                    ¿Esta seguro de eliminar {curso.curso.nombre} {curso.curso.paralelo} del año {curso.curso.año}?
+                    ¿Esta seguro de eliminar {props.curso.nombre} {props.curso.paralelo} del año {props.curso.año}?
 
                 </div>
                 <div className="admn-delModalbuttons">

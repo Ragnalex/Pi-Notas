@@ -52,7 +52,7 @@ const AddPopup = () => {
             </Popup>
         )
         :
-        (<Popup open={false} modal>
+        (<Popup trigger={<button className="admn-addbutton"> Nuevo Curso </button>} modal>
 
             <div className="admn-popContent">
                 <div className="admn-popuptitle" >
@@ -64,7 +64,8 @@ const AddPopup = () => {
                         <label className="admn-popupLabel">
                             Seleccione curso
                         </label>
-                        <select ref={nuevoCursoRef} className="admn-popupOptions" placeholder="año....">
+                        <select ref={nuevoCursoRef} className="admn-popupOptions" placeholder="año...." required>
+                            <option value={null}> Curso... </option>
                             <option value="1° Básico">1° Básico</option>
                             <option value="2° Básico">2° Básico</option>
                             <option value="3° Básico">3° Básico</option>
@@ -85,7 +86,8 @@ const AddPopup = () => {
                         <label className="admn-popupLabel">
                             Seleccione Paralelo
                         </label>
-                        <select ref={paraleloCursoRef} className="admn-popupOptions" placeholder="año....">
+                        <select ref={paraleloCursoRef} className="admn-popupOptions" placeholder="año...." required>
+                            <option value={null}> Paralelo... </option>
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="C">C</option>
@@ -101,7 +103,8 @@ const AddPopup = () => {
                         <label className="admn-popupLabel">
                             Seleccione año
                         </label>
-                        <select ref={anioCursoRef} className="admn-popupOptions" placeholder="año....">
+                        <select ref={anioCursoRef} className="admn-popupOptions" placeholder="año...." required>
+                            <option value={null}> Año... </option>
                             <option value="2022">2022</option>
                             <option value="2021">2021</option>
                             <option value="2020">2020</option>

@@ -13,43 +13,30 @@ import bookIco from "../../../../../imgs/bookIco.svg"
 
 const AsignPopup = (props) => {
 
-    const [asignaturas, setAsignaturas] = useState([]);
-    const [profesores, setProfesores] = useState([]);
-    const [allProf, setAllProf] = useState([]);
+    const [asignaturasCurso, setAsignaturasCurso] = useState([]);
+    const [profesoresCurso, setProfesoresCurso] = useState([]);
     const [config, setConfig] = useState(null);
     const [addAsignatura, setAddAsignatura] = useState(false);
-    const [allAsignaturas, setAllAsignaturas] = useState([]);
     const profRef = useRef();
     const AsignRef = useRef();
 
-    const getAsignaturas = async() => {
+    const getAsignaturasCurso = async() => {
         try {
             const res = await axios.post("http://localhost:5000/api/admin/verAsignaturasCurso", {
                 idCurso: props.curso._id
             })
-            setAsignaturas(res.data);
+            setAsignaturasCurso(res.data);
         } catch (error) {
-            setAsignaturas("No posee asignaturas");
-            console.log(error)
+            setAsignaturasCurso("No posee asignaturas");
         }
     }
-    const getProfesores = async() => {
+    const getProfesoresCurso = async() => {
         try {
             const res = await axios.post("http://localhost:5000/api/admin/obtenerProfesorCurso", {
                 idCurso: props.curso._id
             })
-            setProfesores(res.data);
-            const respAll = await axios.get("http://localhost:5000/api/admin/verProfesores");
-            setAllProf(respAll.data);
-        } catch (error) {
-            console.log(error)
-        }
-    }
-    const getAllAsignaturas = async () => {
-        try {
-            const res = await axios.get("http://localhost:5000/api/admin/verAsignaturas");
+            setProfesoresCurso(res.data);
             
-            setAllAsignaturas(res.data);
         } catch (error) {
             console.log(error)
         }
@@ -81,9 +68,8 @@ const AsignPopup = (props) => {
     }
 
 
-    useEffect(() => {getAsignaturas()
-                     getProfesores()
-                     getAllAsignaturas()}
+    useEffect(() => {getAsignaturasCurso()
+                     getProfesoresCurso()}
                     , []);
 
     return(
@@ -102,7 +88,7 @@ const AsignPopup = (props) => {
                                 Seleccione asignatura...
                             </option>
                             {
-                               allAsignaturas.map((asign, index) => {
+                               props.asignaturas.map((asign, index) => {
                                 return(
                                     <option value={asign._id} key={index}> {asign.nombre} </option>
                                 )
@@ -113,12 +99,8 @@ const AsignPopup = (props) => {
                     </form>
                     )
                     :
-                    (<button onClick={() => setAddAsignatura(!addAsignatura)} className="admn-addbutton"> Agregar asignatura </button>)
+                    (<button onClick={() => setAddAsignatura(!addAsignatura)} className="admn-addsmallbutton"> Agregar asignatura </button>)
                     }
-                    
-
-                    
-                    
                     
                     <div>
                         <div className="adminasign-titles">
@@ -132,9 +114,9 @@ const AsignPopup = (props) => {
                         
                         
                         <div className="admnasign-body">
-                            { (asignaturas.length > 0) ?
+                            { (asignaturasCurso.length > 0) ?
                                     (
-                                        asignaturas.map((asignatura, index) => {
+                                        asignaturasCurso.map((asignatura, index) => {
                                             let find = false;
                                             return (
                                                 config == asignatura._id ?
@@ -145,7 +127,7 @@ const AsignPopup = (props) => {
                                                             </div>
                                                             <select className="admnasign-option" ref={profRef}>
                                                                 <option value={null}> Seleccione profesor... </option>
-                                                                {allProf.map((profesor, index2) => {
+                                                                {props.profesores.map((profesor, index2) => {
                                                                     return (
                                                                         <option key={index2} value={profesor.rut}>
                                                                             {profesor.pnombre + " " + profesor.apellidop + " " + profesor.apellidom}
@@ -158,11 +140,11 @@ const AsignPopup = (props) => {
                                                     )
                                                     :
                                                     (
-                                                        <div className="admnasign-row">
-                                                            <div className="admnasign-asignaturaBox" key={index}>
+                                                        <div className="admnasign-row" key={index}>
+                                                            <div className="admnasign-asignaturaBox" >
                                                                 {asignatura.nombre}
                                                             </div>
-                                                            {profesores.map((profesor, index2) => {
+                                                            {profesoresCurso.map((profesor, index2) => {
                                                                 let c = 0;
                                                                 return (
                                                                     profesor.asignaturas.map((asignaturaProf, index3) => {
@@ -181,7 +163,7 @@ const AsignPopup = (props) => {
                                                                 )
                                                             })}
                                                             {!find && <div className="admnasign-asignaturaBox"> No Asignado </div>}
-                                                            {config == null && <button onClick={() => setConfig(asignatura._id)} className="admnasign-modbutton">Modificar</button>}
+                                                            {config == null && !addAsignatura && <button onClick={() => setConfig(asignatura._id)} className="admnasign-modbutton">Modificar</button>}
 
                                                         </div>
                                                     )

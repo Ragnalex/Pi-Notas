@@ -29,7 +29,6 @@ const VerCursosAsignaturas = async (req, res) => {
 
 const VerAlumnosCurso = async (req, res) => {
   try {
-    console.log(req.body.idCurso);
     const alumnos = await Alumno.find({ curso: req.body.idCurso });
     res.status(200).json(alumnos);
   } catch (error) {

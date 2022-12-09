@@ -28,7 +28,9 @@ import userIco from "../../..//imgs/userIco.svg"
 const AdminCursos = () => {
 
     const [cursos, setCursos] = useState([]);
-    const [integrantes, setIntegrantes] = useState(false);
+    const [profesores, setProfesores] = useState([]);
+    const [alumnos, setAlumnos] = useState([]);
+    const [asignaturas, setAsignaturas] = useState([]);
 
     const navigate = useNavigate();
 
@@ -37,6 +39,12 @@ const AdminCursos = () => {
             const res = await axios.get("http://localhost:5000/api/admin/verCursos")
             const sortData = res.data.sort((elem1, elem2) => elem1.nombre.localeCompare(elem2.nombre))
             setCursos(sortData);
+            const allProf = await axios.get("http://localhost:5000/api/admin/verProfesores");
+            setProfesores(allProf.data);
+            const allAlumnos = await axios.get("http://localhost:5000/api/admin/verEstudiantes");
+            setAlumnos(allAlumnos.data);
+            const allAsign = await axios.get("http://localhost:5000/api/admin/verAsignaturas");
+            setAsignaturas(allAsign.data);
         } catch (error) {
             console.log(error);
         }
@@ -97,9 +105,9 @@ const AdminCursos = () => {
                                                     <td>{curso.nombre}</td>
                                                     <td>{curso.paralelo}</td>
                                                     <td>{curso.año}</td>
-                                                    <td><MemPopUp curso={curso} /></td>
-                                                    <td><AsignPopup curso={curso} /></td>
-                                                    <td><DelPopUp curso={curso} /></td>
+                                                    <td><MemPopUp curso={curso} profesores={profesores} alumnos={alumnos}/></td>
+                                                    <td><AsignPopup curso={curso} profesores={profesores} alumnos={alumnos} asignaturas={asignaturas}/></td>
+                                                    <td><DelPopUp curso={curso}/></td>
                                                 </tr>
 
 
