@@ -57,6 +57,7 @@ const AsignarNotaAlumno = async (req, res) => {
 
 const CreateEvento = async (req, res) => {
   try {
+    console.log(req.body);
     const newEvento = new Evento({
       nombre: req.body.nombre,
       descripcion: req.body.descripcion,
@@ -68,6 +69,7 @@ const CreateEvento = async (req, res) => {
     await curso.save();
     res.status(200).json(newEvento);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 };
@@ -98,7 +100,9 @@ const EliminarEvento = async (req, res) => {
     const eventos = await Evento.deleteOne({ _id: req.body.idEvento });
     await Curso.updateMany({}, { $pull: { calendario: req.body.idEvento } });
     res.status(200).json(eventos);
+    
   } catch (err) {
+
     res.status(500).json(err);
   }
 };
