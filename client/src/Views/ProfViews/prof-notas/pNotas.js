@@ -15,7 +15,7 @@ import delete_btn from "../../../imgs/delete.png";
 
 //Componentes
 //import AddNota from "./addNotas";
-//import DelNota from "./delNotas";
+import DelNota from "./Popups/delNotas";
 
 
 
@@ -72,30 +72,6 @@ const PNotas = () => {
 
                 {/*Sección que muestra notas alumnos */}
                 <div className="table-content">
-
-                    {/*
-                    <div className="header-tools">
-                        <div className="tools">
-
-                            <button className="notas-btn">
-                                <img className="material-icons" src = {add_circle} alt="add_circle"/>
-                            </button>
-                            
-                            <button className="notas-btn">
-                                <img className="material-icons" src = {edit} alt="edit"/>
-                            </button>
-
-                            <button className="notas-btn">
-                                <img className="material-icons" src = {delete_btn} alt="delete_btn"/>
-                            </button>
-                        </div>
-
-                        <div className="search">
-                            <input type="text" name="" id="" className="input-box"/>
-                        </div>
-
-                    </div>
-                    */}
 
                     {/*Tabla de notas*/}
                     <div>
@@ -156,14 +132,12 @@ const PNotas = () => {
                                                 <td>{(listNotas.length > 0 && listNotas[7] != null && listNotas[7]) || "-" }</td>
                                                 <td>{(listNotas.length > 0 && listNotas[8] != null && listNotas[8]) || "-" }</td>
                                                 <td>{(listNotas.length > 0 && listNotas[9] != null && listNotas[9]) || "-" }</td>
-                                                {/*
                                                 <td>
-                                                    <AddNota listNotas = {listNotas} ></AddNota>
+                                                    {/*<AddNota listNotas = {listNotas} ></AddNota>*/}
                                                 </td>
                                                 <td>
-                                                    <DelNota listNotas = {listNotas} ></DelNota>
+                                                    {/*<DelNota listNotas = {listNotas} ></DelNota>*/}
                                                 </td>
-                                                */}
                                             </tr>
                                         )
                                     })
