@@ -31,8 +31,16 @@ const PProfile = () => {
             const res = await axios.post("http://localhost:5000/api/prof/verAsignaturas", {
                 rut: user.rut,
             });
-    
-            setAsignaturas(res.data);
+            const uniqueAsignIds = [];
+            const UniqueAsign = res.data.filter(elem => {
+                const isDuplicate = uniqueAsignIds.includes(elem.asignatura._id);
+                if (!isDuplicate){
+                    uniqueAsignIds.push(elem.asignatura._id);
+                    return true;
+                }
+                return false;
+            })
+            setAsignaturas(UniqueAsign);
             
         } catch (error) {
             console.log(error);
@@ -44,7 +52,7 @@ const PProfile = () => {
     return(
         
         <div>
-            <button onClick={handleLogout} > Cerrar sesion </button>
+            <button onClick={handleLogout} className="back-button"> Cerrar sesion </button>
             
             <div className="p-content">
                 
@@ -76,8 +84,8 @@ const PProfile = () => {
                             asignaturas.map((asignatura, index)=> {         //Renderizado de los botones del backend
                                 return (
                                     
-                                <div key={asignatura.asignatura.nombre}>
-                                    {console.log(asignatura)}
+                                <div key={index}>
+                            
                                     <Link to ={`/profesor/${asignatura.asignatura._id}`}>
                                         <button className="asign-button" key={index}>
                                         {asignatura.asignatura.nombre}
