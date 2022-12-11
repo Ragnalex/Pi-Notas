@@ -18,7 +18,7 @@ import bottomCloud from "../../../imgs/Ellipse.png"
 
 const AdmnEstudiantes = () => {
 
-    const [Estudiantes, setEstudiantes] = useState({ N: "", Rut: "", Primer_Nombre: "" , Segundo_Nombre: "", Apellido_Paterno: "", Apellido_Materno: ""});
+    const [Estudiantes, setEstudiantes] = useState([]);
     const navigate = useNavigate();
 
     async function modificarEstudiante() {
@@ -35,7 +35,7 @@ const AdmnEstudiantes = () => {
     const getEstudiantes = async (e) => {
         try {
             const res = await axios.get("http://localhost:5000/api/admin/verEstudiantes");
-            const sortData = res.data.sort((elem1, elem2) => elem1.pnombre.localeCompare(elem2.pnombre));
+            const sortData = res.data.sort((elem1, elem2) => elem1.rut.localeCompare(elem2.rut));
             setEstudiantes(sortData);
         } catch (error) {
             console.log(error)
@@ -59,8 +59,14 @@ const AdmnEstudiantes = () => {
                         <thead>
                             <tr>
                                 <th></th>
-                                
-                                <input
+                                <th>N°</th>
+                                <th>Rut</th>
+                                <th>Primer Nombre</th>
+                                <th>Segundo Nombre</th>
+                                <th>Apellido Paterno</th>
+                                <th>Apellido Materno</th>
+                                <th>Editar</th>
+                                {/* <input
                                     type="text"
                                     placeholder="Rut"
                                     value={Estudiante.Rut}
@@ -90,7 +96,7 @@ const AdmnEstudiantes = () => {
                                     value={Estudiante.Apellido_Materno}
                                     onChange={(e) => setEstudiantes({ ...Estudiante, Apellido_Materno: e.target.value })}
                                 />
-                                <button classname="admn-editBtn" onClick={modificarEstudiante}> Modificar Estudiante</button>
+                                <button classname="admn-editBtn" onClick={modificarEstudiante}> Modificar Estudiante</button> */}
                             </tr>
                         </thead>
 

@@ -3,9 +3,11 @@ import "./eNotas.css";
 import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
 import { Context } from "../../../context/context";
 
+
+//Componente
+import Calendario from "../../../components/Calendar/Calendar";
 
 //IMAGES
 import sefirot from "../../../imgs/Ellipse.png";
@@ -90,7 +92,7 @@ const ENotas = () => {
 
                 </div>
 
-                <button className="calendario">Calendario de Actividades</button>
+                <Calendario idcurso={user.curso} tipo="estudiante"></Calendario>
                 
                 {/*Sección que muestra notas del alumno por asignatura */}
                 <div className="table-content">
@@ -112,6 +114,7 @@ const ENotas = () => {
                                 </tr>
                             </thead>
 
+                            
                             <tbody>
                                 {
                                     Asignaturas.map((asignatura, index) =>{
@@ -121,8 +124,11 @@ const ENotas = () => {
                                                 <td><span className="aviable"></span></td>
                                                 <td>{asignatura.nombre}</td>
                                                 <td>
-                                                    {getNotas(asignatura._id).length > 0 &&
-                                                    getNotas(asignatura._id)[0]}
+                                                    {getNotas(asignatura._id).length > 0 ?
+                                                    getNotas(asignatura._id)[0]
+                                                    :
+                                                    "-"
+                                                    }
                                                 </td>
                                                 <td>
                                                     {getNotas(asignatura._id).length > 1 &&

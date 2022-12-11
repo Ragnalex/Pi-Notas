@@ -13,7 +13,7 @@ import AddPopup from "./PopUpComponent/AddPopup/addPopup"
 import DelPopUp from "./PopUpComponent/delPopUp/delPopup"
 import MemPopUp from "./PopUpComponent/memberPopUp/membersPopups"
 import AsignPopup from "./PopUpComponent/asignaturaPopUp/asignPopup"
-import Calendario from "../../../Components/Calendar/Calendar"
+import Calendario from "../../../components/Calendar/Calendar"
 
 
 

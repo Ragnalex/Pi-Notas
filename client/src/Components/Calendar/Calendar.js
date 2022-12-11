@@ -60,8 +60,11 @@ const Calendario = (props) => {
     }
 
     const getallEvent= async () => {
-        await axios.post("http://localhost:5000/api/prof/ObtenerEventos").then((resultado) => {
-            if (resultado.status==200){
+        
+        const resultado = await axios.post("http://localhost:5000/api/prof/ObtenerEventos", {
+            idCurso: props.idcurso
+        })
+        if (resultado.status==200){
                 const formatevents = resultado.data.map((evento) => {
                     return{
                         title:evento.nombre,
@@ -72,8 +75,8 @@ const Calendario = (props) => {
                     }
                 })
                 setAllEvents(formatevents)
-            }
-        })
+        }
+        
 
     }
     useEffect(() => {
@@ -98,7 +101,6 @@ const Calendario = (props) => {
             </div>
         )
     }
-    console.log(allEvents)
 
     return (
         <div>
@@ -118,7 +120,7 @@ const Calendario = (props) => {
                         }}
                         style={{ height: 500, margin: "50px" }}
                     />
-
+                    {props.tipo == "profesor" &&
                     <div>
                         <div className="calendar-titulo"> Agregar Evento </div>
                         <div className="calendar-ordenar">
@@ -133,7 +135,7 @@ const Calendario = (props) => {
                                 type="text"
                                 placeholder="Descripción"
                                 value={newEvent.descripcion}
-                                onChange={(e) => setNewEvent({ ...newEvent, descripcion: e.target.value })}
+                                onChange={(e) => setNewEvent({ ...newEvent, descipcion: e.target.value })}
                             />
 
                             <DatePicker
@@ -148,6 +150,7 @@ const Calendario = (props) => {
                         </div>
 
                     </div>
+                    }
                 </div>
                 {openpopup ? popup_event() : (null)}
             </Popup>

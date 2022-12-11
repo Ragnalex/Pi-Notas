@@ -22,7 +22,6 @@ const VerCursosAsignaturas = async (req, res) => {
     const cursos = await Curso.find({ id: prof.asignaturas.cursos, asignaturas: req.body.idAsignatura});
     res.status(200).json(cursos);
   } catch (error) {
-    console.log(error);
     res.status(500).json(error);
   }
 };
@@ -32,7 +31,6 @@ const VerAlumnosCurso = async (req, res) => {
     const alumnos = await Alumno.find({ curso: req.body.idCurso });
     res.status(200).json(alumnos);
   } catch (error) {
-    console.log(error);
     res.status(500).json(error);
   }
 };
@@ -77,8 +75,10 @@ const CreateEvento = async (req, res) => {
 
 const ObtenerEventos = async (req,res) => {
   try {
-    const eventos = await Evento.find({});
-    res.status(200).json(eventos);
+    const curso = await Curso.findOne({_id: req.body.idCurso}).populate(
+      "calendario"
+    );
+    res.status(200).json(curso.calendario);
   } catch (error) {
     res.status(500).json(error);
   }

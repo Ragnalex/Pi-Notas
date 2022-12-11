@@ -3,7 +3,7 @@ import "./pNotas.css";
 import Lottie from "lottie-react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import axios from "axios";
-import Calendario from "../../../Components/Calendar/Calendar"
+import Calendario from "../../../components/Calendar/Calendar"
 
 import { Context } from "../../../context/context";
 
@@ -34,7 +34,7 @@ const PNotas = () => {
     const getAlumnos = async () => {
         try {
             const res = await axios.post("http://localhost:5000/api/prof/verAlumnosCurso", {
-                id: idcurso
+                idCurso: idcurso
             })
             setAlumnos(res.data)
             
@@ -70,7 +70,7 @@ const PNotas = () => {
                     
                 </div>
 
-                <Calendario idcurso={idcurso}></Calendario>
+                <Calendario idcurso={idcurso} tipo="profesor"></Calendario>
 
                 {/*Sección que muestra notas alumnos */}
                 <div className="table-content">
@@ -97,6 +97,7 @@ const PNotas = () => {
                                 </tr>
                             </thead>
 
+                            
                             <tbody>
                                 {
                                     alumnos.map((alumno, index) => {
@@ -121,7 +122,7 @@ const PNotas = () => {
                                         getNotas();
                                         return (
                                             
-                                            <tr>
+                                            <tr key={index}>
                                                 <td><span className="available"></span></td>
                                                 <td>{index+1}</td>
                                                 <td>{alumno.pnombre + " " + alumno.apellidop + " " + alumno.apellidom}</td>
@@ -148,6 +149,7 @@ const PNotas = () => {
                                 }
                                 
                             </tbody>
+                           
                         </table>
                     </div>
                     
