@@ -1,0 +1,56 @@
+.Prof-addpopContent{
+    background-color: #B8ACFF;
+    border-color: #000;
+    border: 1px solid;
+    border-radius: 10px;
+    min-height: 150px;
+    width: 500px;
+    text-align: center;
+    font-size: 72px;
+    padding: 40px;
+}
+
+.prof-addpopuptitle{
+    color: #000000;
+    font-weight: 900;
+    font-size: 32px;
+    text-align: center;
+}
+
+.prof-addpopupForm{
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: #E7E3E3;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.prof-inputForm{
+    padding-left: 5px;
+    width: 100px;
+    height: 35px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    margin-left: 20px;
+}
+.prof-inputFormError{
+    padding-left: 5px;
+    width: 100px;
+    height: 35px;
+    border: 1px solid #e62a2a;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    margin-left: 20px;
+}
+.prof-texterror{
+    color: #e62a2a;
+    font-size: 18px;
+}
+

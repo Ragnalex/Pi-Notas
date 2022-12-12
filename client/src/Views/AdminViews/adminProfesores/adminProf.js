@@ -57,7 +57,7 @@ const AdmnProf = () => {
                                 <th>Segundo Nombre</th>
                                 <th>Apellido Paterno</th>
                                 <th>Apellido Materno</th>
-                                <th>Editar</th>
+                                
                             </tr>
                         </thead>
 
@@ -74,9 +74,7 @@ const AdmnProf = () => {
                                             <td>{profesor.snombre}</td>
                                             <td>{profesor.apellidop}</td>
                                             <td>{profesor.apellidom}</td>
-                                            <td>
-                                                <EditProf profesor = {profesor} ></EditProf>
-                                            </td>
+                                            
                                         </tr>
                                     )
                                 })

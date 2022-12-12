@@ -45,6 +45,7 @@ const EditPopup = () => {
                     curso: cursoRef.current.value
                 })
                 setSuccess(true);
+                window.location.reload();
             }
             else{
                 const res = await axios.post("http://localhost:5000/api/admin/ingresarAlumno", {
@@ -54,6 +55,7 @@ const EditPopup = () => {
                     apellidop: apellidopRef.current.value,
                     apellidom: apellidomRef.current.value
                 })
+                window.location.reload();
                 setSuccess(true);
             }
             

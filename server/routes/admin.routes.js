@@ -54,10 +54,10 @@ router.post("/obtenerProfesor", ObtenerProfJefe);
 //Obtener profesor jefe del curso
 router.post("/obtenerProfesorCurso", ObtenerProfesorCurso);
 //eliminar una asignatura
-router.delete("/eliminarAlumno", EliminarAlumno);
-router.delete("/eliminarProfesor", EliminarProfesor);
-router.delete("/eliminarCurso", EliminarCurso);
-router.delete("/eliminarAsignatura", EliminarAsignatura);
-router.delete("/modificarAlumno", modificarAlumno);
+router.post("/eliminarAlumno", EliminarAlumno);
+router.post("/eliminarProfesor", EliminarProfesor);
+router.post("/eliminarCurso", EliminarCurso);
+router.post("/eliminarAsignatura", EliminarAsignatura);
+router.post("/modificarAlumno", modificarAlumno);
 
 module.exports = router;

@@ -13,7 +13,7 @@ const DelPopUp = (props) => {
 
     const handleDelete = async (cursoDel) => {
         try {
-            const res = await axios.delete("http://localhost:5000/api/admin/eliminarCurso", {
+            const res = await axios.post("http://localhost:5000/api/admin/eliminarCurso", {
                 id: cursoDel._id
             })
             alert("Curso " + cursoDel.nombre + " " + cursoDel.paralelo + " Eliminado exitosamente.");
@@ -31,7 +31,7 @@ const DelPopUp = (props) => {
 
                 </div>
                 <div className="admn-delModalbuttons">
-                    <button onClick={() => handleDelete(curso.curso)} className="admn-delModalbtn"> Eliminar</button>
+                    <button onClick={() => handleDelete(props.curso)} className="admn-delModalbtn"> Eliminar</button>
                     <button className="admn-submit"> Cancelar</button>
                 </div>
 

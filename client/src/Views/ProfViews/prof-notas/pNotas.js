@@ -9,12 +9,11 @@ import { Context } from "../../../context/context";
 
 //Images
 import sefirot from "../../../imgs/Ellipse.png";
-import add_circle from "../../../imgs/plus-circle.png";
 import edit from "../../../imgs/pencil.png";
 import delete_btn from "../../../imgs/delete.png";
 
 //Componentes
-//import AddNota from "./addNotas";
+import AddNota from "./Popups/addNotas/addNota";
 import DelNota from "./Popups/delNotas";
 
 
@@ -65,7 +64,7 @@ const PNotas = () => {
                         </div>
                     </div>
                     
-                    <button onClick={() => navigate(-1)} className="back-button"> Volver </button>
+                    <button onClick={() => navigate("/profesor/asignaturas/")} className="back-button"> Volver </button>
                     
                     
                 </div>
@@ -116,6 +115,7 @@ const PNotas = () => {
                                                 }
                                             }
                                             listNotas[9] = suma/cant;
+                                            listNotas[9] = Math.round(listNotas[9] * 10) / 10
                                         }
 
 
@@ -136,8 +136,7 @@ const PNotas = () => {
                                                 <td>{(listNotas.length > 0 && listNotas[8] != null && listNotas[8]) || "-" }</td>
                                                 <td>{(listNotas.length > 0 && listNotas[9] != null && listNotas[9]) || "-" }</td>
                                                 <td>
-                                                    {/*<AddNota alumno = {alumno} ></AddNota>*/}
-                                                    <button className="admn-editBtn"><img className="material-icons" src={add_circle} alt="añadir" /></button>
+                                                    {<AddNota alumno = {alumno} asignatura = {asignatura}></AddNota>}
                                                 </td>
                                                 <td>
                                                     {/*<DelNota alumno = {alumno} ></DelNota>*/}

@@ -21,6 +21,8 @@ const EditProf = () => {
     const apellidopRef = useRef();
     const apellidomRef = useRef();
     const jefaturaRef = useRef(null);
+    const correoRef = useRef();
+    const contraRef = useRef();
 
     const getJefatura = async () => {
         try {
@@ -34,14 +36,16 @@ const EditProf = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            if(jefatura.current.value != "No Definido") {
+            if(jefaturaRef.current.value != "No Definido") {
                 const res = await axios.post("http://localhost:5000/api/admin/ingresarProfesor",{
                     rut:rutRef.current.value,
                     pnombre:pnombreRef.current.value,
                     snombre:snombreRef.current.value,
                     apellidop:apellidopRef.current.value,
                     apellidom:apellidomRef.current.value,
-                    jefatura:jefaturaRef.current.value
+                    jefatura:jefaturaRef.current.value,
+                    correo: correoRef.current.value,
+                    contrasena: contraRef.current.value,
                 })
                 setSuccess(true);
             } else {
@@ -50,7 +54,9 @@ const EditProf = () => {
                     pnombre:pnombreRef.current.value,
                     snombre:snombreRef.current.value,
                     apellidop:apellidopRef.current.value,
-                    apellidom:apellidomRef.current.value
+                    apellidom:apellidomRef.current.value,
+                    correo: correoRef.current.value,
+                    contrasena: contraRef.current.value,
                 })
                 setSuccess(true);
             }
@@ -134,6 +140,24 @@ const EditProf = () => {
                                     </label>
 
                                     <input required className="admn-popupAddEstinput" placeholder={"Perez"} ref={apellidomRef}/>
+                                </div>
+
+                                {/* Input correo profesor */}
+                                <div className="admn-popupAddEstBox">
+                                    <label className="admn-popupAddEstLabel">
+                                        Correo
+                                    </label>
+
+                                    <input required className="admn-popupAddEstinput" placeholder={"profesor@profesor.cl"} ref={correoRef}/>
+                                </div>
+
+                                {/* Input contraseña temporal profesor */}
+                                <div className="admn-popupAddEstBox">
+                                    <label className="admn-popupAddEstLabel">
+                                        Contraseña temporal
+                                    </label>
+
+                                    <input required className="admn-popupAddEstinput" placeholder={"contraseña..."} ref={contraRef}/>
                                 </div>
 
                                 {/* Input curso asignado para hacer de jefatura */}

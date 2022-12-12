@@ -5,11 +5,10 @@ const CursoSchema = new Schema({
   nombre: {
     type: String,
     required: true,
-    unique: true,
   },
   paralelo:{
     type: String,
-    require: true
+    require: true,
   },
   año: {
     type: String,

@@ -65,7 +65,7 @@ const AdmnEstudiantes = () => {
                                 <th>Segundo Nombre</th>
                                 <th>Apellido Paterno</th>
                                 <th>Apellido Materno</th>
-                                <th>Editar</th>
+                                
                                 {/* <input
                                     type="text"
                                     placeholder="Rut"
@@ -114,9 +114,7 @@ const AdmnEstudiantes = () => {
                                             <td>{estudiante.snombre}</td>
                                             <td>{estudiante.apellidop}</td>
                                             <td>{estudiante.apellidom}</td>
-                                            <td>
-                                                <EditPopup estudiante={estudiante} ></EditPopup>
-                                            </td>
+                                            
                                         </tr>
 
                                     )

@@ -23,8 +23,9 @@ const CreateAlumno = async (req, res) => {
 };
 const CreateProfesor = async (req, res) => {
   try {
+    console.log(req.body);
     const salt = await bcrypt.genSalt(10);
-    const hashedPass = await bcrypt.hash(_req.body.contrasena, salt);
+    const hashedPass = await bcrypt.hash(req.body.contrasena, salt);
     const newProfesor = new Profesor({
       rut: req.body.rut,
       pnombre: req.body.pnombre,
@@ -34,11 +35,11 @@ const CreateProfesor = async (req, res) => {
       correo: req.body.correo.toLowerCase(),
       contrasena: hashedPass,
       jefatura: req.body.jefatura,
-      asignaturas: req.body.asignaturas,
     });
     await newProfesor.save();
     res.status(201).json(newProfesor);
   } catch (err) {
+
     res.status(500).json(err);
   }
 };
@@ -62,9 +63,11 @@ const CreateCurso = async (req, res) => {
       año: req.body.año,
       asignaturas: req.body.asignaturas,
     });
+
     await newCurso.save();
     res.status(201).send("Curso creado exitosamente");
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 };
@@ -85,11 +88,17 @@ const AsignarRamoProfesor = async (req, res) => {
 };
 const AsignarProfJefe = async (req,res) => {
   try {
+    
     const prof = await Profesor.findOne({rut: req.body.rut});
     prof.jefatura = req.body.idCurso;
     await prof.save();
+    await Profesor.updateOne(
+      { jefatura: req.body.idCurso },
+      { $unset: { jefatura:"" } }
+    );
     res.status(200);
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 }
@@ -137,7 +146,6 @@ const VerCursos = async (req, res) => {
 const NuevaAsignaturaCurso = async (req,res) => {
   try {
     const curso = await Curso.findOne({_id: req.body.idCurso});
-    console.log(curso);
     curso.asignaturas.push(req.body.idAsignatura);
     await curso.save();
     res.status(200);
@@ -203,7 +211,7 @@ const EliminarCurso = async (req, res) => {
     const curso = await Curso.deleteOne({ _id: req.body.id });
     await Profesor.updateOne(
       { jefatura: req.body.id },
-      { $unset: { jefatura } }
+      { $unset: { jefatura: "" } }
     );
     await Alumno.updateMany({ curso: req.body.id }, { $unset: { curso: "" } });
     res.status(200).json(curso);
